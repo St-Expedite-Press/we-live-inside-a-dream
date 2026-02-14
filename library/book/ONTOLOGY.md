@@ -131,6 +131,12 @@ Interpretation:
 - `EC-11` → `prompts/execution/chain_router_and_runbook.md`
 - `EC-12` → `prompts/execution/handoff_packet_generator.md`
 - `EC-13` → `prompts/execution/chain_execution_protocol.md`
+- `IR-01` → `prompts/execution/image_restoration_pipeline_router.md`
+- `IR-02` → `prompts/implementation/image_restoration_pipeline_builder_python.md`
+- `IR-03` → `prompts/implementation/image_restoration_pipeline_builder_rust.md`
+- `P-01` → `paths/README.md`
+- `P-02` → `paths/python/image_restoration_pipeline.md`
+- `P-03` → `paths/rust/image_restoration_pipeline.md`
 
 ---
 

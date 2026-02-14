@@ -1,6 +1,6 @@
 version: '1.0'
 generated: '2026-02-14'
-artifact_count: 23
+artifact_count: 29
 artifacts:
   - id: 'F-01'
     title: 'PYTHON HOUSE STYLE'
@@ -267,3 +267,70 @@ artifacts:
       - 'protocol'
       - 'governance'
     summary: 'Defines chain state model, artifact naming, approval gates, quality gates, stop conditions, recovery/retry.'
+  - id: 'IR-01'
+    title: 'Image Restoration Pipeline Router - BW vs Colorize x Deterministic vs Diffusion'
+    kind: 'prompt'
+    part: 'Part III â€” Multimodal & Constraint-Matrix Prompts'
+    order: 24
+    source_path: 'prompts/execution/image_restoration_pipeline_router.md'
+    tags:
+      - 'image-restoration'
+      - 'router'
+      - 'governance'
+      - 'pipelines'
+    summary: 'Decision-gated router that outputs a concrete restoration pipeline runbook with artifacts and stop conditions.'
+  - id: 'IR-02'
+    title: 'Image Restoration Pipeline Builder (Python) - Decision-Gated'
+    kind: 'prompt'
+    part: 'Part III â€” Multimodal & Constraint-Matrix Prompts'
+    order: 25
+    source_path: 'prompts/implementation/image_restoration_pipeline_builder_python.md'
+    tags:
+      - 'image-restoration'
+      - 'python'
+      - 'pipelines'
+    summary: 'Builds a Python restoration pipeline with explicit branching for BW vs colorization and deterministic vs diffusion modes.'
+  - id: 'IR-03'
+    title: 'Image Restoration Pipeline Builder (Rust) - Decision-Gated'
+    kind: 'prompt'
+    part: 'Part III â€” Multimodal & Constraint-Matrix Prompts'
+    order: 26
+    source_path: 'prompts/implementation/image_restoration_pipeline_builder_rust.md'
+    tags:
+      - 'image-restoration'
+      - 'rust'
+      - 'pipelines'
+    summary: 'Builds a Rust-first restoration pipeline with a clean diffusion boundary when diffusion is allowed.'
+  - id: 'P-01'
+    title: 'Paths - Runnable Prompt Flows'
+    kind: 'index'
+    part: 'Part VII â€” Paths (Runnable Prompt Flows)'
+    order: 27
+    source_path: 'paths/README.md'
+    tags:
+      - 'paths'
+      - 'runbooks'
+      - 'flows'
+    summary: 'Index of runnable, decision-gated prompt flows for common objectives.'
+  - id: 'P-02'
+    title: 'Python Path - Image Restoration Pipeline'
+    kind: 'other'
+    part: 'Part VII â€” Paths (Runnable Prompt Flows)'
+    order: 28
+    source_path: 'paths/python/image_restoration_pipeline.md'
+    tags:
+      - 'paths'
+      - 'python'
+      - 'image-restoration'
+    summary: 'Python-first runbook for building an image restoration pipeline with BW/colorize and deterministic/diffusion gates.'
+  - id: 'P-03'
+    title: 'Rust Path - Image Restoration Pipeline'
+    kind: 'other'
+    part: 'Part VII â€” Paths (Runnable Prompt Flows)'
+    order: 29
+    source_path: 'paths/rust/image_restoration_pipeline.md'
+    tags:
+      - 'paths'
+      - 'rust'
+      - 'image-restoration'
+    summary: 'Rust-first runbook for building an image restoration pipeline with explicit hybrid diffusion strategy if needed.'

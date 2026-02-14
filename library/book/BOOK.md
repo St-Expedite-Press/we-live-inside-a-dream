@@ -43,6 +43,12 @@ A compiled, navigable edition of the prompts and guidelines in this repository.
 - [08. RUST_prompt — Repo-Discovery Engineer](../prompts/discovery/rust_repo_discovery_engineer.md)
 - [09. Terrifyingly Exhaustive Repo Analysis → Service Platform](../prompts/discovery/explore_repo.md)
 
+## Part III â€” Multimodal & Constraint-Matrix Prompts
+
+- [24. Image Restoration Pipeline Router - BW vs Colorize x Deterministic vs Diffusion](../prompts/execution/image_restoration_pipeline_router.md)
+- [25. Image Restoration Pipeline Builder (Python) - Decision-Gated](../prompts/implementation/image_restoration_pipeline_builder_python.md)
+- [26. Image Restoration Pipeline Builder (Rust) - Decision-Gated](../prompts/implementation/image_restoration_pipeline_builder_rust.md)
+
 ## Part III — Multimodal & Constraint-Matrix Prompts
 
 - [10. Restore Simple — OpenAI](../prompts/implementation/restore_simple_openai.md)
@@ -68,6 +74,12 @@ A compiled, navigable edition of the prompts and guidelines in this repository.
 - [21. Chain Router + Runbook](../prompts/execution/chain_router_and_runbook.md)
 - [22. Handoff Packet Generator](../prompts/execution/handoff_packet_generator.md)
 - [23. Chain Execution Protocol](../prompts/execution/chain_execution_protocol.md)
+
+## Part VII â€” Paths (Runnable Prompt Flows)
+
+- [27. Paths - Runnable Prompt Flows](../paths/README.md)
+- [28. Python Path - Image Restoration Pipeline](../paths/python/image_restoration_pipeline.md)
+- [29. Rust Path - Image Restoration Pipeline](../paths/rust/image_restoration_pipeline.md)
 
 ---
 
