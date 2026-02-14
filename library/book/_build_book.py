@@ -15,6 +15,8 @@ from __future__ import annotations
 import datetime as _dt
 import json
 import re
+import subprocess
+import sys
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -818,6 +820,12 @@ def build() -> None:
             ]
         )
     write_text(ONTOLOGY_DIR / "prompt_ecosystem.yaml", "\n".join(yaml_lines) + "\n")
+
+    # Post-process book markdown to remove bulleted lists (convert to prose/tables),
+    # while keeping YAML frontmatter valid.
+    converter = LIBRARY_ROOT / "tools" / "formatting" / "convert_bullets_to_prose.py"
+    if converter.exists():
+        subprocess.check_call([sys.executable, str(converter), "--root", str(BOOK_DIR)])
 
     print(f"Built book in: {BOOK_DIR}")
 

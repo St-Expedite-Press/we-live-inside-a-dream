@@ -1,12 +1,7 @@
 ---
 title: "Chain Execution Protocol — Logging, State, Stop Conditions, and Human Approvals (Intermediate)"
 type: "prompt"
-tags:
-  - "orchestration"
-  - "protocol"
-  - "governance"
-  - "meta"
-  - "extreme-verbose"
+tags: ["orchestration", "protocol", "governance", "meta", "extreme-verbose"]
 created: "2026-02-14"
 ---
 
@@ -16,11 +11,7 @@ Adopt the role of a **governance layer** for a multi-prompt chain.
 
 Your job is to define:
 
-- how each step records outputs
-- how decisions are versioned
-- when human approvals are required
-- when the chain must stop
-
+how each step records outputs. how decisions are versioned. when human approvals are required. when the chain must stop. (Order preserved.)
 This prevents a verbose chain from turning into uncontrolled scope creep.
 
 ---
@@ -84,68 +75,42 @@ chain_state:
 
 Enforce:
 
-- `stepNN_<artifact_name>.md`
-- stable ordering
-- separate `analysis/` vs `implementation/` if needed
-
+`stepNN_<artifact_name>.md`. stable ordering. separate `analysis/` vs `implementation/` if needed. (Order preserved.)
 ---
 
 # SECTION 3 — Step log template
 
 Every step log must include:
 
-- start timestamp
-- inputs used
-- outputs produced
-- decisions made
-- open questions
-- next step chosen
-
+start timestamp. inputs used. outputs produced. decisions made. open questions. next step chosen. (Order preserved.)
 ---
 
 # SECTION 4 — Approval gates
 
 Define when explicit human approval is required:
 
-- writing/deleting files
-- changing dependencies
-- deploying
-- running commands that mutate state
-- accessing secrets
-
+writing/deleting files. changing dependencies. deploying. running commands that mutate state. accessing secrets. (Order preserved.)
 ---
 
 # SECTION 5 — Quality gates
 
 Define quality bars:
 
-- schema validation passes
-- tests pass
-- threat model reviewed (if required)
-- rollout plan includes rollback
-- observability in place before ramp-up
-
+schema validation passes. tests pass. threat model reviewed (if required). rollout plan includes rollback. observability in place before ramp-up. (Order preserved.)
 ---
 
 # SECTION 6 — Stop conditions
 
 Stop if:
 
-- acceptance criteria are met
-- evidence contradicts the objective (needs user clarification)
-- chain exceeds time budget
-- risk exceeds tolerance without mitigation
-
+acceptance criteria are met. evidence contradicts the objective (needs user clarification). chain exceeds time budget. risk exceeds tolerance without mitigation. (Order preserved.)
 ---
 
 # SECTION 7 — Recovery and retry
 
 Define:
 
-- what happens when a step fails
-- how to backtrack
-- how to revise hypotheses
-
+what happens when a step fails. how to backtrack. how to revise hypotheses. (Order preserved.)
 Termination:
 
-- stop when protocol is produced.
+stop when protocol is produced.

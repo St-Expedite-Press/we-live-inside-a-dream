@@ -1,12 +1,7 @@
 ---
 title: "Incident Response + Postmortem — Timeline, Impact, Root Cause, Fix, Prevention (Extreme)"
 type: "prompt"
-tags:
-  - "ops"
-  - "incident-response"
-  - "postmortem"
-  - "observability"
-  - "extreme-verbose"
+tags: ["ops", "incident-response", "postmortem", "observability", "extreme-verbose"]
 created: "2026-02-14"
 ---
 
@@ -38,32 +33,20 @@ This prompt is optimized for speed during incident and clarity afterward.
 
 During incident:
 
-- `INCIDENT_LOG.md` (timeline + actions)
-- `CURRENT_STATUS.md` (what we know now)
-- `MITIGATION_PLAN.md` (next 30–120 minutes)
-
+`INCIDENT_LOG.md` (timeline + actions). `CURRENT_STATUS.md` (what we know now). `MITIGATION_PLAN.md` (next 30–120 minutes). (Order preserved.)
 After incident:
 
-- `POSTMORTEM.md`
-- `FOLLOWUPS.md` (owners + due dates)
-
+`POSTMORTEM.md`. `FOLLOWUPS.md` (owners + due dates).
 ---
 
 # PHASE 1 — Triage (first 10 minutes)
 
 Collect:
 
-- user impact summary
-- start time / detection method
-- affected components
-- current error signatures
-
+user impact summary. start time / detection method. affected components. current error signatures. (Order preserved.)
 Immediate questions:
 
-- is this still actively degrading?
-- can we rollback?
-- is there a safe feature flag disable?
-
+is this still actively degrading? can we rollback? is there a safe feature flag disable? (Order preserved.)
 ---
 
 # PHASE 2 — Stabilization (first 30–60 minutes)
@@ -78,38 +61,24 @@ Prefer actions in this order:
 
 Record every action with:
 
-- who executed
-- command/change
-- expected effect
-- observed effect
-
+who executed. command/change. expected effect. observed effect. (Order preserved.)
 ---
 
 # PHASE 3 — Diagnosis (parallel threads)
 
 Run 2–4 threads:
 
-- logs/traces thread
-- metrics thread
-- recent changes thread
-- dependency health thread
-
+logs/traces thread. metrics thread. recent changes thread. dependency health thread. (Order preserved.)
 Each thread produces:
 
-- evidence
-- hypothesis
-- next diagnostic step
-
+evidence. hypothesis. next diagnostic step. (Order preserved.)
 ---
 
 # PHASE 4 — Resolution
 
 Once you have a likely fix:
 
-- prefer a minimal, reversible change
-- add a regression test if possible
-- deploy with canary
-
+prefer a minimal, reversible change. add a regression test if possible. deploy with canary. (Order preserved.)
 ---
 
 # PHASE 5 — Postmortem structure
@@ -132,18 +101,10 @@ Postmortem must include:
 
 Create followups in categories:
 
-- tests
-- observability
-- architecture
-- process (release gates)
-
+tests. observability. architecture. process (release gates). (Order preserved.)
 Each item has:
 
-- owner
-- priority
-- due date
-- success criteria
-
+owner. priority. due date. success criteria. (Order preserved.)
 Termination:
 
-- stop when followups are assigned.
+stop when followups are assigned.

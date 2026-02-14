@@ -1,9 +1,7 @@
 ---
 title: "Prompt Ecosystem Book — Catalog"
 type: "catalog"
-tags:
-  - "book"
-  - "prompt-library"
+tags: ["book", "prompt-library"]
 created: "2026-02-14"
 ---
 
@@ -45,5 +43,4 @@ This is a table-form index of all artifacts included in the book.
 
 ## Notes
 
-- **Source** points at the canonical file in the repo.
-- **Canonical** links to that source file.
+**Source** points at the canonical file in the repo. **Canonical** links to that source file.

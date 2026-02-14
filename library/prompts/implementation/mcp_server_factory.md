@@ -1,13 +1,7 @@
 ---
 title: "MCP Server Factory — Tool Suite Design + Implementation (Schema-first, Safe-by-default)"
 type: "prompt"
-tags:
-  - "mcp"
-  - "tooling"
-  - "api-design"
-  - "security"
-  - "testing"
-  - "extreme-verbose"
+tags: ["mcp", "tooling", "api-design", "security", "testing", "extreme-verbose"]
 created: "2026-02-14"
 ---
 
@@ -19,12 +13,7 @@ Your job: design and implement an MCP server that exposes a repo’s capabilitie
 
 This is not a “toy tool.” Assume:
 
-- untrusted user inputs
-- prompt injection attempts
-- concurrency
-- partial failures
-- operators who need audit logs
-
+untrusted user inputs. prompt injection attempts. concurrency. partial failures. operators who need audit logs. (Order preserved.)
 ---
 
 ## Non-negotiable constraints
@@ -44,14 +33,11 @@ For each tool produce the following block:
 ### Tool: `<verb_object>` (placeholder)
 
 **Purpose**:
-- What it does (one sentence)
-
+What it does (one sentence).
 **Use when**:
-- Bullet list
-
+Bullet list.
 **Do not use when**:
-- Bullet list
-
+Bullet list.
 **Input schema**:
 ```json
 { "...": "..." }
@@ -63,25 +49,13 @@ For each tool produce the following block:
 ```
 
 **Errors**:
-- `InvalidInput` (fatal)
-- `NotFound` (fatal)
-- `PermissionDenied` (fatal)
-- `UpstreamFailure` (retriable)
-- `Timeout` (retriable)
-
+`InvalidInput` (fatal). `NotFound` (fatal). `PermissionDenied` (fatal). `UpstreamFailure` (retriable). `Timeout` (retriable). (Order preserved.)
 **Security constraints**:
-- Allowed paths/resources
-- Rate limits
-- Redaction rules (PII/secrets)
-
+Allowed paths/resources. Rate limits. Redaction rules (PII/secrets). (Order preserved.)
 **Observability**:
-- Structured log fields
-- Metrics names
-- Tracing spans
-
+Structured log fields. Metrics names. Tracing spans. (Order preserved.)
 **Examples**:
-- Provide 1–3 concrete examples
-
+Provide 1–3 concrete examples.
 Note: Replace `<verb_object>` with a real tool name like `query_repo_map`, `plan_refactor`, or `apply_patchset`.
 
 ---
@@ -97,42 +71,27 @@ Ask:
 
 Output:
 
-- A capability inventory with “tool candidate” flags.
-
+A capability inventory with “tool candidate” flags.
 ---
 
 # PHASE 2 — Tool design (schemas + safety)
 
 You propose a tool list and for each tool define:
 
-- the schema block above
-- auth model (if needed)
-- idempotency model (mutating tools)
-- concurrency model (locks, job IDs)
-
+the schema block above. auth model (if needed). idempotency model (mutating tools). concurrency model (locks, job IDs). (Order preserved.)
 You also define “tool categories”:
 
-- `query_*` (read-only)
-- `plan_*` (non-mutating; returns plan)
-- `apply_*` (mutating; requires explicit confirmation token)
-- `job_*` (async background)
-
+`query_*` (read-only). `plan_*` (non-mutating; returns plan). `apply_*` (mutating; requires explicit confirmation token). `job_*` (async background). (Order preserved.)
 ---
 
 # PHASE 3 — Server architecture
 
 Define:
 
-- server runtime (language/framework)
-- transport assumptions
-- how tools are registered/discovered
-- config system (env vars, config file)
-- secrets strategy
-
+server runtime (language/framework). transport assumptions. how tools are registered/discovered. config system (env vars, config file). secrets strategy. (Order preserved.)
 Deliverable:
 
-- A file tree and module boundaries (core vs adapters).
-
+A file tree and module boundaries (core vs adapters).
 ---
 
 # PHASE 4 — Implementation plan (smallest correct diff)
@@ -154,27 +113,17 @@ You create a step plan:
 
 Must include:
 
-- unit tests per tool
-- contract tests for schemas
-- security tests (path traversal, injection strings)
-- concurrency tests (if stateful)
-
+unit tests per tool. contract tests for schemas. security tests (path traversal, injection strings). concurrency tests (if stateful). (Order preserved.)
 Output:
 
-- test plan + commands
-
+test plan + commands.
 ---
 
 # PHASE 6 — Delivery / ops handoff
 
 Provide:
 
-- how to run locally
-- how to configure
-- how to deploy
-- what to monitor
-- rollback plan
-
+how to run locally. how to configure. how to deploy. what to monitor. rollback plan. (Order preserved.)
 Termination:
 
-- stop when the agreed tool suite is implemented and tests pass.
+stop when the agreed tool suite is implemented and tests pass.

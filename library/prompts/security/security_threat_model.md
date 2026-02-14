@@ -1,12 +1,7 @@
 ---
 title: "Security Threat Model — STRIDE/LINDDUN + Concrete Mitigations + Verification (Extreme)"
 type: "prompt"
-tags:
-  - "security"
-  - "threat-model"
-  - "architecture"
-  - "verification"
-  - "extreme-verbose"
+tags: ["security", "threat-model", "architecture", "verification", "extreme-verbose"]
 created: "2026-02-14"
 ---
 
@@ -16,10 +11,7 @@ Adopt the role of a **senior security engineer + staff software architect**.
 
 Your mission is to create a threat model that is:
 
-- actionable (maps directly to mitigations)
-- testable (has verification steps)
-- bounded (does not become an infinite security wishlist)
-
+actionable (maps directly to mitigations). testable (has verification steps). bounded (does not become an infinite security wishlist). (Order preserved.)
 You must produce a deliverable that a team can implement over 1–4 sprints.
 
 ---
@@ -36,12 +28,7 @@ You must produce a deliverable that a team can implement over 1–4 sprints.
 
 ## Inputs you must request (if missing)
 
-- system description / repo link / architecture sketch
-- deployment environment (local / cloud / k8s / on-prem)
-- data classification (public / internal / confidential / regulated)
-- auth model (if any)
-- compliance constraints (SOC2/HIPAA/PCI/etc.) if applicable
-
+system description / repo link / architecture sketch. deployment environment (local / cloud / k8s / on-prem). data classification (public / internal / confidential / regulated). auth model (if any). compliance constraints (SOC2/HIPAA/PCI/etc.) if applicable. (Order preserved.)
 ---
 
 ## Required outputs (documents)
@@ -61,14 +48,10 @@ Produce the following sections (or files):
 
 You identify and classify:
 
-- assets (data, credentials, tokens, models, prompts, logs)
-- actors (users, admins, services, CI, third parties)
-- trust boundaries (network, process, privilege, tenancy)
-
+assets (data, credentials, tokens, models, prompts, logs). actors (users, admins, services, CI, third parties). trust boundaries (network, process, privilege, tenancy). (Order preserved.)
 Output:
 
-- a table: `Asset | Classification | Location | Owner | Impact if compromised`
-
+a table: `Asset | Classification | Location | Owner | Impact if compromised`.
 ---
 
 # PHASE 2 — Data flow diagrams (textual)
@@ -86,73 +69,47 @@ Actor → Component → Component → Storage/External
 
 Each hop includes:
 
-- protocol
-- authentication mechanism
-- data sensitivity
-
+protocol. authentication mechanism. data sensitivity. (Order preserved.)
 ---
 
 # PHASE 3 — Threat enumeration
 
 Choose one framework:
 
-- STRIDE (system threats)
-- LINDDUN (privacy threats)
-- both (if regulated)
-
+STRIDE (system threats). LINDDUN (privacy threats). both (if regulated). (Order preserved.)
 For each component and flow, enumerate threats with:
 
-- threat description
-- preconditions
-- exploit sketch (high-level)
-- affected assets
-- severity (impact × likelihood)
-
+threat description. preconditions. exploit sketch (high-level). affected assets. severity (impact × likelihood). (Order preserved.)
 Output:
 
-- a matrix: `Component/Flow | Threat | Framework category | Severity | Notes`
-
+a matrix: `Component/Flow | Threat | Framework category | Severity | Notes`.
 ---
 
 # PHASE 4 — Mitigations and controls
 
 For each high/critical threat, propose:
 
-- preventive controls
-- detective controls
-- corrective controls
-
+preventive controls. detective controls. corrective controls. (Order preserved.)
 Each mitigation must include:
 
-- where it lives (code module / infra layer)
-- implementation hints
-- cost/effort estimate
-
+where it lives (code module / infra layer). implementation hints. cost/effort estimate. (Order preserved.)
 ---
 
 # PHASE 5 — Verification plan (non-negotiable)
 
 For each mitigation define:
 
-- unit/integration tests
-- security tests (SAST/DAST)
-- configuration checks
-- operational monitors/alerts
-
+unit/integration tests. security tests (SAST/DAST). configuration checks. operational monitors/alerts. (Order preserved.)
 Output:
 
-- a table: `Mitigation | Verification | Tooling | Pass/Fail criteria`
-
+a table: `Mitigation | Verification | Tooling | Pass/Fail criteria`.
 ---
 
 # PHASE 6 — Deliverable packaging + termination
 
 You produce:
 
-- prioritized backlog (top 10 items)
-- “quick wins” (≤1 day)
-- “must do before prod” gates
-
+prioritized backlog (top 10 items). “quick wins” (≤1 day). “must do before prod” gates. (Order preserved.)
 Termination:
 
-- stop when backlog is created and verification plan exists.
+stop when backlog is created and verification plan exists.

@@ -4,14 +4,10 @@ This folder contains **paths**: opinionated, step-by-step prompt flows that turn
 
 Paths are meant to be used alongside:
 
-- `library/prompts/execution/chain_router_and_runbook.md`
-- `library/prompts/execution/chain_execution_protocol.md`
-
+`library/prompts/execution/chain_router_and_runbook.md`. `library/prompts/execution/chain_execution_protocol.md`.
 ## Available paths
 
-- Python image restoration pipeline: `library/paths/python/image_restoration_pipeline.md`
-- Rust image restoration pipeline: `library/paths/rust/image_restoration_pipeline.md`
-
+Python image restoration pipeline: `library/paths/python/image_restoration_pipeline.md`. Rust image restoration pipeline: `library/paths/rust/image_restoration_pipeline.md`.
 ## Templates
 
-- Templates for runbooks and decision records: `library/paths/_templates/`
+Templates for runbooks and decision records: `library/paths/_templates/`.

@@ -12,17 +12,14 @@ python library/tools/context_engineering/generate_prompt_improvements.py --root 
 
 Outputs are written to:
 
-- `library/improvements/` (per-prompt folders with `original.md`, analysis, improved variants, notes, evaluation, metadata)
-- `library/improvements/_inventory.json` (index of discovered prompt files)
-
+`library/improvements/` (per-prompt folders with `original.md`, analysis, improved variants, notes, evaluation, metadata). `library/improvements/_inventory.json` (index of discovered prompt files).
 ## Options
 
-- Dry run: `python library/tools/context_engineering/generate_prompt_improvements.py --root library --dry-run`
-- Include README.md files: `--include-readmes`
-- Overwrite mode:
-  - Default `timestamp`: if an output file exists, write a new `__generated_...` file instead.
-  - `skip`: never write if a target exists.
-
+| Item | Explanation |
+|---|---|
+| Dry run: `python library/tools/context_engineering/generate_prompt_improvements.py --root library --dry-run` |  |
+| Include README.md files: `--include-readmes` |  |
+| Overwrite mode: | Default `timestamp`: if an output file exists, write a new `__generated_...` file instead.; `skip`: never write if a target exists. |
 ```powershell
 python library/tools/context_engineering/generate_prompt_improvements.py --root library --on-exists skip
 ```

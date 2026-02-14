@@ -29,4 +29,4 @@ Old path | New path
 
 ## Notes
 
-- Legacy directories `extreme_combos/`, `prompt_book/chapters/`, and `prompts_improved/` were deleted after consolidation.
+Legacy directories `extreme_combos/`, `prompt_book/chapters/`, and `prompts_improved/` were deleted after consolidation.

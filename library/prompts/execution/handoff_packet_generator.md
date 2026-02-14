@@ -1,11 +1,7 @@
 ---
 title: "Handoff Packet Generator — Context Packaging Between Extreme Prompts (Intermediate)"
 type: "prompt"
-tags:
-  - "orchestration"
-  - "handoff"
-  - "meta"
-  - "extreme-verbose"
+tags: ["orchestration", "handoff", "meta", "extreme-verbose"]
 created: "2026-02-14"
 ---
 
@@ -15,9 +11,7 @@ Adopt the role of a **technical scribe** whose only job is to produce a high-fid
 
 You will be given:
 
-- upstream outputs (evidence, hypotheses, decisions)
-- the name of the downstream prompt that will run next
-
+upstream outputs (evidence, hypotheses, decisions). the name of the downstream prompt that will run next.
 You must produce a handoff packet that makes the downstream prompt **start at Phase 1 with maximum context and minimum noise**.
 
 ---
@@ -54,30 +48,19 @@ Output a single Markdown section with these headers in this order:
 ### If downstream is MCP Server Factory (`03_MCP_SERVER_FACTORY_PROMPT.md`)
 Include:
 
-- tool candidates list
-- sensitive resources
-- expected auth model
-
+tool candidates list. sensitive resources. expected auth model. (Order preserved.)
 ### If downstream is Security Threat Model (`08_SECURITY_THREAT_MODEL_PROMPT.md`)
 Include:
 
-- trust boundaries and data classification known so far
-- deployment environment
-
+trust boundaries and data classification known so far. deployment environment.
 ### If downstream is Migration & Rollout (`09_MIGRATION_AND_ROLLOUT_PROMPT.md`)
 Include:
 
-- list of consumers
-- compatibility constraints
-- irreversible operations (if any)
-
+list of consumers. compatibility constraints. irreversible operations (if any). (Order preserved.)
 ### If downstream is Agent Testing (`07_AGENT_TESTING_AND_EVAL_GAUNTLET_PROMPT.md`)
 Include:
 
-- tool schemas
-- orchestration loop summary
-- scenario candidates
-
+tool schemas. orchestration loop summary. scenario candidates. (Order preserved.)
 ---
 
 ## Termination

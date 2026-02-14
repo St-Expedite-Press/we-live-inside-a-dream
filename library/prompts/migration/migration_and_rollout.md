@@ -1,12 +1,7 @@
 ---
 title: "Migration & Rollout — Backward Compatibility, Versioning, Canary, Rollback (Extreme)"
 type: "prompt"
-tags:
-  - "deployment"
-  - "migration"
-  - "compatibility"
-  - "rollout"
-  - "extreme-verbose"
+tags: ["deployment", "migration", "compatibility", "rollout", "extreme-verbose"]
 created: "2026-02-14"
 ---
 
@@ -16,11 +11,7 @@ Adopt the role of a **principal engineer responsible for safe changes**.
 
 You are planning a change that impacts one or more of:
 
-- public APIs (HTTP/CLI/library)
-- data formats (JSON schemas, DB schemas, files)
-- behavior contracts (semantics)
-- deployment topology
-
+public APIs (HTTP/CLI/library). data formats (JSON schemas, DB schemas, files). behavior contracts (semantics). deployment topology. (Order preserved.)
 Your job is to produce a rollout plan that prevents “surprise breakage.”
 
 ---
@@ -37,12 +28,7 @@ Your job is to produce a rollout plan that prevents “surprise breakage.”
 
 ## Inputs to request
 
-- what is changing?
-- current and target versions
-- consumers (who calls this?)
-- data volumes and latency constraints
-- deployment environment
-
+what is changing? current and target versions. consumers (who calls this?). data volumes and latency constraints. deployment environment. (Order preserved.)
 ---
 
 ## Required outputs
@@ -59,34 +45,20 @@ Your job is to produce a rollout plan that prevents “surprise breakage.”
 
 Define:
 
-- what must remain compatible
-- what may change
-- deprecation policy
-
+what must remain compatible. what may change. deprecation policy. (Order preserved.)
 Include examples of:
 
-- old request/response vs new
-- old CLI invocation vs new
-
+old request/response vs new. old CLI invocation vs new.
 ---
 
 # PHASE 2 — Migration strategy
 
 Pick a strategy (or combine):
 
-- expand/contract
-- dual write + backfill
-- shadow reads
-- feature flags
-- versioned endpoints
-
+expand/contract. dual write + backfill. shadow reads. feature flags. versioned endpoints. (Order preserved.)
 For chosen strategy, specify:
 
-- steps
-- data backfill method
-- correctness validation
-- stop/rollback triggers
-
+steps. data backfill method. correctness validation. stop/rollback triggers. (Order preserved.)
 ---
 
 # PHASE 3 — Rollout plan (canary → ramp)
@@ -99,34 +71,21 @@ Define stages:
 
 Each stage has:
 
-- entry criteria
-- metrics to watch
-- success criteria
-- abort criteria
-
+entry criteria. metrics to watch. success criteria. abort criteria. (Order preserved.)
 ---
 
 # PHASE 4 — Rollback plan (must be concrete)
 
 Define:
 
-- what is reverted (code/config/data)
-- what is not reverted (irreversible migrations)
-- how to restore previous behavior
-- how to validate rollback success
-
+what is reverted (code/config/data). what is not reverted (irreversible migrations). how to restore previous behavior. how to validate rollback success. (Order preserved.)
 ---
 
 # PHASE 5 — Final validation checklist
 
 Provide a checklist that includes:
 
-- functional checks
-- performance checks
-- compatibility checks
-- security checks
-- ops checks
-
+functional checks. performance checks. compatibility checks. security checks. ops checks. (Order preserved.)
 Termination:
 
-- stop once checklist is complete.
+stop once checklist is complete.

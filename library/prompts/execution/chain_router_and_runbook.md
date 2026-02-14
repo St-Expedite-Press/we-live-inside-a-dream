@@ -1,12 +1,7 @@
 ---
 title: "Chain Router + Runbook — Orchestrate Which Extreme Prompt Runs Next (Intermediate)"
 type: "prompt"
-tags:
-  - "orchestration"
-  - "router"
-  - "workflow"
-  - "meta"
-  - "extreme-verbose"
+tags: ["orchestration", "router", "workflow", "meta", "extreme-verbose"]
 created: "2026-02-14"
 ---
 
@@ -39,21 +34,10 @@ Your job is to:
 
 You may route to any of these by filename:
 
-- `01_OMNI_AGENT_PLATFORM_PROMPT.md`
-- `02_EVIDENCE_DRIVEN_IMPLEMENTATION_PROMPT.md`
-- `03_MCP_SERVER_FACTORY_PROMPT.md`
-- `05_MULTIMODAL_RESTORATION_PIPELINE_PROMPT.md`
-- `06_SERVICE_INDUSTRIALIZER_PROMPT.md`
-- `07_AGENT_TESTING_AND_EVAL_GAUNTLET_PROMPT.md`
-- `08_SECURITY_THREAT_MODEL_PROMPT.md`
-- `09_MIGRATION_AND_ROLLOUT_PROMPT.md`
-- `10_INCIDENT_RESPONSE_AND_POSTMORTEM_PROMPT.md`
-
+`01_OMNI_AGENT_PLATFORM_PROMPT.md`. `02_EVIDENCE_DRIVEN_IMPLEMENTATION_PROMPT.md`. `03_MCP_SERVER_FACTORY_PROMPT.md`. `05_MULTIMODAL_RESTORATION_PIPELINE_PROMPT.md`. `06_SERVICE_INDUSTRIALIZER_PROMPT.md`. `07_AGENT_TESTING_AND_EVAL_GAUNTLET_PROMPT.md`. `08_SECURITY_THREAT_MODEL_PROMPT.md`. `09_MIGRATION_AND_ROLLOUT_PROMPT.md`. `10_INCIDENT_RESPONSE_AND_POSTMORTEM_PROMPT.md`. (Order preserved.)
 You also may route to these intermediate chain prompts:
 
-- `12_HANDOFF_PACKET_GENERATOR_PROMPT.md`
-- `13_CHAIN_EXECUTION_PROTOCOL_PROMPT.md`
-
+`12_HANDOFF_PACKET_GENERATOR_PROMPT.md`. `13_CHAIN_EXECUTION_PROTOCOL_PROMPT.md`.
 ---
 
 ## Required output format (the “Chain Runbook”)
@@ -82,8 +66,7 @@ Ask the user:
 
 Output:
 
-- A crisp objective summary and acceptance checklist.
-
+A crisp objective summary and acceptance checklist.
 ---
 
 # PHASE 2 — Route to an initial “anchor” prompt
@@ -91,35 +74,23 @@ Output:
 Pick exactly one anchor:
 
 ## Anchor A — Implementation-focused
-- Choose `02_EVIDENCE_DRIVEN_IMPLEMENTATION_PROMPT.md` when the user needs a bugfix/feature with minimal blast radius.
-
+Choose `02_EVIDENCE_DRIVEN_IMPLEMENTATION_PROMPT.md` when the user needs a bugfix/feature with minimal blast radius.
 ## Anchor B — Platform/service-ization focused
-- Choose `01_OMNI_AGENT_PLATFORM_PROMPT.md` when the user wants “repo → service → tools → agent ecosystem” as a deliverable.
-
+Choose `01_OMNI_AGENT_PLATFORM_PROMPT.md` when the user wants “repo → service → tools → agent ecosystem” as a deliverable.
 ## Anchor C — Exhaustive analysis focused
-- Choose `06_SERVICE_INDUSTRIALIZER_PROMPT.md` when the user wants an exhaustive corpus but with discipline.
-
+Choose `06_SERVICE_INDUSTRIALIZER_PROMPT.md` when the user wants an exhaustive corpus but with discipline.
 ## Anchor D — Multimodal restoration focused
-- Choose `05_MULTIMODAL_RESTORATION_PIPELINE_PROMPT.md` when the primary objective is image restoration plus reproducible pipeline.
-
+Choose `05_MULTIMODAL_RESTORATION_PIPELINE_PROMPT.md` when the primary objective is image restoration plus reproducible pipeline.
 ---
 
 # PHASE 3 — Decide conditional branches (downstream prompts)
 
 Based on objective, add branches:
 
-- If MCP tools/server are requested → add `03_MCP_SERVER_FACTORY_PROMPT.md`
-- If a threat model is required → add `08_SECURITY_THREAT_MODEL_PROMPT.md`
-- If rollout/migrations exist → add `09_MIGRATION_AND_ROLLOUT_PROMPT.md`
-- If agent eval is required → add `07_AGENT_TESTING_AND_EVAL_GAUNTLET_PROMPT.md`
-- If an incident just happened → add `10_INCIDENT_RESPONSE_AND_POSTMORTEM_PROMPT.md` (this may preempt everything else)
-
+If MCP tools/server are requested → add `03_MCP_SERVER_FACTORY_PROMPT.md`. If a threat model is required → add `08_SECURITY_THREAT_MODEL_PROMPT.md`. If rollout/migrations exist → add `09_MIGRATION_AND_ROLLOUT_PROMPT.md`. If agent eval is required → add `07_AGENT_TESTING_AND_EVAL_GAUNTLET_PROMPT.md`. If an incident just happened → add `10_INCIDENT_RESPONSE_AND_POSTMORTEM_PROMPT.md` (this may preempt everything else). (Order preserved.)
 Rules:
 
-- Threat model should generally precede implementation for high-risk systems.
-- Rollout planning must happen before production deploy.
-- Eval gauntlet must happen before declaring an agent system “production-ready.”
-
+Threat model should generally precede implementation for high-risk systems. Rollout planning must happen before production deploy. Eval gauntlet must happen before declaring an agent system “production-ready.”. (Order preserved.)
 ---
 
 # PHASE 4 — Produce a chain graph
@@ -133,11 +104,7 @@ STEP 1 (anchor prompt) → STEP 2 → STEP 3
 
 Each node includes:
 
-- prompt file name
-- purpose in this chain
-- entry criteria
-- exit criteria (deliverables)
-
+prompt file name. purpose in this chain. entry criteria. exit criteria (deliverables). (Order preserved.)
 ---
 
 # PHASE 5 — Produce handoff packets
