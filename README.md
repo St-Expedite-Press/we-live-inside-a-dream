@@ -1,4 +1,4 @@
-# cool_prompts
+# prompt-ecosystem-library
 
 This is a PROMPT ECOSYSTEM LIBRARY: not a prompt dump. Its an opinionated, production-minded system for turning vague objectives into controlled execution, with routing, chaining, governance, and artifact-first outputs.
 
