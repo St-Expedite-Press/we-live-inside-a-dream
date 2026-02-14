@@ -7,22 +7,22 @@ This folder contains an additive workflow for analyzing and improving prompts in
 From the repo root:
 
 ```powershell
-python product/tools/context_engineering/generate_prompt_improvements.py --root product
+python library/tools/context_engineering/generate_prompt_improvements.py --root library
 ```
 
 Outputs are written to:
 
-- `product/improvements/` (per-prompt folders with `original.md`, analysis, improved variants, notes, evaluation, metadata)
-- `product/improvements/_inventory.json` (index of discovered prompt files)
+- `library/improvements/` (per-prompt folders with `original.md`, analysis, improved variants, notes, evaluation, metadata)
+- `library/improvements/_inventory.json` (index of discovered prompt files)
 
 ## Options
 
-- Dry run: `python product/tools/context_engineering/generate_prompt_improvements.py --root product --dry-run`
+- Dry run: `python library/tools/context_engineering/generate_prompt_improvements.py --root library --dry-run`
 - Include README.md files: `--include-readmes`
 - Overwrite mode:
   - Default `timestamp`: if an output file exists, write a new `__generated_...` file instead.
   - `skip`: never write if a target exists.
 
 ```powershell
-python product/tools/context_engineering/generate_prompt_improvements.py --root product --on-exists skip
+python library/tools/context_engineering/generate_prompt_improvements.py --root library --on-exists skip
 ```

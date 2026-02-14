@@ -13,5 +13,4 @@ __pycache__/
 *.py[cod]
 
 # Generated artifacts
-product/improvements/
-
+library/improvements/

@@ -20,18 +20,18 @@ Start here:
 
 The book is generated from the canonical prompt files in the repo.
 
-Canonical prompts live in `product/prompts/` (relative to the repo root).
+Canonical prompts live in `library/prompts/` (relative to the repo root).
 
 To (re)build the book:
 
 ```cmd
-python product\book\_build_book.py
+python library\book\_build_book.py
 ```
 
 This will regenerate:
 
-- `product/book/BOOK.md`
-- `product/book/TOC.md`
-- `product/book/ONTOLOGY.md`
-- `product/book/CATALOG.md`
-- `product/book/ontology/*`
+- `library/book/BOOK.md`
+- `library/book/TOC.md`
+- `library/book/ONTOLOGY.md`
+- `library/book/CATALOG.md`
+- `library/book/ontology/*`

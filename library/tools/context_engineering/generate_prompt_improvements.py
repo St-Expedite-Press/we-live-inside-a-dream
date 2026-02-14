@@ -526,9 +526,9 @@ def _render_metadata(
 def main(argv: list[str]) -> int:
     parser = argparse.ArgumentParser(description="Non-destructive prompt improvement generator.")
     default_root = Path.cwd()
-    if (default_root / "product").exists():
-        default_root = default_root / "product"
-    parser.add_argument("--root", type=Path, default=default_root, help="Product root (default: ./product if present).")
+    if (default_root / "library").exists():
+        default_root = default_root / "library"
+    parser.add_argument("--root", type=Path, default=default_root, help="Library root (default: ./library if present).")
     parser.add_argument(
         "--scan-dir",
         type=Path,

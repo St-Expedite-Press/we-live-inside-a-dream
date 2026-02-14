@@ -20,8 +20,8 @@ from pathlib import Path
 from typing import Any
 
 
-PRODUCT_ROOT = Path(__file__).resolve().parent.parent
-BOOK_DIR = PRODUCT_ROOT / "book"
+LIBRARY_ROOT = Path(__file__).resolve().parent.parent
+BOOK_DIR = LIBRARY_ROOT / "book"
 CHAPTERS_DIR = BOOK_DIR / "chapters"
 ONTOLOGY_DIR = BOOK_DIR / "ontology"
 
@@ -65,7 +65,7 @@ def slugify(s: str) -> str:
 
 
 def read_text(rel_path: str) -> str:
-    return (PRODUCT_ROOT / rel_path).read_text(encoding="utf-8")
+    return (LIBRARY_ROOT / rel_path).read_text(encoding="utf-8")
 
 
 def write_text(path: Path, content: str) -> None:
