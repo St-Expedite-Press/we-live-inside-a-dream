@@ -4,7 +4,7 @@
 
 ## Contents
 
-Canonical prompts/guidelines: `library/prompts/`. Book index + ontology exports: `library/book/`. Tools (build + analysis helpers): `library/tools/`. Docs + indexes: `library/docs/`. Research notes: `library/research/`. (Order preserved.)
+Canonical prompts and guidelines: `library/prompts/`. Book index and ontology exports: `library/book/`. Tools (build and analysis helpers): `library/tools/`. Docs and indexes: `library/docs/`, including the mental model at `library/docs/repo_mental_model.md` and the forensic audit agent spec at `library/docs/agent_specs/repo_forensic_arch_diagnostic_agent_spec.md`. Research notes: `library/research/`. (Order preserved.)
 ## Entry points
 
 Read: `library/book/BOOK.md`. Run: `python library/library.py build-book`.

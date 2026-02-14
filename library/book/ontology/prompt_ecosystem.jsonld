@@ -374,7 +374,7 @@
       "type": "Artifact",
       "title": "Image Restoration Pipeline Router - BW vs Colorize x Deterministic vs Diffusion",
       "kind": "prompt",
-      "part": "Part III \u00e2\u20ac\u201d Multimodal & Constraint-Matrix Prompts",
+      "part": "Part III \u2014 Multimodal & Constraint-Matrix Prompts",
       "order": 24,
       "sourcePath": "prompts/execution/image_restoration_pipeline_router.md",
       "tags": [
@@ -390,7 +390,7 @@
       "type": "Artifact",
       "title": "Image Restoration Pipeline Builder (Python) - Decision-Gated",
       "kind": "prompt",
-      "part": "Part III \u00e2\u20ac\u201d Multimodal & Constraint-Matrix Prompts",
+      "part": "Part III \u2014 Multimodal & Constraint-Matrix Prompts",
       "order": 25,
       "sourcePath": "prompts/implementation/image_restoration_pipeline_builder_python.md",
       "tags": [
@@ -405,7 +405,7 @@
       "type": "Artifact",
       "title": "Image Restoration Pipeline Builder (Rust) - Decision-Gated",
       "kind": "prompt",
-      "part": "Part III \u00e2\u20ac\u201d Multimodal & Constraint-Matrix Prompts",
+      "part": "Part III \u2014 Multimodal & Constraint-Matrix Prompts",
       "order": 26,
       "sourcePath": "prompts/implementation/image_restoration_pipeline_builder_rust.md",
       "tags": [
@@ -420,7 +420,7 @@
       "type": "Artifact",
       "title": "Paths - Runnable Prompt Flows",
       "kind": "index",
-      "part": "Part VII \u00e2\u20ac\u201d Paths (Runnable Prompt Flows)",
+      "part": "Part VII \u2014 Paths (Runnable Prompt Flows)",
       "order": 27,
       "sourcePath": "paths/README.md",
       "tags": [
@@ -435,7 +435,7 @@
       "type": "Artifact",
       "title": "Python Path - Image Restoration Pipeline",
       "kind": "other",
-      "part": "Part VII \u00e2\u20ac\u201d Paths (Runnable Prompt Flows)",
+      "part": "Part VII \u2014 Paths (Runnable Prompt Flows)",
       "order": 28,
       "sourcePath": "paths/python/image_restoration_pipeline.md",
       "tags": [
@@ -450,7 +450,7 @@
       "type": "Artifact",
       "title": "Rust Path - Image Restoration Pipeline",
       "kind": "other",
-      "part": "Part VII \u00e2\u20ac\u201d Paths (Runnable Prompt Flows)",
+      "part": "Part VII \u2014 Paths (Runnable Prompt Flows)",
       "order": 29,
       "sourcePath": "paths/rust/image_restoration_pipeline.md",
       "tags": [
@@ -459,6 +459,38 @@
         "image-restoration"
       ],
       "summary": "Rust-first runbook for building an image restoration pipeline with explicit hybrid diffusion strategy if needed."
+    },
+    {
+      "id": "artifact:META-01",
+      "type": "Artifact",
+      "title": "Repository mental model (prompt compiler + governance)",
+      "kind": "docs",
+      "part": "Part VIII \u2014 System Meta (Mental Models & Agent Specs)",
+      "order": 30,
+      "sourcePath": "docs/repo_mental_model.md",
+      "tags": [
+        "meta",
+        "architecture",
+        "governance",
+        "build-system"
+      ],
+      "summary": "Explains this repo as a deterministic prompt build system, with explicit boundaries and artifact contracts."
+    },
+    {
+      "id": "artifact:META-02",
+      "type": "Artifact",
+      "title": "Agent spec (forensic repo architecture diagnostic)",
+      "kind": "docs",
+      "part": "Part VIII \u2014 System Meta (Mental Models & Agent Specs)",
+      "order": 31,
+      "sourcePath": "docs/agent_specs/repo_forensic_arch_diagnostic_agent_spec.md",
+      "tags": [
+        "meta",
+        "repo-analysis",
+        "architecture",
+        "agent-spec"
+      ],
+      "summary": "Top-of-chat protocol for evidence-only repo diagnostics: execution model, artifacts, risks, scalability, and maturity scoring."
     }
   ]
 }
