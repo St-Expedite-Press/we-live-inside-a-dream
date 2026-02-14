@@ -1,88 +1,80 @@
 # Python Path: Image Restoration Pipeline (Decision-Gated)
 
-Use this path when you want to **build a Python-based image restoration pipeline** with explicit decision points:
+Use this path to build a **Python image restoration pipeline** with explicit decision gates:
 
-1) **Black-and-white only** vs **Colorization**
-2) **Diffusion model use** vs **Deterministic-only**
+- Black-and-white only vs Colorization
+- Diffusion use vs Deterministic-only
 
-## Step 0 — Inputs you must decide (stop if unknown)
-
-Answer these before implementation:
+## Step 0 ? Decide the gates (STOP if unknown)
 
 - `RESTORE_MODE`: `bw_only` | `colorize`
 - `MODEL_MODE`: `deterministic_only` | `diffusion_allowed`
 - `TARGET`: `cli_only` | `cli_plus_notebook`
 - `BATCH_SIZE`: approximate images per run
-- `HARD_CONSTRAINTS`: e.g. “no GPU”, “airgapped”, “no external APIs”, “reproducible outputs”
+- `HARD_CONSTRAINTS`: CPU-only, offline, no external APIs, strict reproducibility, etc.
 
-If any of these are missing, stop and ask for them.
+If any are missing: ask for them and STOP.
 
-## Step 1 — Spec + constraint matrix
+## Step 1 ? Spec + constraint matrix
 
 Run: `library/prompts/implementation/restore_simple_openai.md`
 
 Artifacts:
 
-- `inputs/restore_spec.md` (goal, constraints, acceptance criteria)
-- `inputs/sample_images/` (a small representative set)
+- `inputs/restore_spec.md`
+- `inputs/sample_images/` (small representative set)
 
-## Step 2 — Choose a governed chain
+## Step 2 ? Generate a governed runbook
 
 Run: `library/prompts/execution/image_restoration_pipeline_router.md`
 
 Artifacts:
 
-- `runbook.md` (exact steps, outputs, stop conditions)
-- `decision_record.md` (RESTORE_MODE + MODEL_MODE choices)
+- `runbook.md` (steps + outputs + stop conditions)
+- `decision_record.md` (final gate choices)
 
-## Step 3 — Build the pipeline (Python)
+Tip: use templates from `library/paths/_templates/`.
+
+## Step 3 ? Build the pipeline (Python)
 
 Run: `library/prompts/implementation/image_restoration_pipeline_builder_python.md`
 
-Artifacts (minimum):
+Minimum deliverables:
 
 - `pipeline/` (library code)
-- `cli/` entrypoint (Typer/argparse)
-- `configs/` (presets per mode)
-- `outputs/` (artifact directory, never overwrite by default)
-- `eval/` (small eval harness + comparison sheets)
+- `cli/` (entrypoint)
+- `configs/` (presets per gate combination)
+- `outputs/` (run artifacts; never overwrite by default)
+- `eval/` (review sheet + light metrics)
 
-## Step 4 — Multimodal + notebook packaging (optional)
+## Step 4 ? Notebook packaging (optional)
 
 If `TARGET=cli_plus_notebook`, run:
 
 - `library/prompts/implementation/multimodal_restoration_pipeline.md`
 
-## Step 5 — Governance for iteration
+## Step 5 ? Chain governance (recommended)
 
-If you will iterate with multiple prompts/agents, wrap with:
+If you are chaining multiple prompts/agents, wrap with:
 
 - `library/prompts/execution/chain_execution_protocol.md`
 
-## Decision rules (canonical)
+## Canonical decision rules
 
 ### RESTORE_MODE=bw_only
 
 - Output is grayscale restoration only.
-- Focus on: denoise, deblur, scratch/dust removal, contrast/levels, geometric correction.
-- No colorization deliverables.
+- Focus on: denoise, deblur, scratch/dust removal, levels/contrast, geometric correction.
 
 ### RESTORE_MODE=colorize
 
-- Must still produce a “restored luminance” intermediate (pre-colorization).
-- Output both:
-  - `restored_bw/` (best reconstruction of structure/contrast)
-  - `colorized/` (final color output)
+- Must produce a `restored_bw/` intermediate and a final `colorized/` output.
 
 ### MODEL_MODE=deterministic_only
 
-- No stochastic sampling; no diffusion.
-- If any ML is used, it must be deterministic inference (fixed weights, fixed preprocessing) and documented.
+- No diffusion.
+- If colorization is required: reference-based transfer OR human-in-the-loop.
 
 ### MODEL_MODE=diffusion_allowed
 
-- Diffusion can be used for inpainting/scratch removal/colorization, but:
-  - require seed control
-  - require “conservative mode” presets
-  - require a “no hallucinated detail” warning + review step
-
+- Diffusion allowed, but must log seeds + model versions and include a review gate.

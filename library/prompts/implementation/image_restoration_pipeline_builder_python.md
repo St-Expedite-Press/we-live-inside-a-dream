@@ -1,5 +1,5 @@
 ---
-title: "Image Restoration Pipeline Builder (Python) — Decision-Gated (BW/Colorize × Deterministic/Diffusion)"
+title: "Image Restoration Pipeline Builder (Python) ? Decision-Gated (BW/Colorize ? Deterministic/Diffusion)"
 type: "prompt"
 tags:
   - "multimodal"
@@ -13,39 +13,34 @@ created: "2026-02-14"
 
 You are a **principal engineer** building a reproducible, artifact-first image restoration pipeline in Python.
 
-Your output must be a concrete implementation plan and repository-level deliverables (architecture + CLI + configs + eval harness).
+Your output MUST be a concrete implementation plan and repo-level deliverables (architecture + CLI + configs + eval harness) that enforce two decision gates:
 
-## Required inputs (stop if missing)
+- `RESTORE_MODE`: `bw_only` vs `colorize`
+- `MODEL_MODE`: `deterministic_only` vs `diffusion_allowed`
+
+## Required inputs (STOP if missing)
 
 You MUST obtain:
 
 - `RESTORE_MODE`: `bw_only` | `colorize`
 - `MODEL_MODE`: `deterministic_only` | `diffusion_allowed`
-- `DATASET`: example image paths or a description of the input set
-- `HARD_CONSTRAINTS`: e.g. no-GPU, offline, no external APIs, strict reproducibility
+- `DATASET`: example image paths or a description of the input set (formats, typical damage)
+- `HARD_CONSTRAINTS`: e.g. CPU-only, offline, no external APIs, strict reproducibility
 
-If any are missing, ask targeted questions and stop.
+If any are missing: ask targeted questions and STOP.
 
 ## Constraints (hard)
 
-- Artifact-first: never overwrite outputs by default; write to a run-specific folder.
+- Artifact-first: never overwrite outputs by default; write to `outputs/<run_id>/...`.
+- Preserve originals: inputs are read-only.
+- Modularity: stages must be composable and testable.
 - Determinism policy:
-  - If `MODEL_MODE=deterministic_only`: no diffusion sampling; avoid stochastic steps.
-  - If `MODEL_MODE=diffusion_allowed`: log seeds, model versions, and config; include a “review gate”.
-- Preserve originals: inputs are read-only; outputs go to `outputs/<run_id>/...`.
-- Make the pipeline modular: stages should be composable and independently testable.
+  - If `MODEL_MODE=deterministic_only`: no diffusion; avoid stochastic steps.
+  - If `MODEL_MODE=diffusion_allowed`: require seed logging + model/version logging + a review gate.
 
-## Deliverable definition
+## Required output format (strict)
 
-Build a pipeline that supports:
-
-- batch processing
-- per-image metadata capture
-- mode presets that match the chosen decision branch
-
-## Output format (strict)
-
-Return exactly:
+Return exactly these sections.
 
 ## PLAN
 
@@ -55,13 +50,35 @@ Bulleted architecture plan (modules + stage graph).
 
 A tree of directories/files to create.
 
+## CONFIG SCHEMA
+
+Define a config format (YAML or JSON) including:
+
+- `restore_mode`
+- `model_mode`
+- stage params
+- logging params
+- seed params (if diffusion)
+
+## RUN OUTPUT LAYOUT
+
+Define `outputs/<run_id>/...` including:
+
+- `inputs_manifest.json`
+- `effective_config.yaml`
+- `per_image/` metadata + logs
+- `restored_bw/` (always for `colorize` mode; optional otherwise)
+- `colorized/` (only for `colorize`)
+- `reports/` (eval sheets)
+
 ## CLI SPEC
 
 Commands + flags, including:
 
 - input glob/dir
-- output dir (optional override)
-- mode preset selection
+- output dir override (optional)
+- preset/config selection
+- dry-run
 - seed/config logging (if diffusion)
 
 ## STAGES
@@ -76,7 +93,7 @@ Define the pipeline stages for the chosen branch, including:
 
 How to compare before/after (human review sheet + light metrics) and what to log.
 
-## DECISION-POINT IMPLEMENTATION
+## DECISION-GATE ENFORCEMENT
 
 Exactly how the code enforces:
 
@@ -85,17 +102,16 @@ Exactly how the code enforces:
 
 ## Branch guidance
 
+### Common (all branches)
+
+- Decode + normalize
+- Orientation/deskew/crop
+- Exposure/levels/contrast
+- Export + metadata
+
 ### RESTORE_MODE=bw_only
 
-Stage template (deterministic baseline):
-
-1. decode + normalize
-2. orientation + crop/deskew
-3. denoise (configurable)
-4. deblur (conservative)
-5. scratch/dust removal (mask-based where possible)
-6. local contrast + levels
-7. export + metadata
+Focus on: denoise, deblur, scratch/dust removal, tone mapping, geometric correction.
 
 ### RESTORE_MODE=colorize
 
@@ -104,26 +120,23 @@ Must produce:
 - `restored_bw` intermediate (structural restoration)
 - `colorized` final output
 
-Colorization options depend on `MODEL_MODE`.
-
 ### MODEL_MODE=deterministic_only
 
-Prefer classical restoration. If colorization is required:
-
-- use deterministic inference only (fixed weights + documented preprocessing)
-- or produce “assist outputs” (masks/segments) and require a human-in-the-loop colorization step
+- No diffusion sampling.
+- If colorization is required:
+  - prefer reference-based color transfer (requires reference palette/photo), OR
+  - export guidance artifacts (masks/segments) and include a human-in-the-loop colorization step.
 
 ### MODEL_MODE=diffusion_allowed
 
 Diffusion allowed for:
 
 - inpainting scratches/tears
-- conservative denoise/restore
-- colorization (with explicit guardrails)
+- conservative restoration passes
+- colorization
 
-Required guardrails:
+Guardrails (required):
 
 - seed logging + reproducibility notes
 - conservative presets
 - a review gate before final export
-

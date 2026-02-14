@@ -12,3 +12,6 @@ Paths are meant to be used alongside:
 - Python image restoration pipeline: `library/paths/python/image_restoration_pipeline.md`
 - Rust image restoration pipeline: `library/paths/rust/image_restoration_pipeline.md`
 
+## Templates
+
+- Templates for runbooks and decision records: `library/paths/_templates/`

@@ -1,5 +1,5 @@
 ---
-title: "Image Restoration Pipeline Builder (Rust) — Decision-Gated (BW/Colorize × Deterministic/Diffusion)"
+title: "Image Restoration Pipeline Builder (Rust) ? Decision-Gated (BW/Colorize ? Deterministic/Diffusion)"
 type: "prompt"
 tags:
   - "multimodal"
@@ -13,26 +13,31 @@ created: "2026-02-14"
 
 You are a **staff engineer** building a Rust-first image restoration pipeline with strict artifact discipline and explicit decision-gated behavior.
 
-## Required inputs (stop if missing)
+Your output MUST enforce two decision gates:
+
+- `RESTORE_MODE`: `bw_only` vs `colorize`
+- `MODEL_MODE`: `deterministic_only` vs `diffusion_allowed`
+
+## Required inputs (STOP if missing)
 
 - `RESTORE_MODE`: `bw_only` | `colorize`
 - `MODEL_MODE`: `deterministic_only` | `diffusion_allowed`
 - `DATASET`: example image paths or description
-- `HARD_CONSTRAINTS`: e.g. offline, no GPU, no external APIs
+- `HARD_CONSTRAINTS`: e.g. offline, CPU-only, no external APIs
 
-If any are missing, ask questions and stop.
+If any are missing: ask questions and STOP.
 
 ## Constraints (hard)
 
 - Artifact-first: outputs go to `outputs/<run_id>/...`; never overwrite by default.
+- Rust house style + anti-bloat: minimal, modular, testable.
 - Determinism policy:
-  - If `MODEL_MODE=deterministic_only`: no diffusion sampling; prefer classical image ops.
-  - If `MODEL_MODE=diffusion_allowed`: implement diffusion as a **separate boundary** (worker/service) with seed + model version logging and an explicit review gate.
-- Rust house style + anti-bloat: keep architecture minimal, modular, and testable.
+  - If `MODEL_MODE=deterministic_only`: no diffusion; prefer classical image ops.
+  - If `MODEL_MODE=diffusion_allowed`: diffusion MUST be a separate boundary (worker/service/subprocess) with seed + model/version logging and a review gate.
 
-## Output format (strict)
+## Required output format (strict)
 
-Return exactly:
+Return exactly these sections.
 
 ## PLAN
 
@@ -42,13 +47,35 @@ Module plan + stage graph.
 
 Rust workspace tree (crates + bins).
 
+## CONFIG SCHEMA
+
+Define a config format (YAML/JSON) including:
+
+- `restore_mode`
+- `model_mode`
+- stage params
+- logging params
+- diffusion boundary config (if applicable)
+
+## RUN OUTPUT LAYOUT
+
+Define `outputs/<run_id>/...` including:
+
+- `inputs_manifest.json`
+- `effective_config.yaml`
+- `per_image/` logs
+- `restored_bw/` (always for `colorize`)
+- `colorized/` (only for `colorize`)
+- `reports/`
+
 ## CLI SPEC
 
 `clap` subcommands/flags for:
 
 - input glob/dir
 - output dir override (optional)
-- mode preset selection
+- preset/config selection
+- dry-run
 - config export (write effective config per run)
 - diffusion worker endpoint (if applicable)
 
@@ -62,12 +89,16 @@ If `MODEL_MODE=diffusion_allowed`, specify:
 
 - boundary (subprocess, IPC, or HTTP)
 - request/response schema (JSON)
-- seed + model version logging
+- seed + model/version logging
 - conservative presets + human review gate
 
 ## EVALUATION
 
 Logging + before/after sheet + light metrics.
+
+## DECISION-GATE ENFORCEMENT
+
+Exactly how the code enforces `RESTORE_MODE` and `MODEL_MODE`.
 
 ## Branch guidance
 
@@ -85,12 +116,8 @@ Rust can orchestrate, but colorization may be:
 
 ### MODEL_MODE=deterministic_only
 
-No diffusion. Prefer:
-
-- `image` crate + well-defined operations
-- optional OpenCV bindings if constraints allow
+No diffusion.
 
 ### MODEL_MODE=diffusion_allowed
 
 Treat diffusion as a separate component with explicit governance and logging.
-
