@@ -1,0 +1,100 @@
+{
+  "renames": [
+    {
+      "from": "PYTHON HOUSE STYLE.md",
+      "to": "prompts/misc/python_house_style.md"
+    },
+    {
+      "from": "RUST HOUSE STYLE.md",
+      "to": "prompts/misc/rust_house_style.md"
+    },
+    {
+      "from": "RUST ANTIBLOAT.md",
+      "to": "prompts/misc/rust_antibloat.md"
+    },
+    {
+      "from": "COLAB NOTEBOOK HOUSE STYLE.md",
+      "to": "prompts/misc/colab_notebook_house_style.md"
+    },
+    {
+      "from": "massiveprompt.md",
+      "to": "prompts/implementation/agent_architect_10_phase_agent_systems_blueprint.md"
+    },
+    {
+      "from": "REPO_DISCOVERY_prompt.md",
+      "to": "prompts/discovery/repo_discovery_massive_prompt.md"
+    },
+    {
+      "from": "Explore Repo.md",
+      "to": "prompts/discovery/explore_repo.md"
+    },
+    {
+      "from": "PYTHON_prompt.md",
+      "to": "prompts/discovery/python_repo_discovery_engineer.md"
+    },
+    {
+      "from": "RUST_prompt.md",
+      "to": "prompts/discovery/rust_repo_discovery_engineer.md"
+    },
+    {
+      "from": "Restore Simple-- OpenAI.md",
+      "to": "prompts/implementation/restore_simple_openai.md"
+    },
+    {
+      "from": "extreme_combos/01_OMNI_AGENT_PLATFORM_PROMPT.md",
+      "to": "prompts/implementation/omni_agent_platform.md"
+    },
+    {
+      "from": "extreme_combos/02_EVIDENCE_DRIVEN_IMPLEMENTATION_PROMPT.md",
+      "to": "prompts/implementation/evidence_driven_implementation.md"
+    },
+    {
+      "from": "extreme_combos/03_MCP_SERVER_FACTORY_PROMPT.md",
+      "to": "prompts/implementation/mcp_server_factory.md"
+    },
+    {
+      "from": "extreme_combos/04_PROMPT_LIBRARY_COMPOSER_PROMPT.md",
+      "to": "prompts/implementation/prompt_library_composer.md"
+    },
+    {
+      "from": "extreme_combos/05_MULTIMODAL_RESTORATION_PIPELINE_PROMPT.md",
+      "to": "prompts/implementation/multimodal_restoration_pipeline.md"
+    },
+    {
+      "from": "extreme_combos/06_SERVICE_INDUSTRIALIZER_PROMPT.md",
+      "to": "prompts/implementation/service_industrializer.md"
+    },
+    {
+      "from": "extreme_combos/07_AGENT_TESTING_AND_EVAL_GAUNTLET_PROMPT.md",
+      "to": "prompts/execution/agent_testing_eval_gauntlet.md"
+    },
+    {
+      "from": "extreme_combos/08_SECURITY_THREAT_MODEL_PROMPT.md",
+      "to": "prompts/security/security_threat_model.md"
+    },
+    {
+      "from": "extreme_combos/09_MIGRATION_AND_ROLLOUT_PROMPT.md",
+      "to": "prompts/migration/migration_and_rollout.md"
+    },
+    {
+      "from": "extreme_combos/10_INCIDENT_RESPONSE_AND_POSTMORTEM_PROMPT.md",
+      "to": "prompts/incident_response/incident_response_and_postmortem.md"
+    },
+    {
+      "from": "extreme_combos/11_CHAIN_ROUTER_AND_RUNBOOK_PROMPT.md",
+      "to": "prompts/execution/chain_router_and_runbook.md"
+    },
+    {
+      "from": "extreme_combos/12_HANDOFF_PACKET_GENERATOR_PROMPT.md",
+      "to": "prompts/execution/handoff_packet_generator.md"
+    },
+    {
+      "from": "extreme_combos/13_CHAIN_EXECUTION_PROTOCOL_PROMPT.md",
+      "to": "prompts/execution/chain_execution_protocol.md"
+    },
+    {
+      "from": "extreme_combos/README.md",
+      "to": "docs/extreme_combos.md"
+    }
+  ]
+}

@@ -1,0 +1,391 @@
+{
+  "version": "1.0",
+  "generated": "2026-02-14",
+  "artifact_count": 23,
+  "artifacts": [
+    {
+      "id": "F-01",
+      "title": "PYTHON HOUSE STYLE",
+      "kind": "guidelines",
+      "part": "Part I \u2014 Foundations (House Styles & Doctrine)",
+      "order": 1,
+      "source_path": "prompts/misc/python_house_style.md",
+      "tags": [
+        "python",
+        "guidelines",
+        "house-style"
+      ],
+      "summary": "Project-agnostic house style for readable, tool-friendly Python."
+    },
+    {
+      "id": "F-02",
+      "title": "RUST HOUSE STYLE",
+      "kind": "guidelines",
+      "part": "Part I \u2014 Foundations (House Styles & Doctrine)",
+      "order": 2,
+      "source_path": "prompts/misc/rust_house_style.md",
+      "tags": [
+        "rust",
+        "guidelines",
+        "house-style"
+      ],
+      "summary": "Project-agnostic house style for idiomatic, reviewable Rust."
+    },
+    {
+      "id": "F-03",
+      "title": "RUST ANTIBLOAT",
+      "kind": "guidelines",
+      "part": "Part I \u2014 Foundations (House Styles & Doctrine)",
+      "order": 3,
+      "source_path": "prompts/misc/rust_antibloat.md",
+      "tags": [
+        "rust",
+        "guidelines",
+        "restraint",
+        "anti-bloat"
+      ],
+      "summary": "Restraint + abstraction budgets for Rust architecture and change discipline."
+    },
+    {
+      "id": "F-04",
+      "title": "COLAB NOTEBOOK HOUSE STYLE",
+      "kind": "guidelines",
+      "part": "Part I \u2014 Foundations (House Styles & Doctrine)",
+      "order": 4,
+      "source_path": "prompts/misc/colab_notebook_house_style.md",
+      "tags": [
+        "python",
+        "notebooks",
+        "guidelines",
+        "reproducibility"
+      ],
+      "summary": "Reproducible, restartable Colab/Jupyter notebook discipline."
+    },
+    {
+      "id": "C-01",
+      "title": "Agent Architect (10-phase agent systems blueprint)",
+      "kind": "prompt",
+      "part": "Part II \u2014 Core Discovery & Implementation",
+      "order": 5,
+      "source_path": "prompts/implementation/agent_architect_10_phase_agent_systems_blueprint.md",
+      "tags": [
+        "agent-systems",
+        "architecture",
+        "phases"
+      ],
+      "summary": "Phased approach to designing production-grade agent systems (tools/memory/grounding/testing/deploy)."
+    },
+    {
+      "id": "C-02",
+      "title": "REPO DISCOVERY \u2014 Massive Prompt",
+      "kind": "prompt",
+      "part": "Part II \u2014 Core Discovery & Implementation",
+      "order": 6,
+      "source_path": "prompts/discovery/repo_discovery_massive_prompt.md",
+      "tags": [
+        "repo-analysis",
+        "architecture",
+        "diff-discipline"
+      ],
+      "summary": "Evidence-driven repo exploration loop: map \u2192 hypothesize \u2192 validate \u2192 smallest diff \u2192 test \u2192 deliver."
+    },
+    {
+      "id": "C-03",
+      "title": "PYTHON_prompt \u2014 Repo-Discovery Engineer",
+      "kind": "prompt",
+      "part": "Part II \u2014 Core Discovery & Implementation",
+      "order": 7,
+      "source_path": "prompts/discovery/python_repo_discovery_engineer.md",
+      "tags": [
+        "python",
+        "repo-analysis",
+        "implementation"
+      ],
+      "summary": "Python-specific repo discovery + smallest correct diff, governed by Python house style."
+    },
+    {
+      "id": "C-04",
+      "title": "RUST_prompt \u2014 Repo-Discovery Engineer",
+      "kind": "prompt",
+      "part": "Part II \u2014 Core Discovery & Implementation",
+      "order": 8,
+      "source_path": "prompts/discovery/rust_repo_discovery_engineer.md",
+      "tags": [
+        "rust",
+        "repo-analysis",
+        "implementation"
+      ],
+      "summary": "Rust-specific repo discovery + smallest correct diff, governed by Rust house style + anti-bloat."
+    },
+    {
+      "id": "C-05",
+      "title": "Terrifyingly Exhaustive Repo Analysis \u2192 Service Platform",
+      "kind": "prompt",
+      "part": "Part II \u2014 Core Discovery & Implementation",
+      "order": 9,
+      "source_path": "prompts/discovery/explore_repo.md",
+      "tags": [
+        "repo-analysis",
+        "service-transformation",
+        "mcp",
+        "knowledge-graph"
+      ],
+      "summary": "Forensic, architectural, operational, semantic analysis producing a devtools corpus for industrializing a repo."
+    },
+    {
+      "id": "M-01",
+      "title": "Restore Simple \u2014 OpenAI",
+      "kind": "prompt",
+      "part": "Part III \u2014 Multimodal & Constraint-Matrix Prompts",
+      "order": 10,
+      "source_path": "prompts/implementation/restore_simple_openai.md",
+      "tags": [
+        "image-restoration",
+        "multimodal",
+        "constraints"
+      ],
+      "summary": "Metadata vector + constraint matrix \u2192 hyperspecific reconstruction prompt for conservation-grade restoration."
+    },
+    {
+      "id": "EC-01",
+      "title": "OMNI AGENT PLATFORM \u2014 Repo \u2192 Service \u2192 MCP \u2192 Agent Ecosystem",
+      "kind": "prompt",
+      "part": "Part IV \u2014 Extreme Combos (Production Platformization)",
+      "order": 11,
+      "source_path": "prompts/implementation/omni_agent_platform.md",
+      "tags": [
+        "combo",
+        "repo-analysis",
+        "mcp",
+        "agent-systems",
+        "knowledge-graph"
+      ],
+      "summary": "Mega-combo prompt: repo forensics \u2192 service design \u2192 MCP tooling \u2192 agent orchestration \u2192 KG \u2192 hardening."
+    },
+    {
+      "id": "EC-02",
+      "title": "Evidence-Driven Implementation \u2014 Smallest Correct Diff (Python/Rust gated)",
+      "kind": "prompt",
+      "part": "Part IV \u2014 Extreme Combos (Production Platformization)",
+      "order": 12,
+      "source_path": "prompts/implementation/evidence_driven_implementation.md",
+      "tags": [
+        "combo",
+        "implementation",
+        "diff-discipline"
+      ],
+      "summary": "Execution prompt for minimal diffs with explicit evidence/hypothesis loops and language gates."
+    },
+    {
+      "id": "EC-03",
+      "title": "MCP Server Factory \u2014 Tool Suite Design + Implementation",
+      "kind": "prompt",
+      "part": "Part IV \u2014 Extreme Combos (Production Platformization)",
+      "order": 13,
+      "source_path": "prompts/implementation/mcp_server_factory.md",
+      "tags": [
+        "combo",
+        "mcp",
+        "tooling",
+        "security",
+        "testing"
+      ],
+      "summary": "Schema-first MCP tool suite design with safety, error models, tests, and ops handoff."
+    },
+    {
+      "id": "EC-04",
+      "title": "Prompt Library Composer \u2014 Component Extraction + Synthesis",
+      "kind": "prompt",
+      "part": "Part IV \u2014 Extreme Combos (Production Platformization)",
+      "order": 14,
+      "source_path": "prompts/implementation/prompt_library_composer.md",
+      "tags": [
+        "combo",
+        "meta",
+        "prompt-engineering"
+      ],
+      "summary": "Meta prompt to extract a component catalog, find gaps, and synthesize coherent new prompts."
+    },
+    {
+      "id": "EC-05",
+      "title": "Multimodal Restoration Pipeline \u2014 Restore Simple \u00d7 Engineering \u00d7 Colab",
+      "kind": "prompt",
+      "part": "Part III \u2014 Multimodal & Constraint-Matrix Prompts",
+      "order": 15,
+      "source_path": "prompts/implementation/multimodal_restoration_pipeline.md",
+      "tags": [
+        "combo",
+        "multimodal",
+        "pipelines",
+        "colab"
+      ],
+      "summary": "End-to-end restoration + reproducible batch pipeline + notebook plan + evaluation rubric."
+    },
+    {
+      "id": "EC-06",
+      "title": "Service Industrializer \u2014 Exhaustive but Disciplined",
+      "kind": "prompt",
+      "part": "Part IV \u2014 Extreme Combos (Production Platformization)",
+      "order": 16,
+      "source_path": "prompts/implementation/service_industrializer.md",
+      "tags": [
+        "combo",
+        "service-transformation",
+        "restraint"
+      ],
+      "summary": "Exhaustive repo\u2192service prompt with evidence ledger, speculation firewall, abstraction budgets, termination gates."
+    },
+    {
+      "id": "EC-07",
+      "title": "Agent Testing & Eval Gauntlet",
+      "kind": "prompt",
+      "part": "Part V \u2014 Reliability, Ops, Security",
+      "order": 17,
+      "source_path": "prompts/execution/agent_testing_eval_gauntlet.md",
+      "tags": [
+        "combo",
+        "agent-systems",
+        "testing",
+        "observability"
+      ],
+      "summary": "Failure modes, coverage matrix, scenarios, metrics, observability, regression/change management for agents."
+    },
+    {
+      "id": "EC-08",
+      "title": "Security Threat Model \u2014 STRIDE/LINDDUN + Mitigations + Verification",
+      "kind": "prompt",
+      "part": "Part V \u2014 Reliability, Ops, Security",
+      "order": 18,
+      "source_path": "prompts/security/security_threat_model.md",
+      "tags": [
+        "combo",
+        "security",
+        "threat-model"
+      ],
+      "summary": "Threat enumeration with concrete mitigations, verification plan, and a sprint-bounded security backlog."
+    },
+    {
+      "id": "EC-09",
+      "title": "Migration & Rollout \u2014 Compatibility, Canary, Rollback",
+      "kind": "prompt",
+      "part": "Part V \u2014 Reliability, Ops, Security",
+      "order": 19,
+      "source_path": "prompts/migration/migration_and_rollout.md",
+      "tags": [
+        "combo",
+        "deployment",
+        "migration",
+        "rollout"
+      ],
+      "summary": "Backward compatibility contract + migration strategy + staged rollout + concrete rollback + validation checklist."
+    },
+    {
+      "id": "EC-10",
+      "title": "Incident Response + Postmortem",
+      "kind": "prompt",
+      "part": "Part V \u2014 Reliability, Ops, Security",
+      "order": 20,
+      "source_path": "prompts/incident_response/incident_response_and_postmortem.md",
+      "tags": [
+        "combo",
+        "ops",
+        "incident-response",
+        "postmortem"
+      ],
+      "summary": "Incident triage \u2192 stabilization \u2192 diagnosis \u2192 resolution \u2192 blameless postmortem \u2192 prevention backlog."
+    },
+    {
+      "id": "EC-11",
+      "title": "Chain Router + Runbook",
+      "kind": "prompt",
+      "part": "Part VI \u2014 Orchestration Layer (Chaining Prompts)",
+      "order": 21,
+      "source_path": "prompts/execution/chain_router_and_runbook.md",
+      "tags": [
+        "combo",
+        "orchestration",
+        "router"
+      ],
+      "summary": "Routes objectives to the correct extreme prompt sequence and produces a chain graph + step runbook + handoffs."
+    },
+    {
+      "id": "EC-12",
+      "title": "Handoff Packet Generator",
+      "kind": "prompt",
+      "part": "Part VI \u2014 Orchestration Layer (Chaining Prompts)",
+      "order": 22,
+      "source_path": "prompts/execution/handoff_packet_generator.md",
+      "tags": [
+        "combo",
+        "orchestration",
+        "handoff"
+      ],
+      "summary": "Formats minimal, high-fidelity context handoff packets between prompts (no novel decisions)."
+    },
+    {
+      "id": "EC-13",
+      "title": "Chain Execution Protocol",
+      "kind": "prompt",
+      "part": "Part VI \u2014 Orchestration Layer (Chaining Prompts)",
+      "order": 23,
+      "source_path": "prompts/execution/chain_execution_protocol.md",
+      "tags": [
+        "combo",
+        "orchestration",
+        "protocol",
+        "governance"
+      ],
+      "summary": "Defines chain state model, artifact naming, approval gates, quality gates, stop conditions, recovery/retry."
+    }
+  ],
+  "relationship_types": [
+    "COMBINES_WITH",
+    "ENFORCES",
+    "ROUTES_TO",
+    "PRECEDES",
+    "PRODUCES_INPUT_FOR"
+  ],
+  "domain_hints": [
+    "agent-systems",
+    "anti-bloat",
+    "architecture",
+    "colab",
+    "combo",
+    "constraints",
+    "deployment",
+    "diff-discipline",
+    "governance",
+    "guidelines",
+    "handoff",
+    "house-style",
+    "image-restoration",
+    "implementation",
+    "incident-response",
+    "knowledge-graph",
+    "mcp",
+    "meta",
+    "migration",
+    "multimodal",
+    "notebooks",
+    "observability",
+    "ops",
+    "orchestration",
+    "phases",
+    "pipelines",
+    "postmortem",
+    "prompt-engineering",
+    "protocol",
+    "python",
+    "repo-analysis",
+    "reproducibility",
+    "restraint",
+    "rollout",
+    "router",
+    "rust",
+    "security",
+    "service-transformation",
+    "testing",
+    "threat-model",
+    "tooling"
+  ]
+}
