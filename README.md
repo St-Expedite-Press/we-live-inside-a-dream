@@ -115,10 +115,11 @@ The directory structure under `library/prompts/` is a practical taxonomy. It is 
 
 If the objective is “understand an unknown repo, form a plan, and make the smallest correct change”, start with `library/prompts/discovery/repo_discovery_massive_prompt.md`. If the objective is “route a big task into a disciplined multi-prompt chain”, start with `library/prompts/execution/chain_router_and_runbook.md` and then enforce chain invariants with `library/prompts/execution/chain_execution_protocol.md`. If the objective is “evaluate and control security risk while building”, start with `library/prompts/security/security_threat_model.md` early rather than late.
 
-For a concrete example of decision-gated flows, the image restoration pipeline router and builders show how the library expresses branching logic and stop conditions in a way that remains auditable.
+For the next leap in this repo, the objective-to-product phase pipeline shows how to take a defined user prompt, pass it through exploratory and planning compilation steps, and then execute implementation with explicit packetized handoffs. For a concrete example of decision-gated flows, the image restoration pipeline router and builders show how the library expresses branching logic and stop conditions in a way that remains auditable.
 
 | Objective | Router or runbook | Builder prompt(s) |
 |---|---|---|
+| Objective → product (explore → plan → implement) | `library/paths/common/objective_to_product_pipeline.md` and `library/prompts/execution/objective_to_product_phase_pipeline.md` | `library/prompts/exploratory/objective_intake_and_context_map.md`, `library/prompts/planning/product_plan_compiler.md`, `library/prompts/implementation/product_build_executor.md` |
 | Image restoration pipeline with decision gates | `library/prompts/execution/image_restoration_pipeline_router.md` | `library/prompts/implementation/image_restoration_pipeline_builder_python.md` and `library/prompts/implementation/image_restoration_pipeline_builder_rust.md` |
 
 ## How to use this repository in practice (a workflow that stays deterministic)

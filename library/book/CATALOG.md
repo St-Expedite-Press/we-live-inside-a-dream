@@ -2,7 +2,7 @@
 title: "Prompt Ecosystem Book — Catalog"
 type: "catalog"
 tags: ["book", "prompt-library"]
-created: "2026-02-14"
+created: "2026-02-15"
 ---
 
 # Catalog
@@ -42,6 +42,12 @@ This is a table-form index of all artifacts included in the book.
 | 29 | Rust Path - Image Restoration Pipeline | other | Part VII — Paths (Runnable Prompt Flows) | `paths/rust/image_restoration_pipeline.md` | [29](../paths/rust/image_restoration_pipeline.md) | paths, rust, image-restoration |
 | 30 | Repository mental model (prompt compiler + governance) | docs | Part VIII — System Meta (Mental Models & Agent Specs) | `docs/repo_mental_model.md` | [30](../docs/repo_mental_model.md) | meta, architecture, governance, build-system |
 | 31 | Agent spec (forensic repo architecture diagnostic) | docs | Part VIII — System Meta (Mental Models & Agent Specs) | `docs/agent_specs/repo_forensic_arch_diagnostic_agent_spec.md` | [31](../docs/agent_specs/repo_forensic_arch_diagnostic_agent_spec.md) | meta, repo-analysis, architecture, agent-spec |
+| 32 | Path - Objective → Product (explore → plan → implement) | other | Part VII — Paths (Runnable Prompt Flows) | `paths/common/objective_to_product_pipeline.md` | [32](../paths/common/objective_to_product_pipeline.md) | paths, pipeline, phases, governance |
+| 33 | Phase groups (exploratory → planning → implementation) | docs | Part VIII — System Meta (Mental Models & Agent Specs) | `docs/phase_groups.md` | [33](../docs/phase_groups.md) | meta, phases, taxonomy, pipeline |
+| 34 | Objective → Product Phase Pipeline Router | prompt | Part IX — Phased Product Pipeline (Exploratory → Planning → Implementation) | `prompts/execution/objective_to_product_phase_pipeline.md` | [34](../prompts/execution/objective_to_product_phase_pipeline.md) | pipeline, router, phases, governance |
+| 35 | Exploratory Phase - Objective Intake + Context Map (packetized) | prompt | Part IX — Phased Product Pipeline (Exploratory → Planning → Implementation) | `prompts/exploratory/objective_intake_and_context_map.md` | [35](../prompts/exploratory/objective_intake_and_context_map.md) | phase-exploratory, intake, packet, governance |
+| 36 | Planning Phase - Product Plan Compiler (packetized) | prompt | Part IX — Phased Product Pipeline (Exploratory → Planning → Implementation) | `prompts/planning/product_plan_compiler.md` | [36](../prompts/planning/product_plan_compiler.md) | phase-planning, planning, packet, governance |
+| 37 | Implementation Phase - Product Build Executor (packetized) | prompt | Part IX — Phased Product Pipeline (Exploratory → Planning → Implementation) | `prompts/implementation/product_build_executor.md` | [37](../prompts/implementation/product_build_executor.md) | phase-implementation, implementation, delivery, packet |
 
 ## Notes
 

@@ -1,6 +1,6 @@
 version: '1.0'
-generated: '2026-02-14'
-artifact_count: 31
+generated: '2026-02-15'
+artifact_count: 37
 artifacts:
   - id: 'F-01'
     title: 'PYTHON HOUSE STYLE'
@@ -358,3 +358,75 @@ artifacts:
       - 'architecture'
       - 'agent-spec'
     summary: 'Top-of-chat protocol for evidence-only repo diagnostics: execution model, artifacts, risks, scalability, and maturity scoring.'
+  - id: 'P-04'
+    title: 'Path - Objective → Product (explore → plan → implement)'
+    kind: 'other'
+    part: 'Part VII — Paths (Runnable Prompt Flows)'
+    order: 32
+    source_path: 'paths/common/objective_to_product_pipeline.md'
+    tags:
+      - 'paths'
+      - 'pipeline'
+      - 'phases'
+      - 'governance'
+    summary: 'Runnable runbook for passing a defined user prompt through exploratory, planning, and implementation phases with packetized handoffs.'
+  - id: 'META-03'
+    title: 'Phase groups (exploratory → planning → implementation)'
+    kind: 'docs'
+    part: 'Part VIII — System Meta (Mental Models & Agent Specs)'
+    order: 33
+    source_path: 'docs/phase_groups.md'
+    tags:
+      - 'meta'
+      - 'phases'
+      - 'taxonomy'
+      - 'pipeline'
+    summary: 'Defines the overlay phase taxonomy and maps existing prompts into a deterministic objective-to-product pipeline.'
+  - id: 'PH-01'
+    title: 'Objective → Product Phase Pipeline Router'
+    kind: 'prompt'
+    part: 'Part IX — Phased Product Pipeline (Exploratory → Planning → Implementation)'
+    order: 34
+    source_path: 'prompts/execution/objective_to_product_phase_pipeline.md'
+    tags:
+      - 'pipeline'
+      - 'router'
+      - 'phases'
+      - 'governance'
+    summary: 'Routes a user prompt into a three-phase runbook with explicit packet handoffs and stop conditions.'
+  - id: 'PH-02'
+    title: 'Exploratory Phase - Objective Intake + Context Map (packetized)'
+    kind: 'prompt'
+    part: 'Part IX — Phased Product Pipeline (Exploratory → Planning → Implementation)'
+    order: 35
+    source_path: 'prompts/exploratory/objective_intake_and_context_map.md'
+    tags:
+      - 'phase-exploratory'
+      - 'intake'
+      - 'packet'
+      - 'governance'
+    summary: 'Exploratory phase prompt that produces a context map and an EXPLORATION_PACKET for deterministic downstream planning.'
+  - id: 'PH-03'
+    title: 'Planning Phase - Product Plan Compiler (packetized)'
+    kind: 'prompt'
+    part: 'Part IX — Phased Product Pipeline (Exploratory → Planning → Implementation)'
+    order: 36
+    source_path: 'prompts/planning/product_plan_compiler.md'
+    tags:
+      - 'phase-planning'
+      - 'planning'
+      - 'packet'
+      - 'governance'
+    summary: 'Planning phase prompt that compiles acceptance criteria, artifact contracts, and a PLAN_PACKET for deterministic implementation.'
+  - id: 'PH-04'
+    title: 'Implementation Phase - Product Build Executor (packetized)'
+    kind: 'prompt'
+    part: 'Part IX — Phased Product Pipeline (Exploratory → Planning → Implementation)'
+    order: 37
+    source_path: 'prompts/implementation/product_build_executor.md'
+    tags:
+      - 'phase-implementation'
+      - 'implementation'
+      - 'delivery'
+      - 'packet'
+    summary: 'Implementation phase prompt that executes the plan and emits a DELIVERY_PACKET capturing what shipped and how it was verified.'

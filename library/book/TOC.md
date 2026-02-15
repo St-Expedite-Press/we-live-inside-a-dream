@@ -2,7 +2,7 @@
 title: "Prompt Ecosystem Book — Table of Contents"
 type: "toc"
 tags: ["book", "prompt-library"]
-created: "2026-02-14"
+created: "2026-02-15"
 ---
 
 # Table of Contents
@@ -19,6 +19,9 @@ created: "2026-02-14"
 ## Part IV — Extreme Combos (Production Platformization)
 
 [11. OMNI AGENT PLATFORM — Repo → Service → MCP → Agent Ecosystem](../prompts/implementation/omni_agent_platform.md). [12. Evidence-Driven Implementation — Smallest Correct Diff (Python/Rust gated)](../prompts/implementation/evidence_driven_implementation.md). [13. MCP Server Factory — Tool Suite Design + Implementation](../prompts/implementation/mcp_server_factory.md). [14. Prompt Library Composer — Component Extraction + Synthesis](../prompts/implementation/prompt_library_composer.md). [16. Service Industrializer — Exhaustive but Disciplined](../prompts/implementation/service_industrializer.md). (Order preserved.)
+## Part IX — Phased Product Pipeline (Exploratory → Planning → Implementation)
+
+[34. Objective → Product Phase Pipeline Router](../prompts/execution/objective_to_product_phase_pipeline.md). [35. Exploratory Phase - Objective Intake + Context Map (packetized)](../prompts/exploratory/objective_intake_and_context_map.md). [36. Planning Phase - Product Plan Compiler (packetized)](../prompts/planning/product_plan_compiler.md). [37. Implementation Phase - Product Build Executor (packetized)](../prompts/implementation/product_build_executor.md). (Order preserved.)
 ## Part V — Reliability, Ops, Security
 
 [17. Agent Testing & Eval Gauntlet](../prompts/execution/agent_testing_eval_gauntlet.md). [18. Security Threat Model — STRIDE/LINDDUN + Mitigations + Verification](../prompts/security/security_threat_model.md). [19. Migration & Rollout — Compatibility, Canary, Rollback](../prompts/migration/migration_and_rollout.md). [20. Incident Response + Postmortem](../prompts/incident_response/incident_response_and_postmortem.md). (Order preserved.)
@@ -27,7 +30,7 @@ created: "2026-02-14"
 [21. Chain Router + Runbook](../prompts/execution/chain_router_and_runbook.md). [22. Handoff Packet Generator](../prompts/execution/handoff_packet_generator.md). [23. Chain Execution Protocol](../prompts/execution/chain_execution_protocol.md). (Order preserved.)
 ## Part VII — Paths (Runnable Prompt Flows)
 
-[27. Paths - Runnable Prompt Flows](../paths/README.md). [28. Python Path - Image Restoration Pipeline](../paths/python/image_restoration_pipeline.md). [29. Rust Path - Image Restoration Pipeline](../paths/rust/image_restoration_pipeline.md). (Order preserved.)
+[27. Paths - Runnable Prompt Flows](../paths/README.md). [28. Python Path - Image Restoration Pipeline](../paths/python/image_restoration_pipeline.md). [29. Rust Path - Image Restoration Pipeline](../paths/rust/image_restoration_pipeline.md). [32. Path - Objective → Product (explore → plan → implement)](../paths/common/objective_to_product_pipeline.md). (Order preserved.)
 ## Part VIII — System Meta (Mental Models & Agent Specs)
 
-[30. Repository mental model (prompt compiler + governance)](../docs/repo_mental_model.md). [31. Agent spec (forensic repo architecture diagnostic)](../docs/agent_specs/repo_forensic_arch_diagnostic_agent_spec.md).
+[30. Repository mental model (prompt compiler + governance)](../docs/repo_mental_model.md). [31. Agent spec (forensic repo architecture diagnostic)](../docs/agent_specs/repo_forensic_arch_diagnostic_agent_spec.md). [33. Phase groups (exploratory → planning → implementation)](../docs/phase_groups.md). (Order preserved.)

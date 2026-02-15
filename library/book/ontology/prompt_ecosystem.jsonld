@@ -491,6 +491,102 @@
         "agent-spec"
       ],
       "summary": "Top-of-chat protocol for evidence-only repo diagnostics: execution model, artifacts, risks, scalability, and maturity scoring."
+    },
+    {
+      "id": "artifact:P-04",
+      "type": "Artifact",
+      "title": "Path - Objective \u2192 Product (explore \u2192 plan \u2192 implement)",
+      "kind": "other",
+      "part": "Part VII \u2014 Paths (Runnable Prompt Flows)",
+      "order": 32,
+      "sourcePath": "paths/common/objective_to_product_pipeline.md",
+      "tags": [
+        "paths",
+        "pipeline",
+        "phases",
+        "governance"
+      ],
+      "summary": "Runnable runbook for passing a defined user prompt through exploratory, planning, and implementation phases with packetized handoffs."
+    },
+    {
+      "id": "artifact:META-03",
+      "type": "Artifact",
+      "title": "Phase groups (exploratory \u2192 planning \u2192 implementation)",
+      "kind": "docs",
+      "part": "Part VIII \u2014 System Meta (Mental Models & Agent Specs)",
+      "order": 33,
+      "sourcePath": "docs/phase_groups.md",
+      "tags": [
+        "meta",
+        "phases",
+        "taxonomy",
+        "pipeline"
+      ],
+      "summary": "Defines the overlay phase taxonomy and maps existing prompts into a deterministic objective-to-product pipeline."
+    },
+    {
+      "id": "artifact:PH-01",
+      "type": "Artifact",
+      "title": "Objective \u2192 Product Phase Pipeline Router",
+      "kind": "prompt",
+      "part": "Part IX \u2014 Phased Product Pipeline (Exploratory \u2192 Planning \u2192 Implementation)",
+      "order": 34,
+      "sourcePath": "prompts/execution/objective_to_product_phase_pipeline.md",
+      "tags": [
+        "pipeline",
+        "router",
+        "phases",
+        "governance"
+      ],
+      "summary": "Routes a user prompt into a three-phase runbook with explicit packet handoffs and stop conditions."
+    },
+    {
+      "id": "artifact:PH-02",
+      "type": "Artifact",
+      "title": "Exploratory Phase - Objective Intake + Context Map (packetized)",
+      "kind": "prompt",
+      "part": "Part IX \u2014 Phased Product Pipeline (Exploratory \u2192 Planning \u2192 Implementation)",
+      "order": 35,
+      "sourcePath": "prompts/exploratory/objective_intake_and_context_map.md",
+      "tags": [
+        "phase-exploratory",
+        "intake",
+        "packet",
+        "governance"
+      ],
+      "summary": "Exploratory phase prompt that produces a context map and an EXPLORATION_PACKET for deterministic downstream planning."
+    },
+    {
+      "id": "artifact:PH-03",
+      "type": "Artifact",
+      "title": "Planning Phase - Product Plan Compiler (packetized)",
+      "kind": "prompt",
+      "part": "Part IX \u2014 Phased Product Pipeline (Exploratory \u2192 Planning \u2192 Implementation)",
+      "order": 36,
+      "sourcePath": "prompts/planning/product_plan_compiler.md",
+      "tags": [
+        "phase-planning",
+        "planning",
+        "packet",
+        "governance"
+      ],
+      "summary": "Planning phase prompt that compiles acceptance criteria, artifact contracts, and a PLAN_PACKET for deterministic implementation."
+    },
+    {
+      "id": "artifact:PH-04",
+      "type": "Artifact",
+      "title": "Implementation Phase - Product Build Executor (packetized)",
+      "kind": "prompt",
+      "part": "Part IX \u2014 Phased Product Pipeline (Exploratory \u2192 Planning \u2192 Implementation)",
+      "order": 37,
+      "sourcePath": "prompts/implementation/product_build_executor.md",
+      "tags": [
+        "phase-implementation",
+        "implementation",
+        "delivery",
+        "packet"
+      ],
+      "summary": "Implementation phase prompt that executes the plan and emits a DELIVERY_PACKET capturing what shipped and how it was verified."
     }
   ]
 }
