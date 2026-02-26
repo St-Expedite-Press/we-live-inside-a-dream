@@ -1,218 +1,236 @@
 # prompt-ecosystem-library
 
-This repository is a deterministic prompt-governance and compilation system.
+A deterministic prompt-governance and compilation repository.
 
-It is not a chatbot runtime, not an inference service, and not a UI application. It is a source-controlled prompt infrastructure layer that turns canonical prompt assets into inspectable, routable, machine-readable outputs.
+This repository defines, organizes, validates, and compiles prompt-chain assets.
+It is designed for teams building controlled prompt workflows that must be inspectable, reproducible, and evolvable.
 
-If you need one sentence:
+It is not:
 
-This repo is a build system for prompt chains.
+- a model-inference runtime
+- a hosted API
+- an agent execution engine
+- a chat product
 
-## Why This Exists
+It is:
 
-Prompt systems fail when they are managed as ad hoc chat snippets. Typical failures include:
+- a source-of-truth prompt graph
+- a routing and governance framework
+- a compiler for human and machine-readable prompt artifacts
 
-- unclear source of truth
-- prompt duplication and drift
-- inconsistent handoff structure
-- weak routing discipline
-- no deterministic artifact model
-- no audit trail for prompt changes
+---
 
-This repo solves those failures by defining:
+## 1. What This Repo Does
 
-- canonical prompt nodes (`library/graph/nodes/`)
-- deterministic graph workflows (`library/graph/workflows/`)
-- explicit routing rules (`library/graph/rules/`)
-- retention protocols (`library/graph/knowledge/`, `library/graph/protocols/`)
-- compiled and exported views (`library/book/` + ontology exports)
+At a high level, the repo converts canonical prompt assets into standardized outputs.
 
-## Fast Orientation
+Input layer:
 
-Open these in order:
+- prompt nodes (`library/graph/nodes/`)
+- workflows (`library/graph/workflows/`)
+- route rules (`library/graph/rules/`)
+- protocols (`library/graph/protocols/`)
+- registry metadata (`library/graph/registry/`)
 
-1. `library/graph/minimal_execution_surface.md`
-2. `library/graph/workflows/top_level_prompt_chain.md`
-3. `library/graph/rules/routing_ruleset.md`
-4. `library/graph/workflows/research_path.md`, `python_branch.md`, `rust_branch.md`
-5. `library/book/BOOK.md` (compiled navigation)
+Compilation layer:
 
-If you are extending internals, also read:
-
-- `library/graph/registry/artifacts_registry.json`
 - `library/book/_build_book.py`
-- `.github/workflows/graph_consistency.yml`
 
-## Core Mental Model
+Output layer:
 
-Treat prompts as source code.
+- `library/book/BOOK.md`
+- `library/book/TOC.md`
+- `library/book/CATALOG.md`
+- `library/book/ONTOLOGY.md`
+- `library/book/ontology/prompt_ecosystem.json`
+- `library/book/ontology/prompt_ecosystem.jsonld`
+- `library/book/ontology/prompt_ecosystem.yaml`
 
-- Nodes are source files.
-- Workflows are orchestration code.
-- Rules are route/classifier policy.
-- Book/ontology files are compiled outputs.
+The build output gives both human navigation and machine-consumable ontology metadata.
 
-The runtime for this repository is the build process itself. Model execution is downstream and out of scope.
+---
 
-## Repository Map
+## 2. Top-Level Architecture
 
 ```text
-library/
-  graph/
-    nodes/                 # canonical granular prompt nodes
-    workflows/             # example-agnostic top-level and branch workflows
-    rules/                 # primary classifier and overlay gates
-    protocols/             # shared behavioral protocols
-    knowledge/             # file-based knowledge retention artifacts/templates
-    registry/              # deterministic metadata source for artifacts
-    minimal_execution_surface.md
-  examples/
-    workflows/             # example-specific paths only
-  book/
-    _build_book.py         # compiler for book/catalog/ontology artifacts
-    BOOK.md
-    TOC.md
-    CATALOG.md
-    ONTOLOGY.md
-    ontology/
-      prompt_ecosystem.json
-      prompt_ecosystem.jsonld
-      prompt_ecosystem.yaml
-  tools/
-    validation/            # lint and consistency checks
-  docs/
-    agent_specs/
+User/Operator Prompt
+  -> Graph Entry Workflow
+  -> Rule-Based Classification
+  -> Primary Path Execution
+  -> Overlay Gate Evaluation
+  -> Handoff/Chain Governance
+  -> Project-Specific Prompt Package Outputs
+
+Canonical Sources
+  -> Build Compiler
+  -> Book + Catalog + Ontology Exports
 ```
 
-## Top-Level Prompt Chain (Application Contract)
+Core principle: deterministic prompt infrastructure.
 
-The application-facing chain is example-agnostic and strictly classifier-driven.
+Given the same source files and tooling, outputs should be stable and reproducible.
 
-Input:
+---
 
-- one raw prompt
+## 3. Canonical Prompt Chain Contract
 
-Primary classifier outputs (exactly one):
+The application-facing flow is in:
+
+- `library/graph/workflows/top_level_prompt_chain.md`
+
+Classifier outputs (exactly one primary path):
 
 - `research`
 - `python`
 - `rust`
 
-Overlay gates (cross-cutting, can wrap any primary path):
+Cross-cutting overlay gates (can wrap any primary path):
 
 - `incident_gate`
 - `security_gate`
 - `rollout_gate`
 
-Reference:
-
-- `library/graph/workflows/top_level_prompt_chain.md`
-
-Operational view:
+Operational view of same flow:
 
 - `library/graph/workflows/initial_prompt_graph_workflow.md`
 
-### High-Level Execution Graph
+Minimal required files for execution:
 
-```text
-raw user prompt
-  -> intake normalization
-  -> route classification (research|python|rust)
-  -> primary path runbook
-  -> apply overlay gates if triggered
-  -> iterative augmentation loop
-  -> emit project-specific prompt-chain package
-```
+- `library/graph/minimal_execution_surface.md`
 
-### Iterative Augmentation Loop
+---
 
-The system repeatedly specializes outputs for the specific project context:
+## 4. Directory-by-Directory Explanation
 
-1. clarify constraints and acceptance criteria
-2. inject evidence-derived project details
-3. refine downstream prompt packets
-4. validate against gates and non-goals
-5. record lessons and feed adjustments forward
+### `library/graph/`
 
-This loop terminates only when package outputs are executable without missing context.
+This is the canonical source layer.
 
-## Primary Paths
+- `nodes/`: atomic prompt building blocks
+- `workflows/`: route and orchestration documents
+- `rules/`: classifier policy and gate rules
+- `protocols/`: shared behavioral/output rules
+- `knowledge/`: file-based retention templates and lessons
+- `registry/`: deterministic artifact metadata
+- `minimal_execution_surface.md`: reduced execution surface for operators
 
-### Research Path
+### `library/examples/`
 
-Use when objective is synthesis/analysis and not immediate code mutation.
+Example-specific flows only.
+
+Purpose:
+
+- keep core graph example-agnostic
+- isolate demonstrations from primary production flow
+
+### `library/book/`
+
+Compiled view layer.
+
+- generated navigation and ontology artifacts
+- should not be treated as the source-of-truth authoring layer
+
+### `library/tools/validation/`
+
+Consistency and policy validators.
+
+### `library/docs/`
+
+Supporting design docs and agent specs.
+
+### `library/research/`
+
+Reference notes for prompt design patterns, not runtime execution code.
+
+---
+
+## 5. Key Files and Their Responsibilities
+
+### Graph execution and routing
+
+- `library/graph/workflows/top_level_prompt_chain.md`
+  - canonical classifier and augmentation flow
+
+- `library/graph/rules/routing_ruleset.md`
+  - deterministic route rules + overlay gate triggers
 
 - `library/graph/workflows/research_path.md`
-
-### Python Path
-
-Use when implementation target is Python.
+  - research-first execution path
 
 - `library/graph/workflows/python_branch.md`
-
-### Rust Path
-
-Use when implementation target is Rust.
+  - Python implementation branch
 
 - `library/graph/workflows/rust_branch.md`
+  - Rust implementation branch
 
-## Overlay Gates
-
-These are not primary classifier outcomes.
-
-- incident gate: `library/graph/nodes/incident_response/incident_response_and_postmortem.md`
-- security gate: `library/graph/nodes/security/security_threat_model.md`
-- rollout gate: `library/graph/nodes/migration/migration_and_rollout.md`
-
-## Governance Nodes
-
-Use these for deterministic chaining:
+### Governance nodes
 
 - `library/graph/nodes/execution/handoff_packet_generator.md`
+  - structured context handoff between steps
+
 - `library/graph/nodes/execution/chain_execution_protocol.md`
+  - chain-state discipline and gate handling
+
 - `library/graph/nodes/execution/chain_router_and_runbook.md`
+  - orchestration-level route/runbook generation prompt
 
-## Knowledge Retention (No Database)
-
-Retention is file-based, auditable, and versioned.
-
-Protocol:
+### Shared protocols
 
 - `library/graph/protocols/concreteness_and_retention_protocol.md`
-
-Storage:
-
-- run notes: `library/graph/knowledge/runs/`
-- lessons registry: `library/graph/knowledge/lessons_registry.md`
-- templates: `library/graph/knowledge/templates/`
-
-Hard constraint:
-
-- no DB, vector store, or hidden memory layer
-
-## Output Schema Contract
-
-Standard section schema is centralized in:
+  - required concreteness standard and no-database retention behavior
 
 - `library/graph/protocols/output_schema.md`
+  - standard output section contracts
 
-This reduces semantic drift across nodes and workflows.
+### Knowledge retention (file-based)
 
-## Build and Validation Pipeline
+- `library/graph/knowledge/templates/run_note_template.md`
+- `library/graph/knowledge/templates/lessons_entry_template.md`
+- `library/graph/knowledge/lessons_registry.md`
+- `library/graph/knowledge/runs/`
 
-### Build
+### Compiler and registry
+
+- `library/book/_build_book.py`
+  - reads canonical artifacts
+  - uses registry when present
+  - generates book/catalog/ontology outputs
+
+- `library/graph/registry/artifacts_registry.json`
+  - deterministic artifact list metadata
+
+- `library/graph/registry/frontmatter_schema.md`
+  - required prompt frontmatter contract
+
+---
+
+## 6. Exact Build Pipeline Behavior
+
+When you run the build:
+
+1. source artifacts are loaded from graph/registry + canonical files
+2. artifact list is ordered deterministically by `order`
+3. TOC, CATALOG, ONTOLOGY.md, BOOK.md are rendered
+4. ontology exports (JSON / JSON-LD / YAML) are emitted
+5. formatting post-processing runs for book artifacts
+
+Build command:
 
 ```bash
 python3 library/book/_build_book.py
 ```
 
-or:
+Equivalent entrypoint:
 
 ```bash
 python3 library/library.py build-book
 ```
 
-### Validation
+---
+
+## 7. Validation and CI
+
+Local validators:
 
 ```bash
 python3 library/tools/validation/lint_frontmatter.py
@@ -220,118 +238,222 @@ python3 library/tools/validation/lint_graph_names.py
 python3 library/tools/validation/detect_orphan_docs.py
 ```
 
-### Registry Sync (if needed)
+Registry sync utility:
 
 ```bash
 python3 library/tools/validation/sync_artifact_registry.py
 ```
-
-### CI
 
 CI workflow:
 
 - `.github/workflows/graph_consistency.yml`
 
-It enforces:
+CI enforces:
 
-- frontmatter lint
-- naming lint
-- orphan graph-doc detection
-- rebuild + deterministic diff check for `library/book`
+- frontmatter validity
+- naming consistency
+- orphan-graph-doc detection
+- deterministic book rebuild (diff must be clean)
 
-## Determinism Rules
+---
 
-Determinism in this repo means same inputs -> same outputs.
+## 8. How Routing Works in Practice
 
-Practically:
+Routing has two layers.
 
-- artifact order is explicit
-- source paths are stable
-- compiled views are regenerated from source
-- no hidden mutable state in the build
+Layer A: primary path classifier
 
-If a change requires manual output edits in `library/book` without source updates, that is considered process drift.
+- choose one of `research | python | rust`
 
-## Source of Truth Hierarchy
+Layer B: overlay gates
 
-1. canonical nodes/workflows/rules/protocols in `library/graph/`
-2. artifact registry in `library/graph/registry/artifacts_registry.json`
-3. generated views in `library/book/`
+- incident gate applies when active incidents/outages exist
+- security gate applies when trust boundary/secret/auth scope changes
+- rollout gate applies when release/migration/compatibility concerns exist
 
-Never treat `library/book/*` as independent canonical content.
+Overlay gates do not replace the primary path. They wrap or prepend required controls.
 
-## Example Policy
+---
 
-Core workflows are example-agnostic.
+## 9. How Knowledge Retention Works (and Why)
 
-Example-specific paths are isolated to:
+Retention is intentionally file-based.
 
-- `library/examples/workflows/`
+Mechanism:
 
-This keeps app-level routing clean while preserving reusable demos.
+1. each run creates a run note in `knowledge/runs/`
+2. reusable lessons are appended to `lessons_registry.md`
+3. subsequent runs read recent run notes + lessons
+4. plan adjusts via explicit `PLAN_ADJUSTMENTS_FROM_HISTORY`
 
-## Adding or Modifying Prompts Safely
+Why this design:
 
-Use this sequence:
+- auditable in git history
+- deterministic
+- no hidden state
+- no infrastructure dependency
 
-1. edit canonical files in `library/graph/nodes/` or `library/graph/workflows/`
-2. run validation tools
-3. rebuild book outputs
-4. verify deterministic diff behavior
-5. update registry/schema docs only if artifact contracts changed
+Hard rule:
 
-## Recommended Contribution Checklist
+- no database/vector-store retention in this repo
 
-Before pushing changes:
+---
 
-- [ ] all validation scripts pass
-- [ ] top-level flow remains `research|python|rust`
-- [ ] overlay gates are still overlays, not primary paths
-- [ ] no new example-specific logic leaked into core workflows
-- [ ] book outputs regenerated and consistent
-- [ ] retention protocol references remain intact in nodes
+## 10. Source-of-Truth Hierarchy
 
-## What This Repo Does Not Do
+Use this strict precedence:
 
-- execute prompts against model providers
-- store long-term runtime memory in databases
-- host an API server for inference
-- replace downstream agent runtime logic
+1. canonical graph assets (`library/graph/*`)
+2. registry metadata (`library/graph/registry/artifacts_registry.json`)
+3. compiled outputs (`library/book/*`)
 
-It prepares and governs the prompt infrastructure that downstream runtimes consume.
+If compiled artifacts diverge from canonical graph source, canonical graph source wins.
 
-## Glossary
+---
 
-- Node: canonical prompt file
-- Workflow: orchestrated sequence of nodes
-- Rule: classifier or gate policy
-- Overlay gate: cross-cutting gate applied on top of primary path
-- Package suite: project-specific chain output set ready for execution
-- Compiled artifacts: generated navigation/ontology files in `library/book/`
+## 11. How to Add New Prompt Capabilities Safely
 
-## Operator Commands (Copy/Paste)
+Recommended change sequence:
+
+1. create/modify canonical node/workflow/rule under `library/graph/`
+2. ensure frontmatter follows schema
+3. run validators
+4. rebuild book outputs
+5. inspect generated diffs
+6. update docs only where behavior changed
+
+Do not add example-specific behavior to core graph workflows.
+Place examples in `library/examples/workflows/`.
+
+---
+
+## 12. How to Evolve the Top-Level Chain
+
+If classifier logic changes:
+
+1. update `library/graph/rules/routing_ruleset.md`
+2. update `library/graph/workflows/top_level_prompt_chain.md`
+3. update `library/graph/workflows/initial_prompt_graph_workflow.md`
+4. update `library/graph/minimal_execution_surface.md`
+5. run validation + rebuild
+
+Keep primary classifier outputs explicit and minimal.
+
+---
+
+## 13. Agent Specs and Their Role
+
+Agent specs in `library/docs/agent_specs/` are operating instructions for prompt-driven agents.
+
+They define:
+
+- route/orchestration behavior
+- branch-specific execution behavior
+- security/rollout gate behaviors
+- self-improvement and retention instructions
+
+They are guidance assets that operate on the graph architecture, not independent runtime services.
+
+---
+
+## 14. Security and Safety Boundaries
+
+This repository should not:
+
+- store secrets in tracked files
+- embed credentials in compiled outputs
+- trigger destructive actions without explicit gate/approval semantics
+
+If secrets are exposed, rotate and revoke immediately.
+
+---
+
+## 15. Operational Commands
 
 ```bash
-# validate
+# 1) Validate
 python3 library/tools/validation/lint_frontmatter.py
 python3 library/tools/validation/lint_graph_names.py
 python3 library/tools/validation/detect_orphan_docs.py
 
-# build
+# 2) Build outputs
 python3 library/book/_build_book.py
 
-# optional: registry sync from ontology
+# 3) Optional registry sync helper
 python3 library/tools/validation/sync_artifact_registry.py
 ```
 
-## Minimal Entry Surface
+---
 
-If you only need to run the chain, start here and nowhere else:
+## 16. Troubleshooting
 
-- `library/graph/minimal_execution_surface.md`
+### Build outputs changed unexpectedly
 
-## Additional References
+- verify registry and canonical source edits
+- rerun validators
+- inspect artifact order and source path changes
 
-- Agent specs: `library/docs/agent_specs/`
-- Mental model: `library/docs/repo_mental_model.md`
-- Compiled ontology: `library/book/ONTOLOGY.md`
+### Route behavior feels ambiguous
+
+- check `routing_ruleset.md`
+- ensure objective includes explicit language/goal cues
+- enforce clarification route when under-specified
+
+### Prompt outputs are too vague
+
+- verify shared concreteness protocol is referenced
+- enforce `Action/Evidence/Output` bullet discipline
+
+---
+
+## 17. Determinism Guarantees and Limits
+
+Guaranteed by design:
+
+- stable artifact ordering
+- explicit source paths
+- explicit classifier rules
+- file-based retention policy
+
+Not guaranteed by this repo:
+
+- downstream model behavior
+- external tool runtime stability
+- cloud/network-dependent variability
+
+This repo governs prompt artifacts and chain structure. Execution variability downstream must be handled by consumer systems.
+
+---
+
+## 18. Minimal Start for New Operators
+
+If you are onboarding and want the shortest path:
+
+1. read `library/graph/minimal_execution_surface.md`
+2. run validators
+3. run build
+4. inspect `library/book/BOOK.md`
+
+Then branch into the relevant path (`research`, `python`, or `rust`).
+
+---
+
+## 19. Glossary
+
+- Node: atomic prompt asset
+- Workflow: orchestration sequence of nodes
+- Rule: deterministic classifier/gate condition
+- Overlay gate: cross-cutting governance stage
+- Registry: deterministic artifact metadata catalog
+- Compiled book: generated navigation and ontology outputs
+- Prompt package suite: project-specific output set after augmentation
+
+---
+
+## 20. Final Boundary Statement
+
+This repository is the prompt infrastructure control plane.
+
+It defines how prompts are authored, routed, constrained, retained, validated, and compiled.
+
+It does not execute model inference itself.
