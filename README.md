@@ -1,166 +1,337 @@
 # prompt-ecosystem-library
 
-This repository is a deterministic prompt compilation and governance system. It is not a chatbot, not a runtime service, and not an “app”. It is a compiler-like pipeline that consumes canonical prompt definitions and emits structured prompt infrastructure: a compiled book, a catalog, ontology exports, and (optionally) improvement artifacts. If you want a single sentence that is operationally correct, use this one.
+This repository is a deterministic prompt-governance and compilation system.
 
-It is a build system for prompts.
+It is not a chatbot runtime, not an inference service, and not a UI application. It is a source-controlled prompt infrastructure layer that turns canonical prompt assets into inspectable, routable, machine-readable outputs.
 
-The intent is to eliminate “prompt chaos” by turning prompts into governed, versioned assets with explicit structure, stable routing and chaining semantics, and predictable artifact outputs that downstream agents and services can consume without re-inventing prompt organization on every project.
+If you need one sentence:
 
-## Start here (minimal navigation to get oriented)
+This repo is a build system for prompt chains.
 
-The fastest orientation path is to read the compiled navigation layer, then jump into the canonical prompts.
+## Why This Exists
 
-| What you want | Open this |
-|---|---|
-| Book view of the entire library (TOC, catalog links, parts) | `library/book/BOOK.md` |
-| Table of contents only (quick scan) | `library/book/TOC.md` |
-| Catalog (table-form index of every artifact) | `library/book/CATALOG.md` |
-| Ontology overview (human-readable) | `library/book/ONTOLOGY.md` |
-| Canonical prompt source of truth | `library/graph/nodes/` |
-| Mental model and boundary definition (what the repo is and is not) | `library/docs/repo_mental_model.md` |
-| Forensic audit agent spec (evidence-only repo diagnostics protocol) | `library/docs/agent_specs/repo_forensic_arch_diagnostic_agent_spec.md` |
+Prompt systems fail when they are managed as ad hoc chat snippets. Typical failures include:
 
-## The simplest correct mental model
+- unclear source of truth
+- prompt duplication and drift
+- inconsistent handoff structure
+- weak routing discipline
+- no deterministic artifact model
+- no audit trail for prompt changes
 
-Prompts are treated as source code. This repo is the compiler, linker, and indexer for that source code.
+This repo solves those failures by defining:
 
-Inputs are canonical Markdown prompt files under `library/graph/nodes/` plus a curated artifact registry inside the book builder. The build transforms that source into navigation outputs (book, TOC, catalog) and machine-readable exports (ontology JSON, JSON-LD, YAML) under `library/book/ontology/`.
+- canonical prompt nodes (`library/graph/nodes/`)
+- deterministic graph workflows (`library/graph/workflows/`)
+- explicit routing rules (`library/graph/rules/`)
+- retention protocols (`library/graph/knowledge/`, `library/graph/protocols/`)
+- compiled and exported views (`library/book/` + ontology exports)
 
-Nothing runs automatically. You invoke a command, the pipeline reads inputs, generates artifacts, and exits. The “runtime” here is the build, not model inference.
+## Fast Orientation
 
-## Repository structure (what exists and why)
+Open these in order:
 
-The library is intentionally split into canonical sources, compiled outputs, and tooling. The split prevents “shadow sources of truth” and makes it obvious which files are meant to be edited by humans and which files are meant to be emitted by the build.
+1. `library/graph/minimal_execution_surface.md`
+2. `library/graph/workflows/top_level_prompt_chain.md`
+3. `library/graph/rules/routing_ruleset.md`
+4. `library/graph/workflows/research_path.md`, `python_branch.md`, `rust_branch.md`
+5. `library/book/BOOK.md` (compiled navigation)
 
-| Location | Purpose | How to treat it |
-|---|---|---|
-| `library/graph/nodes/` | Canonical prompt source of truth, organized by domain | Hand-edit these as the primary assets |
-| `library/book/` | Compiled navigation view (TOC, catalog, book) and human-readable ontology summary | Treat as build artifacts, regenerate as needed |
-| `library/book/ontology/` | Machine-readable exports (JSON, JSON-LD, YAML) | Treat as build artifacts, consume downstream |
-| `library/tools/` | Build and maintenance tools, including improvement generators and format normalizers | Run these from CLI, keep deterministic |
-| `library/docs/` | Human docs about the system itself, including mental models and agent specs | Hand-edit, keep consistent with behavior |
-| `library/research/` | Context engineering notes and patterns to guide prompt design | Hand-edit, treat as reference corpus |
-| `library/graph/workflows/` | Runnable prompt flows (runbooks) that route decisions into concrete step plans | Hand-edit, treat as operational playbooks |
+If you are extending internals, also read:
 
-## What you get after a build (outputs that matter)
+- `library/graph/registry/artifacts_registry.json`
+- `library/book/_build_book.py`
+- `.github/workflows/graph_consistency.yml`
 
-The build emits a navigable representation of the library. The point is not aesthetic documentation, it is controlled discoverability and governance: a predictable place to look up “the prompt we consider canonical for this objective”, plus structured exports that allow programmatic routing.
+## Core Mental Model
 
-| Output | Where it lives | What it is for |
-|---|---|---|
-| Book index | `library/book/BOOK.md` | Human navigation, organized into parts with chapter links |
-| Table of contents | `library/book/TOC.md` | Fast scan and jumping-off point |
-| Catalog | `library/book/CATALOG.md` | One-table index of everything included in the compiled book |
-| Ontology (human) | `library/book/ONTOLOGY.md` | The vocabulary: artifacts, tags, relationships, composition semantics |
-| Ontology exports | `library/book/ontology/prompt_ecosystem.json` and siblings | Machine consumption, indexing, routing, metadata tooling |
-| Improvement artifacts (optional) | `library/improvements/` | Analyses and improved variants generated from canonical prompts |
+Treat prompts as source code.
 
-## The execution model (what actually happens when you run it)
+- Nodes are source files.
+- Workflows are orchestration code.
+- Rules are route/classifier policy.
+- Book/ontology files are compiled outputs.
 
-The build is CLI-driven and deterministic by intent. The conceptual flow is shown here as a simple graph.
+The runtime for this repository is the build process itself. Model execution is downstream and out of scope.
+
+## Repository Map
 
 ```text
-Operator or agent
-  |
-  v
-library/library.py (CLI entrypoint)
-  |
-  +--> build-book
-  |      |
-  |      v
-  |  library/book/_build_book.py
-  |      |
-  |      v
-  |  reads canonical prompt sources
-  |      |
-  |      v
-  |  writes book artifacts and ontology exports
-  |
-  +--> improve
-         |
-         v
-     library/tools/context_engineering/generate_prompt_improvements.py
-         |
-         v
-     writes analyses and improved variants under library/improvements/
+library/
+  graph/
+    nodes/                 # canonical granular prompt nodes
+    workflows/             # example-agnostic top-level and branch workflows
+    rules/                 # primary classifier and overlay gates
+    protocols/             # shared behavioral protocols
+    knowledge/             # file-based knowledge retention artifacts/templates
+    registry/              # deterministic metadata source for artifacts
+    minimal_execution_surface.md
+  examples/
+    workflows/             # example-specific paths only
+  book/
+    _build_book.py         # compiler for book/catalog/ontology artifacts
+    BOOK.md
+    TOC.md
+    CATALOG.md
+    ONTOLOGY.md
+    ontology/
+      prompt_ecosystem.json
+      prompt_ecosystem.jsonld
+      prompt_ecosystem.yaml
+  tools/
+    validation/            # lint and consistency checks
+  docs/
+    agent_specs/
 ```
 
-This repo intentionally stops here. Prompt execution against a model is a downstream responsibility. The contract this repo offers is structured prompt infrastructure, not inference.
+## Top-Level Prompt Chain (Application Contract)
 
-## What makes this “serious-mode” prompting infrastructure
+The application-facing chain is example-agnostic and strictly classifier-driven.
 
-The library is built around a small set of operational commitments. These are not slogans; they are behavioral constraints that make chained prompting usable in real engineering workflows.
+Input:
 
-Deterministic constraints are preferred over “be helpful” vibes. Prompts are written to force explicit inputs, explicit outputs, explicit stop conditions, and explicit acceptance criteria. When chaining prompts, the system pushes you toward stable state objects and stable artifact naming so that intermediate work is inspectable and the chain can recover from failure without hallucinating missing context.
+- one raw prompt
 
-Artifacts are preferred over conversational fog. Prompts in this library generally aim to produce files, runbooks, schemas, command sequences, decision records, and verification steps that can be diffed, reviewed, and audited. When a prompt is forced to choose between being inspirational and being inspectable, it should be inspectable.
+Primary classifier outputs (exactly one):
 
-Governance is preferred over accidental composition. Multi-prompt chains can fail silently by drifting scope, re-interpreting objectives, or inventing constraints. The orchestration prompts exist to pin down state, approvals, and invariants so the chain remains controlled.
+- `research`
+- `python`
+- `rust`
 
-## Canonical prompt domains (how prompts are organized)
+Overlay gates (cross-cutting, can wrap any primary path):
 
-The directory structure under `library/graph/nodes/` is a practical taxonomy. It is not meant to be academically perfect. It is meant to answer the question “which prompt do I use next” in a way that produces correct execution under pressure.
+- `incident_gate`
+- `security_gate`
+- `rollout_gate`
 
-| Domain | When to use it | Typical deliverables |
-|---|---|---|
-| `discovery/` | When the codebase or domain is unknown | Repo maps, entrypoints, hypotheses and validation plans, smallest-diff change plans |
-| `implementation/` | When you need to ship changes with discipline | Work plans, diffs, test plans, safe refactors, tool design (including tooling workflow) |
-| `execution/` | When you must route objectives and govern chains | Routers, runbooks, chain state schemas, stop conditions, handoff packets |
-| `security/` | When correctness includes adversaries and failure | Threat models, mitigations, verification plans, secrets hygiene guidance |
-| `migration/` | When changes must be staged safely | Compatibility strategy, rollout, canary, rollback, validation checklists |
-| `incident_response/` | When production is on fire | Triage, stabilization, root cause, postmortem, prevention backlog |
-| `misc/` | When you need cross-cutting house style and doctrine | Language house styles, notebook discipline, anti-bloat rules |
+Reference:
 
-## Fast operational entrypoints (which prompt to run first)
+- `library/graph/workflows/top_level_prompt_chain.md`
 
-If the objective is “understand an unknown repo, form a plan, and make the smallest correct change”, start with `library/graph/nodes/discovery/repo_discovery_massive_prompt.md`. If the objective is “route a big task into a disciplined multi-prompt chain”, start with `library/graph/nodes/execution/chain_router_and_runbook.md` and then enforce chain invariants with `library/graph/nodes/execution/chain_execution_protocol.md`. If the objective is “evaluate and control security risk while building”, start with `library/graph/nodes/security/security_threat_model.md` early rather than late.
+Operational view:
 
-For the next leap in this repo, the objective-to-product phase pipeline shows how to take a defined user prompt, pass it through exploratory and planning compilation steps, and then execute implementation with explicit packetized handoffs. For a concrete example of decision-gated flows, the image restoration pipeline router and builders show how the library expresses branching logic and stop conditions in a way that remains auditable.
+- `library/graph/workflows/initial_prompt_graph_workflow.md`
 
-| Objective | Router or runbook | Builder prompt(s) |
-|---|---|---|
-| Objective → product (explore → plan → implement) | `library/graph/workflows/objective_to_product_pipeline.md` and `library/graph/nodes/execution/objective_to_product_phase_pipeline.md` | `library/graph/nodes/exploratory/objective_intake_and_context_map.md`, `library/graph/nodes/planning/product_plan_compiler.md`, `library/graph/nodes/implementation/product_build_executor.md` |
-| Image restoration pipeline with decision gates | `library/graph/nodes/execution/image_restoration_pipeline_router.md` | `library/graph/nodes/implementation/image_restoration_pipeline_builder_python.md` and `library/graph/nodes/implementation/image_restoration_pipeline_builder_rust.md` |
+### High-Level Execution Graph
 
-Language branch workflows:
-`library/graph/workflows/python_branch.md`. `library/graph/workflows/rust_branch.md`. (Order preserved.)
+```text
+raw user prompt
+  -> intake normalization
+  -> route classification (research|python|rust)
+  -> primary path runbook
+  -> apply overlay gates if triggered
+  -> iterative augmentation loop
+  -> emit project-specific prompt-chain package
+```
 
-## How to use this repository in practice (a workflow that stays deterministic)
+### Iterative Augmentation Loop
 
-Treat a canonical prompt as a top-of-chat “instruction header” for a working session. The early questions in most prompts are there to establish invariants: objective, constraints, acceptance criteria, environment, and stop conditions. If those invariants are not provided, later phases become underdetermined and the chain becomes vulnerable to scope leakage.
+The system repeatedly specializes outputs for the specific project context:
 
-When you need multiple prompts, use routing and governance prompts rather than ad-hoc “now do the next thing” handoffs. The governance layer exists to ensure that each phase produces explicit artifacts and that approvals are requested before destructive operations.
+1. clarify constraints and acceptance criteria
+2. inject evidence-derived project details
+3. refine downstream prompt packets
+4. validate against gates and non-goals
+5. record lessons and feed adjustments forward
 
-When you modify this library, prefer changing canonical prompts and then regenerating the book. Treat the book and ontology outputs as compiled views of canonical source, not as independent canonical content.
+This loop terminates only when package outputs are executable without missing context.
 
-## Commands (the only way anything “runs”)
+## Primary Paths
 
-All primary operations are CLI-invoked. The following table is the minimal operational surface you need to remember.
+### Research Path
 
-| Task | Command |
-|---|---|
-| Rebuild book, TOC, catalog, ontology exports | `python library/book/_build_book.py` |
-| Same rebuild via the library CLI entrypoint | `python library/library.py build-book` |
-| Generate improvement artifacts (dry-run suggested first) | `python library/library.py improve -- --dry-run` |
+Use when objective is synthesis/analysis and not immediate code mutation.
 
-## Determinism and reproducibility (what “deterministic” means here)
+- `library/graph/workflows/research_path.md`
 
-The repo aims to produce stable outputs given stable inputs. That includes stable ordering, stable artifact identifiers, stable source links, and stable export structures. Where nondeterminism can sneak in, it is treated as a bug rather than as a “nice-to-have improvement”. Examples of nondeterminism that this system is designed to avoid include filesystem traversal order differences across platforms, timestamp injection into artifacts without clear contracts, and output generation that depends on locale-specific encoding behavior.
+### Python Path
 
-In practice, determinism is enforced through explicit artifact ordering in the book builder and through predictable source paths. When you add a new canonical prompt that must be visible in the compiled book, you do not rely on directory listing order; you add the artifact intentionally and verify the resulting catalog and ontology exports.
+Use when implementation target is Python.
 
-## Governance and safety boundaries (what this repo will and will not do)
+- `library/graph/workflows/python_branch.md`
 
-This repository prepares prompts for use elsewhere. It does not make provider calls. It does not embed API keys into outputs. It should never commit secrets. Files like `.env` must remain untracked and must be treated as local-only configuration. If secrets are ever found in version history, treat that as an incident requiring revocation and rotation rather than as “cleanup work”.
+### Rust Path
 
-This governance stance extends to prompt design. Prompts that are intended to change code or infrastructure should include explicit mutation boundaries, explicit “stop and ask for approval” gates, and explicit verification steps so that a chain cannot accidentally drift into destructive behavior.
+Use when implementation target is Rust.
 
-## Contribution model (how to evolve the library without breaking it)
+- `library/graph/workflows/rust_branch.md`
 
-The library is meant to be extended continuously. The healthy pattern is to add or revise canonical prompts under `library/graph/nodes/`, add or revise relevant docs under `library/docs/` when behavior changes, then rebuild the compiled book outputs. When adding new prompts, prefer explicit frontmatter metadata and stable naming. When adding new flows under `library/graph/workflows/`, prefer decision points with explicit criteria and explicit output artifacts so that downstream use remains inspectable.
+## Overlay Gates
 
-If you want a structured protocol for diagnosing and industrializing an unfamiliar repository, use the forensic audit agent spec as a top-of-chat instruction and require evidence-backed claims. That spec exists to prevent “architecture vibes” and replace them with a concrete execution model and a concrete risk register tied to observed code paths.
+These are not primary classifier outcomes.
 
-## If you are trying to production-harden this repo (what to improve next)
+- incident gate: `library/graph/nodes/incident_response/incident_response_and_postmortem.md`
+- security gate: `library/graph/nodes/security/security_threat_model.md`
+- rollout gate: `library/graph/nodes/migration/migration_and_rollout.md`
 
-The current design already has the core shape of a production-grade prompt infrastructure layer: canonical sources, compiled navigation outputs, and machine-readable exports. The next steps, if you want to raise maturity, are the same steps you would take for any build system: add CI checks that enforce determinism and forbid secrets, add smoke tests that verify build outputs exist and are stable, add explicit versioning for ontology schemas, and document the artifact contract so downstream consumers can rely on it safely.
+## Governance Nodes
+
+Use these for deterministic chaining:
+
+- `library/graph/nodes/execution/handoff_packet_generator.md`
+- `library/graph/nodes/execution/chain_execution_protocol.md`
+- `library/graph/nodes/execution/chain_router_and_runbook.md`
+
+## Knowledge Retention (No Database)
+
+Retention is file-based, auditable, and versioned.
+
+Protocol:
+
+- `library/graph/protocols/concreteness_and_retention_protocol.md`
+
+Storage:
+
+- run notes: `library/graph/knowledge/runs/`
+- lessons registry: `library/graph/knowledge/lessons_registry.md`
+- templates: `library/graph/knowledge/templates/`
+
+Hard constraint:
+
+- no DB, vector store, or hidden memory layer
+
+## Output Schema Contract
+
+Standard section schema is centralized in:
+
+- `library/graph/protocols/output_schema.md`
+
+This reduces semantic drift across nodes and workflows.
+
+## Build and Validation Pipeline
+
+### Build
+
+```bash
+python3 library/book/_build_book.py
+```
+
+or:
+
+```bash
+python3 library/library.py build-book
+```
+
+### Validation
+
+```bash
+python3 library/tools/validation/lint_frontmatter.py
+python3 library/tools/validation/lint_graph_names.py
+python3 library/tools/validation/detect_orphan_docs.py
+```
+
+### Registry Sync (if needed)
+
+```bash
+python3 library/tools/validation/sync_artifact_registry.py
+```
+
+### CI
+
+CI workflow:
+
+- `.github/workflows/graph_consistency.yml`
+
+It enforces:
+
+- frontmatter lint
+- naming lint
+- orphan graph-doc detection
+- rebuild + deterministic diff check for `library/book`
+
+## Determinism Rules
+
+Determinism in this repo means same inputs -> same outputs.
+
+Practically:
+
+- artifact order is explicit
+- source paths are stable
+- compiled views are regenerated from source
+- no hidden mutable state in the build
+
+If a change requires manual output edits in `library/book` without source updates, that is considered process drift.
+
+## Source of Truth Hierarchy
+
+1. canonical nodes/workflows/rules/protocols in `library/graph/`
+2. artifact registry in `library/graph/registry/artifacts_registry.json`
+3. generated views in `library/book/`
+
+Never treat `library/book/*` as independent canonical content.
+
+## Example Policy
+
+Core workflows are example-agnostic.
+
+Example-specific paths are isolated to:
+
+- `library/examples/workflows/`
+
+This keeps app-level routing clean while preserving reusable demos.
+
+## Adding or Modifying Prompts Safely
+
+Use this sequence:
+
+1. edit canonical files in `library/graph/nodes/` or `library/graph/workflows/`
+2. run validation tools
+3. rebuild book outputs
+4. verify deterministic diff behavior
+5. update registry/schema docs only if artifact contracts changed
+
+## Recommended Contribution Checklist
+
+Before pushing changes:
+
+- [ ] all validation scripts pass
+- [ ] top-level flow remains `research|python|rust`
+- [ ] overlay gates are still overlays, not primary paths
+- [ ] no new example-specific logic leaked into core workflows
+- [ ] book outputs regenerated and consistent
+- [ ] retention protocol references remain intact in nodes
+
+## What This Repo Does Not Do
+
+- execute prompts against model providers
+- store long-term runtime memory in databases
+- host an API server for inference
+- replace downstream agent runtime logic
+
+It prepares and governs the prompt infrastructure that downstream runtimes consume.
+
+## Glossary
+
+- Node: canonical prompt file
+- Workflow: orchestrated sequence of nodes
+- Rule: classifier or gate policy
+- Overlay gate: cross-cutting gate applied on top of primary path
+- Package suite: project-specific chain output set ready for execution
+- Compiled artifacts: generated navigation/ontology files in `library/book/`
+
+## Operator Commands (Copy/Paste)
+
+```bash
+# validate
+python3 library/tools/validation/lint_frontmatter.py
+python3 library/tools/validation/lint_graph_names.py
+python3 library/tools/validation/detect_orphan_docs.py
+
+# build
+python3 library/book/_build_book.py
+
+# optional: registry sync from ontology
+python3 library/tools/validation/sync_artifact_registry.py
+```
+
+## Minimal Entry Surface
+
+If you only need to run the chain, start here and nowhere else:
+
+- `library/graph/minimal_execution_surface.md`
+
+## Additional References
+
+- Agent specs: `library/docs/agent_specs/`
+- Mental model: `library/docs/repo_mental_model.md`
+- Compiled ontology: `library/book/ONTOLOGY.md`
