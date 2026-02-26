@@ -101,7 +101,7 @@ artifacts:
     tags:
       - 'repo-analysis'
       - 'service-transformation'
-      - 'mcp'
+      - 'tooling-workflow'
       - 'knowledge-graph'
     summary: 'Forensic, architectural, operational, semantic analysis producing a devtools corpus for industrializing a repo.'
   - id: 'M-01'
@@ -116,7 +116,7 @@ artifacts:
       - 'constraints'
     summary: 'Metadata vector + constraint matrix → hyperspecific reconstruction prompt for conservation-grade restoration.'
   - id: 'EC-01'
-    title: 'OMNI AGENT PLATFORM — Repo → Service → MCP → Agent Ecosystem'
+    title: 'OMNI AGENT PLATFORM — Repo → Service → tooling workflow → Agent Ecosystem'
     kind: 'prompt'
     part: 'Part IV — Extreme Combos (Production Platformization)'
     order: 11
@@ -127,7 +127,7 @@ artifacts:
       - 'workflow'
       - 'agent-systems'
       - 'knowledge-graph'
-    summary: 'Mega-combo prompt: repo forensics → service design → MCP tooling → agent orchestration → KG → hardening.'
+    summary: 'Mega-combo prompt: repo forensics → service design → tool interfacesing → agent orchestration → KG → hardening.'
   - id: 'EC-02'
     title: 'Evidence-Driven Implementation — Smallest Correct Diff (Python/Rust gated)'
     kind: 'prompt'

@@ -145,7 +145,7 @@
       "tags": [
         "repo-analysis",
         "service-transformation",
-        "mcp",
+        "tooling-workflow",
         "knowledge-graph"
       ],
       "summary": "Forensic, architectural, operational, semantic analysis producing a devtools corpus for industrializing a repo."
@@ -168,7 +168,7 @@
     {
       "id": "artifact:EC-01",
       "type": "Artifact",
-      "title": "OMNI AGENT PLATFORM \u2014 Repo \u2192 Service \u2192 MCP \u2192 Agent Ecosystem",
+      "title": "OMNI AGENT PLATFORM \u2014 Repo \u2192 Service \u2192 tooling workflow \u2192 Agent Ecosystem",
       "kind": "prompt",
       "part": "Part IV \u2014 Extreme Combos (Production Platformization)",
       "order": 11,
@@ -180,7 +180,7 @@
         "agent-systems",
         "knowledge-graph"
       ],
-      "summary": "Mega-combo prompt: repo forensics \u2192 service design \u2192 MCP tooling \u2192 agent orchestration \u2192 KG \u2192 hardening."
+      "summary": "Mega-combo prompt: repo forensics \u2192 service design \u2192 tool interfacesing \u2192 agent orchestration \u2192 KG \u2192 hardening."
     },
     {
       "id": "artifact:EC-02",

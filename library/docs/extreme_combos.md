@@ -12,15 +12,15 @@ This doc indexes **intentionally overbuilt, extremely verbose** prompts that **c
 **Agent Architect** style phased design (`graph/nodes/implementation/agent_architect_10_phase_agent_systems_blueprint.md`). **Repo Discovery** evidence-first workflow (`graph/nodes/discovery/repo_discovery_massive_prompt.md`). **Rust / Python House Style** constraints (`graph/nodes/discovery/rust_repo_discovery_engineer.md`, `graph/nodes/discovery/python_repo_discovery_engineer.md`, and the docs in `graph/nodes/misc/`). **Terrifyingly exhaustive service industrialization** doc-corpus output (`graph/nodes/discovery/explore_repo.md`). **Multimodal restoration** constraint-matrix workflow (`graph/nodes/implementation/restore_simple_openai.md`). (Order preserved.)
 These are “kitchen-sink” prompts meant for:
 
-writing a complete engineering plan + implementation + test + rollout pack. turning repos into services, tools, and MCP ecosystems. generating structured documentation corpora. building evaluation harnesses and reliability loops. creating multimodal pipelines (image restoration → code → reproducible notebook). (Order preserved.)
+writing a complete engineering plan + implementation + test + rollout pack. turning repos into services, tools, and tooling workflow ecosystems. generating structured documentation corpora. building evaluation harnesses and reliability loops. creating multimodal pipelines (image restoration → code → reproducible notebook). (Order preserved.)
 ## Files
 
 1. **omni_agent_platform.md** (canonical: `graph/nodes/implementation/omni_agent_platform.md`)
-The biggest combo: repo forensics → service transformation → agent/tool design → MCP tooling → knowledge graph → production deployment.
+The biggest combo: repo forensics → service transformation → agent/tool design → tool interfacesing → knowledge graph → production deployment.
 2. **evidence_driven_implementation.md** (canonical: `graph/nodes/implementation/evidence_driven_implementation.md`)
 “Smallest correct diff” execution prompt with explicit evidence/hypothesis loops, plus language-specific house-style gates (Python/Rust).
 3. **prompt_decision_workflow.md** (canonical: `graph/nodes/implementation/prompt_decision_workflow.md`)
-Builds an MCP server/tool suite around a repo or capability with strict schema discipline, safety, and testing.
+Builds an tooling workflow server/tool suite around a repo or capability with strict schema discipline, safety, and testing.
 4. **prompt_library_composer.md** (canonical: `graph/nodes/implementation/prompt_library_composer.md`)
 A meta-prompt for **extracting components** from existing prompts and generating new prompts in the same “house style”.
 5. **multimodal_restoration_pipeline.md** (canonical: `graph/nodes/implementation/multimodal_restoration_pipeline.md`)

@@ -104,7 +104,7 @@ The directory structure under `library/graph/nodes/` is a practical taxonomy. It
 | Domain | When to use it | Typical deliverables |
 |---|---|---|
 | `discovery/` | When the codebase or domain is unknown | Repo maps, entrypoints, hypotheses and validation plans, smallest-diff change plans |
-| `implementation/` | When you need to ship changes with discipline | Work plans, diffs, test plans, safe refactors, tool design (including MCP) |
+| `implementation/` | When you need to ship changes with discipline | Work plans, diffs, test plans, safe refactors, tool design (including tooling workflow) |
 | `execution/` | When you must route objectives and govern chains | Routers, runbooks, chain state schemas, stop conditions, handoff packets |
 | `security/` | When correctness includes adversaries and failure | Threat models, mitigations, verification plans, secrets hygiene guidance |
 | `migration/` | When changes must be staged safely | Compatibility strategy, rollout, canary, rollback, validation checklists |

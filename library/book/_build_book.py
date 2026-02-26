@@ -524,7 +524,7 @@ def build() -> None:
             part="Part II — Core Discovery & Implementation",
             order=9,
             summary="Forensic, architectural, operational, semantic analysis producing a devtools corpus for industrializing a repo.",
-            tags=("repo-analysis", "service-transformation", "mcp", "knowledge-graph"),
+            tags=("repo-analysis", "service-transformation", "tooling-workflow", "knowledge-graph"),
         ),
         Artifact(
             id="M-01",
@@ -570,11 +570,11 @@ def build() -> None:
         Artifact(
             id="EC-01",
             source_path="graph/nodes/implementation/omni_agent_platform.md",
-            title="OMNI AGENT PLATFORM — Repo → Service → MCP → Agent Ecosystem",
+            title="OMNI AGENT PLATFORM — Repo → Service → tooling workflow → Agent Ecosystem",
             kind="prompt",
             part="Part IV — Extreme Combos (Production Platformization)",
             order=11,
-            summary="Mega-combo prompt: repo forensics → service design → MCP tooling → agent orchestration → KG → hardening.",
+            summary="Mega-combo prompt: repo forensics → service design → tool interfacesing → agent orchestration → KG → hardening.",
             tags=("combo", "repo-analysis", "workflow", "agent-systems", "knowledge-graph"),
         ),
         Artifact(

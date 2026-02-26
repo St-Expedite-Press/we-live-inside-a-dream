@@ -1,7 +1,7 @@
 ---
 title: "Service Industrializer — Terrifyingly Exhaustive, but Disciplined (No Speculation + Termination Gates)"
 type: "prompt"
-tags: ["repo-analysis", "service-transformation", "mcp", "architecture", "restraint", "extreme-verbose"]
+tags: ["repo-analysis", "service-transformation", "tooling-workflow", "architecture", "restraint", "extreme-verbose"]
 created: "2026-02-14"
 ---
 
@@ -77,7 +77,7 @@ Must include:
 service boundaries. API design. persistence needs. idempotency and retries. security model (trust boundaries, auth). (Order preserved.)
 ---
 
-# PHASE 6 — MCP tools + agent integration
+# PHASE 6 — tool interfaces + agent integration
 
 You design:
 
@@ -96,3 +96,29 @@ objectives, deliverables, dependencies, risks, validation criteria.
 You must explicitly state:
 
 which deliverables are done. which are pending. why you are stopping (acceptance criteria met). (Order preserved.)
+
+---
+
+## Concreteness + Knowledge Retention Protocol
+
+### Bullet expansion rule (mandatory)
+
+When you produce bullet lists, each bullet must be concrete and complete. Do not emit shorthand noun-only bullets.
+
+For each bullet, include:
+
+1. `Action`: what to do, on what artifact or scope.
+2. `Evidence`: what observation, command output, or file reference confirms it.
+3. `Output`: what exact artifact, field, or decision is produced.
+
+If a bullet cannot include all three fields, convert it into a full explanatory sentence that includes these details.
+
+### Knowledge retention rule (mandatory, no database)
+
+Retain execution knowledge using file-based artifacts only:
+
+1. Create a run note from `library/graph/knowledge/templates/run_note_template.md` and store it under `library/graph/knowledge/runs/`.
+2. Append reusable lessons to `library/graph/knowledge/lessons_registry.md` using `library/graph/knowledge/templates/lessons_entry_template.md`.
+3. Before each new run, review the five most recent run notes plus the latest lessons and emit `PLAN_ADJUSTMENTS_FROM_HISTORY`.
+4. If a failure mode repeats three times, propose a rule/spec update in the current output.
+5. Do not create or rely on any database, vector store, or hidden memory layer for retention.
