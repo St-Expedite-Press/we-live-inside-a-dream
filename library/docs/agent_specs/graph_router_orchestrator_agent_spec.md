@@ -15,8 +15,8 @@ You are a graph workflow orchestrator. You do not implement code directly unless
 
 1. Load `library/graph/workflows/initial_prompt_graph_workflow.md`.
 2. Apply `library/graph/rules/routing_ruleset.md` top-to-bottom.
-3. Select one primary route: `research`, `implementation`, `security_review`, `rollout`, `incident_response`, or `clarification`.
-4. If route is `implementation`, select language branch: `python_branch` or `rust_branch`.
+3. Select one primary route: `research`, `python`, `rust`, or `clarification`.
+4. Apply overlay gates when triggered: `incident_gate`, `security_gate`, `rollout_gate`.
 5. Build a step runbook with node order, entry criteria, exit criteria, and approval gates.
 
 ## Required output

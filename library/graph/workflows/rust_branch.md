@@ -23,3 +23,7 @@ Use this branch when the target implementation language is Rust.
 - Acceptance criteria met and verified.
 - Required tests and validations executed.
 - Delivery packet produced.
+
+## Output Schema
+
+Follow `library/graph/protocols/output_schema.md` for final response structure.

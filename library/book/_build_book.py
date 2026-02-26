@@ -433,6 +433,28 @@ def _yaml_escape(s: str) -> str:
     return s.replace("'", "''")
 
 
+def _load_registry_artifacts() -> list[Artifact] | None:
+    registry_path = LIBRARY_ROOT / "graph" / "registry" / "artifacts_registry.json"
+    if not registry_path.exists():
+        return None
+    data = json.loads(registry_path.read_text(encoding="utf-8"))
+    artifacts: list[Artifact] = []
+    for item in data.get("artifacts", []):
+        artifacts.append(
+            Artifact(
+                id=item["id"],
+                source_path=item["source_path"],
+                title=item["title"],
+                kind=item["kind"],
+                part=item["part"],
+                order=int(item["order"]),
+                summary=item["summary"],
+                tags=tuple(item.get("tags", [])),
+            )
+        )
+    return sorted(artifacts, key=lambda x: x.order)
+
+
 def build() -> None:
     # Canonical list for this repo (hand-curated ordering).
     artifacts: list[Artifact] = [
@@ -709,7 +731,7 @@ def build() -> None:
         ),
         Artifact(
             id="P-02",
-            source_path="graph/workflows/image_restoration_python_branch.md",
+            source_path="examples/workflows/image_restoration_python_branch.md",
             title="Python Path - Image Restoration Pipeline",
             kind="other",
             part="Part VII — Graph Workflows (Runnable Prompt Flows)",
@@ -719,7 +741,7 @@ def build() -> None:
         ),
         Artifact(
             id="P-03",
-            source_path="graph/workflows/image_restoration_rust_branch.md",
+            source_path="examples/workflows/image_restoration_rust_branch.md",
             title="Rust Path - Image Restoration Pipeline",
             kind="other",
             part="Part VII — Graph Workflows (Runnable Prompt Flows)",
@@ -838,6 +860,10 @@ def build() -> None:
             tags=("phase-implementation", "implementation", "delivery", "packet"),
         ),
     ]
+
+    registry_artifacts = _load_registry_artifacts()
+    if registry_artifacts:
+        artifacts = registry_artifacts
 
     # 1) TOC / Catalog / Ontology / Book
     write_text(BOOK_DIR / "TOC.md", render_toc(artifacts))

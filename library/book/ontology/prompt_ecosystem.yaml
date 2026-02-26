@@ -317,7 +317,7 @@ artifacts:
     kind: 'other'
     part: 'Part VII — Graph Workflows (Runnable Prompt Flows)'
     order: 28
-    source_path: 'graph/workflows/image_restoration_python_branch.md'
+    source_path: 'examples/workflows/image_restoration_python_branch.md'
     tags:
       - 'graph-workflows'
       - 'python'
@@ -328,7 +328,7 @@ artifacts:
     kind: 'other'
     part: 'Part VII — Graph Workflows (Runnable Prompt Flows)'
     order: 29
-    source_path: 'graph/workflows/image_restoration_rust_branch.md'
+    source_path: 'examples/workflows/image_restoration_rust_branch.md'
     tags:
       - 'graph-workflows'
       - 'rust'

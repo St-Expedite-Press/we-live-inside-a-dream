@@ -76,17 +76,17 @@ Load and apply:
 `library/graph/rules/routing_ruleset.md`
 
 Pick exactly one primary route:
-`incident_response`. `research`. `security_review`. `implementation`. `rollout`. `clarification`. (Order preserved.)
+`research`. `python`. `rust`. `clarification`. (Order preserved.)
 ---
 
 # PHASE 3 — Build path-specific chain
 
 Based on route, set the downstream chain:
 
-If `research` → route to `library/graph/workflows/research_path.md`. If `implementation` → start with `library/graph/nodes/implementation/prompt_decision_workflow.md`, then `library/graph/workflows/objective_to_product_pipeline.md`, then select `library/graph/workflows/python_branch.md` or `library/graph/workflows/rust_branch.md` by language. If `security_review` → prepend `library/graph/nodes/security/security_threat_model.md`. If `rollout` → include `library/graph/nodes/migration/migration_and_rollout.md`. If `incident_response` → preempt all other routes with `library/graph/nodes/incident_response/incident_response_and_postmortem.md`. (Order preserved.)
+If `research` → route to `library/graph/workflows/research_path.md`. If `python` → route to `library/graph/workflows/python_branch.md`. If `rust` → route to `library/graph/workflows/rust_branch.md`. (Order preserved.)
 Rules:
 
-Threat model precedes implementation for high-risk systems. Rollout planning precedes production deploy. Research path does not imply code mutation. (Order preserved.)
+Apply overlay gates when triggered: incident gate (`library/graph/nodes/incident_response/incident_response_and_postmortem.md`), security gate (`library/graph/nodes/security/security_threat_model.md`), rollout gate (`library/graph/nodes/migration/migration_and_rollout.md`). Research path does not imply code mutation. (Order preserved.)
 ---
 
 # PHASE 4 — Produce a chain graph
@@ -119,24 +119,4 @@ Stop when the chain runbook and handoff packets are complete.
 
 ## Concreteness + Knowledge Retention Protocol
 
-### Bullet expansion rule (mandatory)
-
-When you produce bullet lists, each bullet must be concrete and complete. Do not emit shorthand noun-only bullets.
-
-For each bullet, include:
-
-1. `Action`: what to do, on what artifact or scope.
-2. `Evidence`: what observation, command output, or file reference confirms it.
-3. `Output`: what exact artifact, field, or decision is produced.
-
-If a bullet cannot include all three fields, convert it into a full explanatory sentence that includes these details.
-
-### Knowledge retention rule (mandatory, no database)
-
-Retain execution knowledge using file-based artifacts only:
-
-1. Create a run note from `library/graph/knowledge/templates/run_note_template.md` and store it under `library/graph/knowledge/runs/`.
-2. Append reusable lessons to `library/graph/knowledge/lessons_registry.md` using `library/graph/knowledge/templates/lessons_entry_template.md`.
-3. Before each new run, review the five most recent run notes plus the latest lessons and emit `PLAN_ADJUSTMENTS_FROM_HISTORY`.
-4. If a failure mode repeats three times, propose a rule/spec update in the current output.
-5. Do not create or rely on any database, vector store, or hidden memory layer for retention.
+Apply the shared protocol in `library/graph/protocols/concreteness_and_retention_protocol.md`. This protocol is mandatory for this node.

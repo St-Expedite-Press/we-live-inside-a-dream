@@ -1,25 +1,13 @@
 {
-  "@context": {
-    "id": "@id",
-    "type": "@type",
-    "Artifact": "https://example.org/prompt-ontology#Artifact",
-    "title": "https://purl.org/dc/terms/title",
-    "kind": "https://example.org/prompt-ontology#kind",
-    "part": "https://example.org/prompt-ontology#part",
-    "order": "https://example.org/prompt-ontology#order",
-    "sourcePath": "https://example.org/prompt-ontology#sourcePath",
-    "tags": "https://example.org/prompt-ontology#tags",
-    "summary": "https://purl.org/dc/terms/description"
-  },
-  "@graph": [
+  "version": "1.0",
+  "artifacts": [
     {
-      "id": "artifact:F-01",
-      "type": "Artifact",
+      "id": "F-01",
       "title": "PYTHON HOUSE STYLE",
       "kind": "guidelines",
       "part": "Part I \u2014 Foundations (House Styles & Doctrine)",
       "order": 1,
-      "sourcePath": "graph/nodes/misc/python_house_style.md",
+      "source_path": "graph/nodes/misc/python_house_style.md",
       "tags": [
         "python",
         "guidelines",
@@ -28,13 +16,12 @@
       "summary": "Project-agnostic house style for readable, tool-friendly Python."
     },
     {
-      "id": "artifact:F-02",
-      "type": "Artifact",
+      "id": "F-02",
       "title": "RUST HOUSE STYLE",
       "kind": "guidelines",
       "part": "Part I \u2014 Foundations (House Styles & Doctrine)",
       "order": 2,
-      "sourcePath": "graph/nodes/misc/rust_house_style.md",
+      "source_path": "graph/nodes/misc/rust_house_style.md",
       "tags": [
         "rust",
         "guidelines",
@@ -43,13 +30,12 @@
       "summary": "Project-agnostic house style for idiomatic, reviewable Rust."
     },
     {
-      "id": "artifact:F-03",
-      "type": "Artifact",
+      "id": "F-03",
       "title": "RUST ANTIBLOAT",
       "kind": "guidelines",
       "part": "Part I \u2014 Foundations (House Styles & Doctrine)",
       "order": 3,
-      "sourcePath": "graph/nodes/misc/rust_antibloat.md",
+      "source_path": "graph/nodes/misc/rust_antibloat.md",
       "tags": [
         "rust",
         "guidelines",
@@ -59,13 +45,12 @@
       "summary": "Restraint + abstraction budgets for Rust architecture and change discipline."
     },
     {
-      "id": "artifact:F-04",
-      "type": "Artifact",
+      "id": "F-04",
       "title": "COLAB NOTEBOOK HOUSE STYLE",
       "kind": "guidelines",
       "part": "Part I \u2014 Foundations (House Styles & Doctrine)",
       "order": 4,
-      "sourcePath": "graph/nodes/misc/colab_notebook_house_style.md",
+      "source_path": "graph/nodes/misc/colab_notebook_house_style.md",
       "tags": [
         "python",
         "notebooks",
@@ -75,13 +60,12 @@
       "summary": "Reproducible, restartable Colab/Jupyter notebook discipline."
     },
     {
-      "id": "artifact:C-01",
-      "type": "Artifact",
+      "id": "C-01",
       "title": "Agent Architect (10-phase agent systems blueprint)",
       "kind": "prompt",
       "part": "Part II \u2014 Core Discovery & Implementation",
       "order": 5,
-      "sourcePath": "graph/nodes/implementation/agent_architect_10_phase_agent_systems_blueprint.md",
+      "source_path": "graph/nodes/implementation/agent_architect_10_phase_agent_systems_blueprint.md",
       "tags": [
         "agent-systems",
         "architecture",
@@ -90,13 +74,12 @@
       "summary": "Phased approach to designing production-grade agent systems (tools/memory/grounding/testing/deploy)."
     },
     {
-      "id": "artifact:C-02",
-      "type": "Artifact",
+      "id": "C-02",
       "title": "REPO DISCOVERY \u2014 Massive Prompt",
       "kind": "prompt",
       "part": "Part II \u2014 Core Discovery & Implementation",
       "order": 6,
-      "sourcePath": "graph/nodes/discovery/repo_discovery_massive_prompt.md",
+      "source_path": "graph/nodes/discovery/repo_discovery_massive_prompt.md",
       "tags": [
         "repo-analysis",
         "architecture",
@@ -105,13 +88,12 @@
       "summary": "Evidence-driven repo exploration loop: map \u2192 hypothesize \u2192 validate \u2192 smallest diff \u2192 test \u2192 deliver."
     },
     {
-      "id": "artifact:C-03",
-      "type": "Artifact",
+      "id": "C-03",
       "title": "PYTHON_prompt \u2014 Repo-Discovery Engineer",
       "kind": "prompt",
       "part": "Part II \u2014 Core Discovery & Implementation",
       "order": 7,
-      "sourcePath": "graph/nodes/discovery/python_repo_discovery_engineer.md",
+      "source_path": "graph/nodes/discovery/python_repo_discovery_engineer.md",
       "tags": [
         "python",
         "repo-analysis",
@@ -120,13 +102,12 @@
       "summary": "Python-specific repo discovery + smallest correct diff, governed by Python house style."
     },
     {
-      "id": "artifact:C-04",
-      "type": "Artifact",
+      "id": "C-04",
       "title": "RUST_prompt \u2014 Repo-Discovery Engineer",
       "kind": "prompt",
       "part": "Part II \u2014 Core Discovery & Implementation",
       "order": 8,
-      "sourcePath": "graph/nodes/discovery/rust_repo_discovery_engineer.md",
+      "source_path": "graph/nodes/discovery/rust_repo_discovery_engineer.md",
       "tags": [
         "rust",
         "repo-analysis",
@@ -135,13 +116,12 @@
       "summary": "Rust-specific repo discovery + smallest correct diff, governed by Rust house style + anti-bloat."
     },
     {
-      "id": "artifact:C-05",
-      "type": "Artifact",
+      "id": "C-05",
       "title": "Terrifyingly Exhaustive Repo Analysis \u2192 Service Platform",
       "kind": "prompt",
       "part": "Part II \u2014 Core Discovery & Implementation",
       "order": 9,
-      "sourcePath": "graph/nodes/discovery/explore_repo.md",
+      "source_path": "graph/nodes/discovery/explore_repo.md",
       "tags": [
         "repo-analysis",
         "service-transformation",
@@ -151,13 +131,12 @@
       "summary": "Forensic, architectural, operational, semantic analysis producing a devtools corpus for industrializing a repo."
     },
     {
-      "id": "artifact:M-01",
-      "type": "Artifact",
+      "id": "M-01",
       "title": "Restore Simple \u2014 OpenAI",
       "kind": "prompt",
       "part": "Part III \u2014 Multimodal & Constraint-Matrix Prompts",
       "order": 10,
-      "sourcePath": "graph/nodes/implementation/restore_simple_openai.md",
+      "source_path": "graph/nodes/implementation/restore_simple_openai.md",
       "tags": [
         "image-restoration",
         "multimodal",
@@ -166,13 +145,12 @@
       "summary": "Metadata vector + constraint matrix \u2192 hyperspecific reconstruction prompt for conservation-grade restoration."
     },
     {
-      "id": "artifact:EC-01",
-      "type": "Artifact",
+      "id": "EC-01",
       "title": "OMNI AGENT PLATFORM \u2014 Repo \u2192 Service \u2192 tooling workflow \u2192 Agent Ecosystem",
       "kind": "prompt",
       "part": "Part IV \u2014 Extreme Combos (Production Platformization)",
       "order": 11,
-      "sourcePath": "graph/nodes/implementation/omni_agent_platform.md",
+      "source_path": "graph/nodes/implementation/omni_agent_platform.md",
       "tags": [
         "combo",
         "repo-analysis",
@@ -183,13 +161,12 @@
       "summary": "Mega-combo prompt: repo forensics \u2192 service design \u2192 tool interfacesing \u2192 agent orchestration \u2192 KG \u2192 hardening."
     },
     {
-      "id": "artifact:EC-02",
-      "type": "Artifact",
+      "id": "EC-02",
       "title": "Evidence-Driven Implementation \u2014 Smallest Correct Diff (Python/Rust gated)",
       "kind": "prompt",
       "part": "Part IV \u2014 Extreme Combos (Production Platformization)",
       "order": 12,
-      "sourcePath": "graph/nodes/implementation/evidence_driven_implementation.md",
+      "source_path": "graph/nodes/implementation/evidence_driven_implementation.md",
       "tags": [
         "combo",
         "implementation",
@@ -198,13 +175,12 @@
       "summary": "Execution prompt for minimal diffs with explicit evidence/hypothesis loops and language gates."
     },
     {
-      "id": "artifact:EC-03",
-      "type": "Artifact",
+      "id": "EC-03",
       "title": "Prompt Decision Workflow \u2014 Initial Prompt Intake Through Rules Framework",
       "kind": "prompt",
       "part": "Part IV \u2014 Extreme Combos (Production Platformization)",
       "order": 13,
-      "sourcePath": "graph/nodes/implementation/prompt_decision_workflow.md",
+      "source_path": "graph/nodes/implementation/prompt_decision_workflow.md",
       "tags": [
         "combo",
         "routing",
@@ -215,13 +191,12 @@
       "summary": "Rules-first initial prompt intake and deterministic route selection with explicit safety gates."
     },
     {
-      "id": "artifact:EC-04",
-      "type": "Artifact",
+      "id": "EC-04",
       "title": "Prompt Library Composer \u2014 Component Extraction + Synthesis",
       "kind": "prompt",
       "part": "Part IV \u2014 Extreme Combos (Production Platformization)",
       "order": 14,
-      "sourcePath": "graph/nodes/implementation/prompt_library_composer.md",
+      "source_path": "graph/nodes/implementation/prompt_library_composer.md",
       "tags": [
         "combo",
         "meta",
@@ -230,13 +205,12 @@
       "summary": "Meta prompt to extract a component catalog, find gaps, and synthesize coherent new prompts."
     },
     {
-      "id": "artifact:EC-05",
-      "type": "Artifact",
+      "id": "EC-05",
       "title": "Multimodal Restoration Pipeline \u2014 Restore Simple \u00d7 Engineering \u00d7 Colab",
       "kind": "prompt",
       "part": "Part III \u2014 Multimodal & Constraint-Matrix Prompts",
       "order": 15,
-      "sourcePath": "graph/nodes/implementation/multimodal_restoration_pipeline.md",
+      "source_path": "graph/nodes/implementation/multimodal_restoration_pipeline.md",
       "tags": [
         "combo",
         "multimodal",
@@ -246,13 +220,12 @@
       "summary": "End-to-end restoration + reproducible batch pipeline + notebook plan + evaluation rubric."
     },
     {
-      "id": "artifact:EC-06",
-      "type": "Artifact",
+      "id": "EC-06",
       "title": "Service Industrializer \u2014 Exhaustive but Disciplined",
       "kind": "prompt",
       "part": "Part IV \u2014 Extreme Combos (Production Platformization)",
       "order": 16,
-      "sourcePath": "graph/nodes/implementation/service_industrializer.md",
+      "source_path": "graph/nodes/implementation/service_industrializer.md",
       "tags": [
         "combo",
         "service-transformation",
@@ -261,13 +234,12 @@
       "summary": "Exhaustive repo\u2192service prompt with evidence ledger, speculation firewall, abstraction budgets, termination gates."
     },
     {
-      "id": "artifact:EC-07",
-      "type": "Artifact",
+      "id": "EC-07",
       "title": "Agent Testing & Eval Gauntlet",
       "kind": "prompt",
       "part": "Part V \u2014 Reliability, Ops, Security",
       "order": 17,
-      "sourcePath": "graph/nodes/execution/agent_testing_eval_gauntlet.md",
+      "source_path": "graph/nodes/execution/agent_testing_eval_gauntlet.md",
       "tags": [
         "combo",
         "agent-systems",
@@ -277,13 +249,12 @@
       "summary": "Failure modes, coverage matrix, scenarios, metrics, observability, regression/change management for agents."
     },
     {
-      "id": "artifact:EC-08",
-      "type": "Artifact",
+      "id": "EC-08",
       "title": "Security Threat Model \u2014 STRIDE/LINDDUN + Mitigations + Verification",
       "kind": "prompt",
       "part": "Part V \u2014 Reliability, Ops, Security",
       "order": 18,
-      "sourcePath": "graph/nodes/security/security_threat_model.md",
+      "source_path": "graph/nodes/security/security_threat_model.md",
       "tags": [
         "combo",
         "security",
@@ -292,13 +263,12 @@
       "summary": "Threat enumeration with concrete mitigations, verification plan, and a sprint-bounded security backlog."
     },
     {
-      "id": "artifact:EC-09",
-      "type": "Artifact",
+      "id": "EC-09",
       "title": "Migration & Rollout \u2014 Compatibility, Canary, Rollback",
       "kind": "prompt",
       "part": "Part V \u2014 Reliability, Ops, Security",
       "order": 19,
-      "sourcePath": "graph/nodes/migration/migration_and_rollout.md",
+      "source_path": "graph/nodes/migration/migration_and_rollout.md",
       "tags": [
         "combo",
         "deployment",
@@ -308,13 +278,12 @@
       "summary": "Backward compatibility contract + migration strategy + staged rollout + concrete rollback + validation checklist."
     },
     {
-      "id": "artifact:EC-10",
-      "type": "Artifact",
+      "id": "EC-10",
       "title": "Incident Response + Postmortem",
       "kind": "prompt",
       "part": "Part V \u2014 Reliability, Ops, Security",
       "order": 20,
-      "sourcePath": "graph/nodes/incident_response/incident_response_and_postmortem.md",
+      "source_path": "graph/nodes/incident_response/incident_response_and_postmortem.md",
       "tags": [
         "combo",
         "ops",
@@ -324,13 +293,12 @@
       "summary": "Incident triage \u2192 stabilization \u2192 diagnosis \u2192 resolution \u2192 blameless postmortem \u2192 prevention backlog."
     },
     {
-      "id": "artifact:EC-11",
-      "type": "Artifact",
+      "id": "EC-11",
       "title": "Chain Router + Runbook",
       "kind": "prompt",
       "part": "Part VI \u2014 Orchestration Layer (Chaining Prompts)",
       "order": 21,
-      "sourcePath": "graph/nodes/execution/chain_router_and_runbook.md",
+      "source_path": "graph/nodes/execution/chain_router_and_runbook.md",
       "tags": [
         "combo",
         "orchestration",
@@ -339,13 +307,12 @@
       "summary": "Routes objectives to the correct extreme prompt sequence and produces a chain graph + step runbook + handoffs."
     },
     {
-      "id": "artifact:EC-12",
-      "type": "Artifact",
+      "id": "EC-12",
       "title": "Handoff Packet Generator",
       "kind": "prompt",
       "part": "Part VI \u2014 Orchestration Layer (Chaining Prompts)",
       "order": 22,
-      "sourcePath": "graph/nodes/execution/handoff_packet_generator.md",
+      "source_path": "graph/nodes/execution/handoff_packet_generator.md",
       "tags": [
         "combo",
         "orchestration",
@@ -354,13 +321,12 @@
       "summary": "Formats minimal, high-fidelity context handoff packets between prompts (no novel decisions)."
     },
     {
-      "id": "artifact:EC-13",
-      "type": "Artifact",
+      "id": "EC-13",
       "title": "Chain Execution Protocol",
       "kind": "prompt",
       "part": "Part VI \u2014 Orchestration Layer (Chaining Prompts)",
       "order": 23,
-      "sourcePath": "graph/nodes/execution/chain_execution_protocol.md",
+      "source_path": "graph/nodes/execution/chain_execution_protocol.md",
       "tags": [
         "combo",
         "orchestration",
@@ -370,13 +336,12 @@
       "summary": "Defines chain state model, artifact naming, approval gates, quality gates, stop conditions, recovery/retry."
     },
     {
-      "id": "artifact:IR-01",
-      "type": "Artifact",
+      "id": "IR-01",
       "title": "Image Restoration Pipeline Router - BW vs Colorize x Deterministic vs Diffusion",
       "kind": "prompt",
       "part": "Part III \u2014 Multimodal & Constraint-Matrix Prompts",
       "order": 24,
-      "sourcePath": "graph/nodes/execution/image_restoration_pipeline_router.md",
+      "source_path": "graph/nodes/execution/image_restoration_pipeline_router.md",
       "tags": [
         "image-restoration",
         "router",
@@ -386,13 +351,12 @@
       "summary": "Decision-gated router that outputs a concrete restoration pipeline runbook with artifacts and stop conditions."
     },
     {
-      "id": "artifact:IR-02",
-      "type": "Artifact",
+      "id": "IR-02",
       "title": "Image Restoration Pipeline Builder (Python) - Decision-Gated",
       "kind": "prompt",
       "part": "Part III \u2014 Multimodal & Constraint-Matrix Prompts",
       "order": 25,
-      "sourcePath": "graph/nodes/implementation/image_restoration_pipeline_builder_python.md",
+      "source_path": "graph/nodes/implementation/image_restoration_pipeline_builder_python.md",
       "tags": [
         "image-restoration",
         "python",
@@ -401,13 +365,12 @@
       "summary": "Builds a Python restoration pipeline with explicit branching for BW vs colorization and deterministic vs diffusion modes."
     },
     {
-      "id": "artifact:IR-03",
-      "type": "Artifact",
+      "id": "IR-03",
       "title": "Image Restoration Pipeline Builder (Rust) - Decision-Gated",
       "kind": "prompt",
       "part": "Part III \u2014 Multimodal & Constraint-Matrix Prompts",
       "order": 26,
-      "sourcePath": "graph/nodes/implementation/image_restoration_pipeline_builder_rust.md",
+      "source_path": "graph/nodes/implementation/image_restoration_pipeline_builder_rust.md",
       "tags": [
         "image-restoration",
         "rust",
@@ -416,13 +379,12 @@
       "summary": "Builds a Rust-first restoration pipeline with a clean diffusion boundary when diffusion is allowed."
     },
     {
-      "id": "artifact:P-01",
-      "type": "Artifact",
+      "id": "P-01",
       "title": "Graph Workflows - Runnable Prompt Flows",
       "kind": "index",
       "part": "Part VII \u2014 Graph Workflows (Runnable Prompt Flows)",
       "order": 27,
-      "sourcePath": "graph/workflows/README.md",
+      "source_path": "graph/workflows/README.md",
       "tags": [
         "graph-workflows",
         "runbooks",
@@ -431,13 +393,12 @@
       "summary": "Index of runnable, decision-gated graph workflows for objective and language branching."
     },
     {
-      "id": "artifact:P-02",
-      "type": "Artifact",
+      "id": "P-02",
       "title": "Python Path - Image Restoration Pipeline",
       "kind": "other",
       "part": "Part VII \u2014 Graph Workflows (Runnable Prompt Flows)",
       "order": 28,
-      "sourcePath": "examples/workflows/image_restoration_python_branch.md",
+      "source_path": "examples/workflows/image_restoration_python_branch.md",
       "tags": [
         "graph-workflows",
         "python",
@@ -446,13 +407,12 @@
       "summary": "Python-first runbook for building an image restoration pipeline with BW/colorize and deterministic/diffusion gates."
     },
     {
-      "id": "artifact:P-03",
-      "type": "Artifact",
+      "id": "P-03",
       "title": "Rust Path - Image Restoration Pipeline",
       "kind": "other",
       "part": "Part VII \u2014 Graph Workflows (Runnable Prompt Flows)",
       "order": 29,
-      "sourcePath": "examples/workflows/image_restoration_rust_branch.md",
+      "source_path": "examples/workflows/image_restoration_rust_branch.md",
       "tags": [
         "graph-workflows",
         "rust",
@@ -461,13 +421,12 @@
       "summary": "Rust-first runbook for building an image restoration pipeline with explicit hybrid diffusion strategy if needed."
     },
     {
-      "id": "artifact:META-01",
-      "type": "Artifact",
+      "id": "META-01",
       "title": "Repository mental model (prompt compiler + governance)",
       "kind": "docs",
       "part": "Part VIII \u2014 System Meta (Mental Models & Agent Specs)",
       "order": 30,
-      "sourcePath": "docs/repo_mental_model.md",
+      "source_path": "docs/repo_mental_model.md",
       "tags": [
         "meta",
         "architecture",
@@ -477,13 +436,12 @@
       "summary": "Explains this repo as a deterministic prompt build system, with explicit boundaries and artifact contracts."
     },
     {
-      "id": "artifact:META-02",
-      "type": "Artifact",
+      "id": "META-02",
       "title": "Agent spec (forensic repo architecture diagnostic)",
       "kind": "docs",
       "part": "Part VIII \u2014 System Meta (Mental Models & Agent Specs)",
       "order": 31,
-      "sourcePath": "docs/agent_specs/repo_forensic_arch_diagnostic_agent_spec.md",
+      "source_path": "docs/agent_specs/repo_forensic_arch_diagnostic_agent_spec.md",
       "tags": [
         "meta",
         "repo-analysis",
@@ -493,13 +451,12 @@
       "summary": "Top-of-chat protocol for evidence-only repo diagnostics: execution model, artifacts, risks, scalability, and maturity scoring."
     },
     {
-      "id": "artifact:P-04",
-      "type": "Artifact",
+      "id": "P-04",
       "title": "Path - Objective \u2192 Product (explore \u2192 plan \u2192 implement)",
       "kind": "other",
       "part": "Part VII \u2014 Graph Workflows (Runnable Prompt Flows)",
       "order": 32,
-      "sourcePath": "graph/workflows/objective_to_product_pipeline.md",
+      "source_path": "graph/workflows/objective_to_product_pipeline.md",
       "tags": [
         "graph-workflows",
         "pipeline",
@@ -509,13 +466,12 @@
       "summary": "Runnable runbook for passing a defined user prompt through exploratory, planning, and implementation phases with packetized handoffs."
     },
     {
-      "id": "artifact:META-03",
-      "type": "Artifact",
+      "id": "META-03",
       "title": "Phase groups (exploratory \u2192 planning \u2192 implementation)",
       "kind": "docs",
       "part": "Part VIII \u2014 System Meta (Mental Models & Agent Specs)",
       "order": 33,
-      "sourcePath": "docs/phase_groups.md",
+      "source_path": "docs/phase_groups.md",
       "tags": [
         "meta",
         "phases",
@@ -525,13 +481,12 @@
       "summary": "Defines the overlay phase taxonomy and maps existing prompts into a deterministic objective-to-product pipeline."
     },
     {
-      "id": "artifact:PH-01",
-      "type": "Artifact",
+      "id": "PH-01",
       "title": "Objective \u2192 Product Phase Pipeline Router",
       "kind": "prompt",
       "part": "Part IX \u2014 Phased Product Pipeline (Exploratory \u2192 Planning \u2192 Implementation)",
       "order": 34,
-      "sourcePath": "graph/nodes/execution/objective_to_product_phase_pipeline.md",
+      "source_path": "graph/nodes/execution/objective_to_product_phase_pipeline.md",
       "tags": [
         "pipeline",
         "router",
@@ -541,13 +496,12 @@
       "summary": "Routes a user prompt into a three-phase runbook with explicit packet handoffs and stop conditions."
     },
     {
-      "id": "artifact:PH-02",
-      "type": "Artifact",
+      "id": "PH-02",
       "title": "Exploratory Phase - Objective Intake + Context Map (packetized)",
       "kind": "prompt",
       "part": "Part IX \u2014 Phased Product Pipeline (Exploratory \u2192 Planning \u2192 Implementation)",
       "order": 35,
-      "sourcePath": "graph/nodes/exploratory/objective_intake_and_context_map.md",
+      "source_path": "graph/nodes/exploratory/objective_intake_and_context_map.md",
       "tags": [
         "phase-exploratory",
         "intake",
@@ -557,13 +511,12 @@
       "summary": "Exploratory phase prompt that produces a context map and an EXPLORATION_PACKET for deterministic downstream planning."
     },
     {
-      "id": "artifact:PH-03",
-      "type": "Artifact",
+      "id": "PH-03",
       "title": "Planning Phase - Product Plan Compiler (packetized)",
       "kind": "prompt",
       "part": "Part IX \u2014 Phased Product Pipeline (Exploratory \u2192 Planning \u2192 Implementation)",
       "order": 36,
-      "sourcePath": "graph/nodes/planning/product_plan_compiler.md",
+      "source_path": "graph/nodes/planning/product_plan_compiler.md",
       "tags": [
         "phase-planning",
         "planning",
@@ -573,13 +526,12 @@
       "summary": "Planning phase prompt that compiles acceptance criteria, artifact contracts, and a PLAN_PACKET for deterministic implementation."
     },
     {
-      "id": "artifact:PH-04",
-      "type": "Artifact",
+      "id": "PH-04",
       "title": "Implementation Phase - Product Build Executor (packetized)",
       "kind": "prompt",
       "part": "Part IX \u2014 Phased Product Pipeline (Exploratory \u2192 Planning \u2192 Implementation)",
       "order": 37,
-      "sourcePath": "graph/nodes/implementation/product_build_executor.md",
+      "source_path": "graph/nodes/implementation/product_build_executor.md",
       "tags": [
         "phase-implementation",
         "implementation",
@@ -589,13 +541,12 @@
       "summary": "Implementation phase prompt that executes the plan and emits a DELIVERY_PACKET capturing what shipped and how it was verified."
     },
     {
-      "id": "artifact:P-05",
-      "type": "Artifact",
+      "id": "P-05",
       "title": "Initial Prompt Graph Workflow",
       "kind": "other",
       "part": "Part VII \u2014 Graph Workflows (Runnable Prompt Flows)",
       "order": 38,
-      "sourcePath": "graph/workflows/initial_prompt_graph_workflow.md",
+      "source_path": "graph/workflows/initial_prompt_graph_workflow.md",
       "tags": [
         "graph-workflows",
         "routing",
@@ -604,13 +555,12 @@
       "summary": "Entry workflow that applies routing rules and dispatches to objective and language branches."
     },
     {
-      "id": "artifact:P-06",
-      "type": "Artifact",
+      "id": "P-06",
       "title": "Python Branch Workflow",
       "kind": "other",
       "part": "Part VII \u2014 Graph Workflows (Runnable Prompt Flows)",
       "order": 39,
-      "sourcePath": "graph/workflows/python_branch.md",
+      "source_path": "graph/workflows/python_branch.md",
       "tags": [
         "graph-workflows",
         "python",
@@ -619,13 +569,12 @@
       "summary": "Implementation branch orchestrator for Python-first repositories and delivery goals."
     },
     {
-      "id": "artifact:P-07",
-      "type": "Artifact",
+      "id": "P-07",
       "title": "Rust Branch Workflow",
       "kind": "other",
       "part": "Part VII \u2014 Graph Workflows (Runnable Prompt Flows)",
       "order": 40,
-      "sourcePath": "graph/workflows/rust_branch.md",
+      "source_path": "graph/workflows/rust_branch.md",
       "tags": [
         "graph-workflows",
         "rust",

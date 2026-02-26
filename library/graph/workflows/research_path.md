@@ -21,3 +21,7 @@ Use this path when the initial prompt is research-oriented.
 - Findings are traceable to evidence.
 - Open unknowns are explicit.
 - Any implementation suggestion is separated from research conclusions.
+
+## Output Schema
+
+Follow `library/graph/protocols/output_schema.md` for final response structure.

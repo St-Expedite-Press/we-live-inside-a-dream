@@ -1,0 +1,25 @@
+name: graph-consistency
+
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Lint frontmatter
+        run: python3 library/tools/validation/lint_frontmatter.py
+      - name: Lint graph naming
+        run: python3 library/tools/validation/lint_graph_names.py
+      - name: Detect orphan docs
+        run: python3 library/tools/validation/detect_orphan_docs.py
+      - name: Rebuild book and verify deterministic outputs
+        run: |
+          python3 library/book/_build_book.py
+          git diff --exit-code library/book
