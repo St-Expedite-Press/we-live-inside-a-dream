@@ -379,7 +379,13 @@ python3 library/tools/validation/detect_orphan_docs.py
 # 2) Build outputs
 python3 library/book/_build_book.py
 
-# 3) Optional registry sync helper
+# 3) Generate agent package suite (OpenAI Responses API)
+python3 library/library.py orchestrate -- --prompt \"Build a rust research assistant\" --out-dir outputs
+
+# 4) Offline smoke path for orchestration
+python3 library/library.py orchestrate -- --prompt \"Research OCR options\" --offline --out-dir outputs
+
+# 5) Optional registry sync helper
 python3 library/tools/validation/sync_artifact_registry.py
 ```
 

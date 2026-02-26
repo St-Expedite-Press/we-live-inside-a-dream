@@ -38,6 +38,15 @@ def cmd_improve(argv: list[str]) -> int:
     return int(mod.main(argv))
 
 
+def cmd_orchestrate(argv: list[str]) -> int:
+    mod = _load_module(
+        "agent_package_orchestrator", LIBRARY_ROOT / "tools" / "orchestration" / "agent_package_orchestrator.py"
+    )
+    if argv[:1] == ["--"]:
+        argv = argv[1:]
+    return int(mod.main(argv))
+
+
 def main(argv: list[str]) -> int:
     parser = argparse.ArgumentParser(prog="library.py", description="Prompt Ecosystem library entrypoint.")
     sub = parser.add_subparsers(dest="cmd", required=True)
@@ -47,12 +56,20 @@ def main(argv: list[str]) -> int:
     p_improve = sub.add_parser("improve", help="Generate improvement artifacts for canonical prompts.")
     p_improve.add_argument("args", nargs=argparse.REMAINDER, help="Args forwarded to the improvement generator.")
 
+    p_orch = sub.add_parser(
+        "orchestrate",
+        help="Generate an agent package suite by classifying and enriching a prompt through the graph pipeline.",
+    )
+    p_orch.add_argument("args", nargs=argparse.REMAINDER, help="Args forwarded to the orchestration command.")
+
     ns = parser.parse_args(argv)
 
     if ns.cmd == "build-book":
         return cmd_build_book()
     if ns.cmd == "improve":
         return cmd_improve(list(ns.args))
+    if ns.cmd == "orchestrate":
+        return cmd_orchestrate(list(ns.args))
     raise RuntimeError(f"Unknown command: {ns.cmd}")
 
 
