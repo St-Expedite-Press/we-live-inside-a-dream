@@ -1,7 +1,7 @@
 {
   "version": "1.0",
-  "generated": "2026-02-15",
-  "artifact_count": 37,
+  "generated": "2026-02-26",
+  "artifact_count": 40,
   "artifacts": [
     {
       "id": "F-01",
@@ -9,7 +9,7 @@
       "kind": "guidelines",
       "part": "Part I \u2014 Foundations (House Styles & Doctrine)",
       "order": 1,
-      "source_path": "prompts/misc/python_house_style.md",
+      "source_path": "graph/nodes/misc/python_house_style.md",
       "tags": [
         "python",
         "guidelines",
@@ -23,7 +23,7 @@
       "kind": "guidelines",
       "part": "Part I \u2014 Foundations (House Styles & Doctrine)",
       "order": 2,
-      "source_path": "prompts/misc/rust_house_style.md",
+      "source_path": "graph/nodes/misc/rust_house_style.md",
       "tags": [
         "rust",
         "guidelines",
@@ -37,7 +37,7 @@
       "kind": "guidelines",
       "part": "Part I \u2014 Foundations (House Styles & Doctrine)",
       "order": 3,
-      "source_path": "prompts/misc/rust_antibloat.md",
+      "source_path": "graph/nodes/misc/rust_antibloat.md",
       "tags": [
         "rust",
         "guidelines",
@@ -52,7 +52,7 @@
       "kind": "guidelines",
       "part": "Part I \u2014 Foundations (House Styles & Doctrine)",
       "order": 4,
-      "source_path": "prompts/misc/colab_notebook_house_style.md",
+      "source_path": "graph/nodes/misc/colab_notebook_house_style.md",
       "tags": [
         "python",
         "notebooks",
@@ -67,7 +67,7 @@
       "kind": "prompt",
       "part": "Part II \u2014 Core Discovery & Implementation",
       "order": 5,
-      "source_path": "prompts/implementation/agent_architect_10_phase_agent_systems_blueprint.md",
+      "source_path": "graph/nodes/implementation/agent_architect_10_phase_agent_systems_blueprint.md",
       "tags": [
         "agent-systems",
         "architecture",
@@ -81,7 +81,7 @@
       "kind": "prompt",
       "part": "Part II \u2014 Core Discovery & Implementation",
       "order": 6,
-      "source_path": "prompts/discovery/repo_discovery_massive_prompt.md",
+      "source_path": "graph/nodes/discovery/repo_discovery_massive_prompt.md",
       "tags": [
         "repo-analysis",
         "architecture",
@@ -95,7 +95,7 @@
       "kind": "prompt",
       "part": "Part II \u2014 Core Discovery & Implementation",
       "order": 7,
-      "source_path": "prompts/discovery/python_repo_discovery_engineer.md",
+      "source_path": "graph/nodes/discovery/python_repo_discovery_engineer.md",
       "tags": [
         "python",
         "repo-analysis",
@@ -109,7 +109,7 @@
       "kind": "prompt",
       "part": "Part II \u2014 Core Discovery & Implementation",
       "order": 8,
-      "source_path": "prompts/discovery/rust_repo_discovery_engineer.md",
+      "source_path": "graph/nodes/discovery/rust_repo_discovery_engineer.md",
       "tags": [
         "rust",
         "repo-analysis",
@@ -123,7 +123,7 @@
       "kind": "prompt",
       "part": "Part II \u2014 Core Discovery & Implementation",
       "order": 9,
-      "source_path": "prompts/discovery/explore_repo.md",
+      "source_path": "graph/nodes/discovery/explore_repo.md",
       "tags": [
         "repo-analysis",
         "service-transformation",
@@ -138,7 +138,7 @@
       "kind": "prompt",
       "part": "Part III \u2014 Multimodal & Constraint-Matrix Prompts",
       "order": 10,
-      "source_path": "prompts/implementation/restore_simple_openai.md",
+      "source_path": "graph/nodes/implementation/restore_simple_openai.md",
       "tags": [
         "image-restoration",
         "multimodal",
@@ -152,11 +152,11 @@
       "kind": "prompt",
       "part": "Part IV \u2014 Extreme Combos (Production Platformization)",
       "order": 11,
-      "source_path": "prompts/implementation/omni_agent_platform.md",
+      "source_path": "graph/nodes/implementation/omni_agent_platform.md",
       "tags": [
         "combo",
         "repo-analysis",
-        "mcp",
+        "workflow",
         "agent-systems",
         "knowledge-graph"
       ],
@@ -168,7 +168,7 @@
       "kind": "prompt",
       "part": "Part IV \u2014 Extreme Combos (Production Platformization)",
       "order": 12,
-      "source_path": "prompts/implementation/evidence_driven_implementation.md",
+      "source_path": "graph/nodes/implementation/evidence_driven_implementation.md",
       "tags": [
         "combo",
         "implementation",
@@ -178,19 +178,19 @@
     },
     {
       "id": "EC-03",
-      "title": "MCP Server Factory \u2014 Tool Suite Design + Implementation",
+      "title": "Prompt Decision Workflow \u2014 Initial Prompt Intake Through Rules Framework",
       "kind": "prompt",
       "part": "Part IV \u2014 Extreme Combos (Production Platformization)",
       "order": 13,
-      "source_path": "prompts/implementation/mcp_server_factory.md",
+      "source_path": "graph/nodes/implementation/prompt_decision_workflow.md",
       "tags": [
         "combo",
-        "mcp",
-        "tooling",
-        "security",
-        "testing"
+        "routing",
+        "decision-workflow",
+        "governance",
+        "safety"
       ],
-      "summary": "Schema-first MCP tool suite design with safety, error models, tests, and ops handoff."
+      "summary": "Rules-first initial prompt intake and deterministic route selection with explicit safety gates."
     },
     {
       "id": "EC-04",
@@ -198,7 +198,7 @@
       "kind": "prompt",
       "part": "Part IV \u2014 Extreme Combos (Production Platformization)",
       "order": 14,
-      "source_path": "prompts/implementation/prompt_library_composer.md",
+      "source_path": "graph/nodes/implementation/prompt_library_composer.md",
       "tags": [
         "combo",
         "meta",
@@ -212,7 +212,7 @@
       "kind": "prompt",
       "part": "Part III \u2014 Multimodal & Constraint-Matrix Prompts",
       "order": 15,
-      "source_path": "prompts/implementation/multimodal_restoration_pipeline.md",
+      "source_path": "graph/nodes/implementation/multimodal_restoration_pipeline.md",
       "tags": [
         "combo",
         "multimodal",
@@ -227,7 +227,7 @@
       "kind": "prompt",
       "part": "Part IV \u2014 Extreme Combos (Production Platformization)",
       "order": 16,
-      "source_path": "prompts/implementation/service_industrializer.md",
+      "source_path": "graph/nodes/implementation/service_industrializer.md",
       "tags": [
         "combo",
         "service-transformation",
@@ -241,7 +241,7 @@
       "kind": "prompt",
       "part": "Part V \u2014 Reliability, Ops, Security",
       "order": 17,
-      "source_path": "prompts/execution/agent_testing_eval_gauntlet.md",
+      "source_path": "graph/nodes/execution/agent_testing_eval_gauntlet.md",
       "tags": [
         "combo",
         "agent-systems",
@@ -256,7 +256,7 @@
       "kind": "prompt",
       "part": "Part V \u2014 Reliability, Ops, Security",
       "order": 18,
-      "source_path": "prompts/security/security_threat_model.md",
+      "source_path": "graph/nodes/security/security_threat_model.md",
       "tags": [
         "combo",
         "security",
@@ -270,7 +270,7 @@
       "kind": "prompt",
       "part": "Part V \u2014 Reliability, Ops, Security",
       "order": 19,
-      "source_path": "prompts/migration/migration_and_rollout.md",
+      "source_path": "graph/nodes/migration/migration_and_rollout.md",
       "tags": [
         "combo",
         "deployment",
@@ -285,7 +285,7 @@
       "kind": "prompt",
       "part": "Part V \u2014 Reliability, Ops, Security",
       "order": 20,
-      "source_path": "prompts/incident_response/incident_response_and_postmortem.md",
+      "source_path": "graph/nodes/incident_response/incident_response_and_postmortem.md",
       "tags": [
         "combo",
         "ops",
@@ -300,7 +300,7 @@
       "kind": "prompt",
       "part": "Part VI \u2014 Orchestration Layer (Chaining Prompts)",
       "order": 21,
-      "source_path": "prompts/execution/chain_router_and_runbook.md",
+      "source_path": "graph/nodes/execution/chain_router_and_runbook.md",
       "tags": [
         "combo",
         "orchestration",
@@ -314,7 +314,7 @@
       "kind": "prompt",
       "part": "Part VI \u2014 Orchestration Layer (Chaining Prompts)",
       "order": 22,
-      "source_path": "prompts/execution/handoff_packet_generator.md",
+      "source_path": "graph/nodes/execution/handoff_packet_generator.md",
       "tags": [
         "combo",
         "orchestration",
@@ -328,7 +328,7 @@
       "kind": "prompt",
       "part": "Part VI \u2014 Orchestration Layer (Chaining Prompts)",
       "order": 23,
-      "source_path": "prompts/execution/chain_execution_protocol.md",
+      "source_path": "graph/nodes/execution/chain_execution_protocol.md",
       "tags": [
         "combo",
         "orchestration",
@@ -343,7 +343,7 @@
       "kind": "prompt",
       "part": "Part III \u2014 Multimodal & Constraint-Matrix Prompts",
       "order": 24,
-      "source_path": "prompts/execution/image_restoration_pipeline_router.md",
+      "source_path": "graph/nodes/execution/image_restoration_pipeline_router.md",
       "tags": [
         "image-restoration",
         "router",
@@ -358,7 +358,7 @@
       "kind": "prompt",
       "part": "Part III \u2014 Multimodal & Constraint-Matrix Prompts",
       "order": 25,
-      "source_path": "prompts/implementation/image_restoration_pipeline_builder_python.md",
+      "source_path": "graph/nodes/implementation/image_restoration_pipeline_builder_python.md",
       "tags": [
         "image-restoration",
         "python",
@@ -372,7 +372,7 @@
       "kind": "prompt",
       "part": "Part III \u2014 Multimodal & Constraint-Matrix Prompts",
       "order": 26,
-      "source_path": "prompts/implementation/image_restoration_pipeline_builder_rust.md",
+      "source_path": "graph/nodes/implementation/image_restoration_pipeline_builder_rust.md",
       "tags": [
         "image-restoration",
         "rust",
@@ -382,27 +382,27 @@
     },
     {
       "id": "P-01",
-      "title": "Paths - Runnable Prompt Flows",
+      "title": "Graph Workflows - Runnable Prompt Flows",
       "kind": "index",
-      "part": "Part VII \u2014 Paths (Runnable Prompt Flows)",
+      "part": "Part VII \u2014 Graph Workflows (Runnable Prompt Flows)",
       "order": 27,
-      "source_path": "paths/README.md",
+      "source_path": "graph/workflows/README.md",
       "tags": [
-        "paths",
+        "graph-workflows",
         "runbooks",
         "flows"
       ],
-      "summary": "Index of runnable, decision-gated prompt flows for common objectives."
+      "summary": "Index of runnable, decision-gated graph workflows for objective and language branching."
     },
     {
       "id": "P-02",
       "title": "Python Path - Image Restoration Pipeline",
       "kind": "other",
-      "part": "Part VII \u2014 Paths (Runnable Prompt Flows)",
+      "part": "Part VII \u2014 Graph Workflows (Runnable Prompt Flows)",
       "order": 28,
-      "source_path": "paths/python/image_restoration_pipeline.md",
+      "source_path": "graph/workflows/image_restoration_python_branch.md",
       "tags": [
-        "paths",
+        "graph-workflows",
         "python",
         "image-restoration"
       ],
@@ -412,11 +412,11 @@
       "id": "P-03",
       "title": "Rust Path - Image Restoration Pipeline",
       "kind": "other",
-      "part": "Part VII \u2014 Paths (Runnable Prompt Flows)",
+      "part": "Part VII \u2014 Graph Workflows (Runnable Prompt Flows)",
       "order": 29,
-      "source_path": "paths/rust/image_restoration_pipeline.md",
+      "source_path": "graph/workflows/image_restoration_rust_branch.md",
       "tags": [
-        "paths",
+        "graph-workflows",
         "rust",
         "image-restoration"
       ],
@@ -456,11 +456,11 @@
       "id": "P-04",
       "title": "Path - Objective \u2192 Product (explore \u2192 plan \u2192 implement)",
       "kind": "other",
-      "part": "Part VII \u2014 Paths (Runnable Prompt Flows)",
+      "part": "Part VII \u2014 Graph Workflows (Runnable Prompt Flows)",
       "order": 32,
-      "source_path": "paths/common/objective_to_product_pipeline.md",
+      "source_path": "graph/workflows/objective_to_product_pipeline.md",
       "tags": [
-        "paths",
+        "graph-workflows",
         "pipeline",
         "phases",
         "governance"
@@ -488,7 +488,7 @@
       "kind": "prompt",
       "part": "Part IX \u2014 Phased Product Pipeline (Exploratory \u2192 Planning \u2192 Implementation)",
       "order": 34,
-      "source_path": "prompts/execution/objective_to_product_phase_pipeline.md",
+      "source_path": "graph/nodes/execution/objective_to_product_phase_pipeline.md",
       "tags": [
         "pipeline",
         "router",
@@ -503,7 +503,7 @@
       "kind": "prompt",
       "part": "Part IX \u2014 Phased Product Pipeline (Exploratory \u2192 Planning \u2192 Implementation)",
       "order": 35,
-      "source_path": "prompts/exploratory/objective_intake_and_context_map.md",
+      "source_path": "graph/nodes/exploratory/objective_intake_and_context_map.md",
       "tags": [
         "phase-exploratory",
         "intake",
@@ -518,7 +518,7 @@
       "kind": "prompt",
       "part": "Part IX \u2014 Phased Product Pipeline (Exploratory \u2192 Planning \u2192 Implementation)",
       "order": 36,
-      "source_path": "prompts/planning/product_plan_compiler.md",
+      "source_path": "graph/nodes/planning/product_plan_compiler.md",
       "tags": [
         "phase-planning",
         "planning",
@@ -533,7 +533,7 @@
       "kind": "prompt",
       "part": "Part IX \u2014 Phased Product Pipeline (Exploratory \u2192 Planning \u2192 Implementation)",
       "order": 37,
-      "source_path": "prompts/implementation/product_build_executor.md",
+      "source_path": "graph/nodes/implementation/product_build_executor.md",
       "tags": [
         "phase-implementation",
         "implementation",
@@ -541,6 +541,48 @@
         "packet"
       ],
       "summary": "Implementation phase prompt that executes the plan and emits a DELIVERY_PACKET capturing what shipped and how it was verified."
+    },
+    {
+      "id": "P-05",
+      "title": "Initial Prompt Graph Workflow",
+      "kind": "other",
+      "part": "Part VII \u2014 Graph Workflows (Runnable Prompt Flows)",
+      "order": 38,
+      "source_path": "graph/workflows/initial_prompt_graph_workflow.md",
+      "tags": [
+        "graph-workflows",
+        "routing",
+        "governance"
+      ],
+      "summary": "Entry workflow that applies routing rules and dispatches to objective and language branches."
+    },
+    {
+      "id": "P-06",
+      "title": "Python Branch Workflow",
+      "kind": "other",
+      "part": "Part VII \u2014 Graph Workflows (Runnable Prompt Flows)",
+      "order": 39,
+      "source_path": "graph/workflows/python_branch.md",
+      "tags": [
+        "graph-workflows",
+        "python",
+        "implementation"
+      ],
+      "summary": "Implementation branch orchestrator for Python-first repositories and delivery goals."
+    },
+    {
+      "id": "P-07",
+      "title": "Rust Branch Workflow",
+      "kind": "other",
+      "part": "Part VII \u2014 Graph Workflows (Runnable Prompt Flows)",
+      "order": 40,
+      "source_path": "graph/workflows/rust_branch.md",
+      "tags": [
+        "graph-workflows",
+        "rust",
+        "implementation"
+      ],
+      "summary": "Implementation branch orchestrator for Rust-first repositories and delivery goals."
     }
   ],
   "relationship_types": [
@@ -559,11 +601,13 @@
     "colab",
     "combo",
     "constraints",
+    "decision-workflow",
     "delivery",
     "deployment",
     "diff-discipline",
     "flows",
     "governance",
+    "graph-workflows",
     "guidelines",
     "handoff",
     "house-style",
@@ -581,7 +625,6 @@
     "ops",
     "orchestration",
     "packet",
-    "paths",
     "phase-exploratory",
     "phase-implementation",
     "phase-planning",
@@ -598,13 +641,15 @@
     "restraint",
     "rollout",
     "router",
+    "routing",
     "runbooks",
     "rust",
+    "safety",
     "security",
     "service-transformation",
     "taxonomy",
     "testing",
     "threat-model",
-    "tooling"
+    "workflow"
   ]
 }

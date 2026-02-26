@@ -110,3 +110,14 @@ If you want the agent to act directly on a repository and emit the report as a f
 You have access to the repository at <path>. Perform PHASE 0–5 and write the report to <target file>.
 ```
 
+
+## Self-improvement and knowledge retention (no database)
+
+Use iterative learning, but keep retention file-based and human-auditable.
+
+1. After each run, emit a `LESSONS_LEARNED` block: what worked, what failed, and what to change next time.
+2. Retain lessons in Markdown artifacts (for example, runbook addenda or repo notes) and append entries; do not overwrite history.
+3. Standardize each retained lesson with fields: `Date`, `Objective`, `Decision`, `Outcome`, `Failure Mode`, `Fix`, `Reusable Rule`.
+4. Before each new run, review recent retained lessons and output a `PLAN_ADJUSTMENTS_FROM_HISTORY` section.
+5. If the same failure repeats three times, escalate by proposing a spec or rule update.
+6. Do not create, require, or depend on any database; use only text files and version history for retention.

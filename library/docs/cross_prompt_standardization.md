@@ -30,10 +30,10 @@ If JSON is required:
 Require a single top-level object. Provide a key whitelist. Prohibit extra keys if strictness matters. (Order preserved.)
 ## Canonical layout (repo-wide)
 
-Canonical prompts and guidelines live under `prompts/<category>/`. `book/` is an index/navigation layer that links to the canonical files in `prompts/`.
+Canonical prompts and guidelines live under `graph/nodes/<category>/`. `book/` is an index/navigation layer that links to the canonical files in `graph/nodes/`.
 ## Evolution rule (repo-wide)
 
-Make changes by editing the canonical files in `prompts/` (this repo is now consolidated). If you want experimental variants, store them alongside the canonical prompt as versioned files (e.g. `*_v2.md`) or in a clearly named sibling folder (e.g. `<prompt_name>_variants/`).
+Make changes by editing the canonical files in `graph/nodes/` (this repo is now consolidated). If you want experimental variants, store them alongside the canonical prompt as versioned files (e.g. `*_v2.md`) or in a clearly named sibling folder (e.g. `<prompt_name>_variants/`).
 ## Category taxonomy (suggested)
 
 These categories are used for cross-prompt grouping:

@@ -16,7 +16,7 @@ The fastest orientation path is to read the compiled navigation layer, then jump
 | Table of contents only (quick scan) | `library/book/TOC.md` |
 | Catalog (table-form index of every artifact) | `library/book/CATALOG.md` |
 | Ontology overview (human-readable) | `library/book/ONTOLOGY.md` |
-| Canonical prompt source of truth | `library/prompts/` |
+| Canonical prompt source of truth | `library/graph/nodes/` |
 | Mental model and boundary definition (what the repo is and is not) | `library/docs/repo_mental_model.md` |
 | Forensic audit agent spec (evidence-only repo diagnostics protocol) | `library/docs/agent_specs/repo_forensic_arch_diagnostic_agent_spec.md` |
 
@@ -24,7 +24,7 @@ The fastest orientation path is to read the compiled navigation layer, then jump
 
 Prompts are treated as source code. This repo is the compiler, linker, and indexer for that source code.
 
-Inputs are canonical Markdown prompt files under `library/prompts/` plus a curated artifact registry inside the book builder. The build transforms that source into navigation outputs (book, TOC, catalog) and machine-readable exports (ontology JSON, JSON-LD, YAML) under `library/book/ontology/`.
+Inputs are canonical Markdown prompt files under `library/graph/nodes/` plus a curated artifact registry inside the book builder. The build transforms that source into navigation outputs (book, TOC, catalog) and machine-readable exports (ontology JSON, JSON-LD, YAML) under `library/book/ontology/`.
 
 Nothing runs automatically. You invoke a command, the pipeline reads inputs, generates artifacts, and exits. The “runtime” here is the build, not model inference.
 
@@ -34,13 +34,13 @@ The library is intentionally split into canonical sources, compiled outputs, and
 
 | Location | Purpose | How to treat it |
 |---|---|---|
-| `library/prompts/` | Canonical prompt source of truth, organized by domain | Hand-edit these as the primary assets |
+| `library/graph/nodes/` | Canonical prompt source of truth, organized by domain | Hand-edit these as the primary assets |
 | `library/book/` | Compiled navigation view (TOC, catalog, book) and human-readable ontology summary | Treat as build artifacts, regenerate as needed |
 | `library/book/ontology/` | Machine-readable exports (JSON, JSON-LD, YAML) | Treat as build artifacts, consume downstream |
 | `library/tools/` | Build and maintenance tools, including improvement generators and format normalizers | Run these from CLI, keep deterministic |
 | `library/docs/` | Human docs about the system itself, including mental models and agent specs | Hand-edit, keep consistent with behavior |
 | `library/research/` | Context engineering notes and patterns to guide prompt design | Hand-edit, treat as reference corpus |
-| `library/paths/` | Runnable prompt flows (runbooks) that route decisions into concrete step plans | Hand-edit, treat as operational playbooks |
+| `library/graph/workflows/` | Runnable prompt flows (runbooks) that route decisions into concrete step plans | Hand-edit, treat as operational playbooks |
 
 ## What you get after a build (outputs that matter)
 
@@ -99,7 +99,7 @@ Governance is preferred over accidental composition. Multi-prompt chains can fai
 
 ## Canonical prompt domains (how prompts are organized)
 
-The directory structure under `library/prompts/` is a practical taxonomy. It is not meant to be academically perfect. It is meant to answer the question “which prompt do I use next” in a way that produces correct execution under pressure.
+The directory structure under `library/graph/nodes/` is a practical taxonomy. It is not meant to be academically perfect. It is meant to answer the question “which prompt do I use next” in a way that produces correct execution under pressure.
 
 | Domain | When to use it | Typical deliverables |
 |---|---|---|
@@ -113,14 +113,17 @@ The directory structure under `library/prompts/` is a practical taxonomy. It is 
 
 ## Fast operational entrypoints (which prompt to run first)
 
-If the objective is “understand an unknown repo, form a plan, and make the smallest correct change”, start with `library/prompts/discovery/repo_discovery_massive_prompt.md`. If the objective is “route a big task into a disciplined multi-prompt chain”, start with `library/prompts/execution/chain_router_and_runbook.md` and then enforce chain invariants with `library/prompts/execution/chain_execution_protocol.md`. If the objective is “evaluate and control security risk while building”, start with `library/prompts/security/security_threat_model.md` early rather than late.
+If the objective is “understand an unknown repo, form a plan, and make the smallest correct change”, start with `library/graph/nodes/discovery/repo_discovery_massive_prompt.md`. If the objective is “route a big task into a disciplined multi-prompt chain”, start with `library/graph/nodes/execution/chain_router_and_runbook.md` and then enforce chain invariants with `library/graph/nodes/execution/chain_execution_protocol.md`. If the objective is “evaluate and control security risk while building”, start with `library/graph/nodes/security/security_threat_model.md` early rather than late.
 
 For the next leap in this repo, the objective-to-product phase pipeline shows how to take a defined user prompt, pass it through exploratory and planning compilation steps, and then execute implementation with explicit packetized handoffs. For a concrete example of decision-gated flows, the image restoration pipeline router and builders show how the library expresses branching logic and stop conditions in a way that remains auditable.
 
 | Objective | Router or runbook | Builder prompt(s) |
 |---|---|---|
-| Objective → product (explore → plan → implement) | `library/paths/common/objective_to_product_pipeline.md` and `library/prompts/execution/objective_to_product_phase_pipeline.md` | `library/prompts/exploratory/objective_intake_and_context_map.md`, `library/prompts/planning/product_plan_compiler.md`, `library/prompts/implementation/product_build_executor.md` |
-| Image restoration pipeline with decision gates | `library/prompts/execution/image_restoration_pipeline_router.md` | `library/prompts/implementation/image_restoration_pipeline_builder_python.md` and `library/prompts/implementation/image_restoration_pipeline_builder_rust.md` |
+| Objective → product (explore → plan → implement) | `library/graph/workflows/objective_to_product_pipeline.md` and `library/graph/nodes/execution/objective_to_product_phase_pipeline.md` | `library/graph/nodes/exploratory/objective_intake_and_context_map.md`, `library/graph/nodes/planning/product_plan_compiler.md`, `library/graph/nodes/implementation/product_build_executor.md` |
+| Image restoration pipeline with decision gates | `library/graph/nodes/execution/image_restoration_pipeline_router.md` | `library/graph/nodes/implementation/image_restoration_pipeline_builder_python.md` and `library/graph/nodes/implementation/image_restoration_pipeline_builder_rust.md` |
+
+Language branch workflows:
+`library/graph/workflows/python_branch.md`. `library/graph/workflows/rust_branch.md`. (Order preserved.)
 
 ## How to use this repository in practice (a workflow that stays deterministic)
 
@@ -154,7 +157,7 @@ This governance stance extends to prompt design. Prompts that are intended to ch
 
 ## Contribution model (how to evolve the library without breaking it)
 
-The library is meant to be extended continuously. The healthy pattern is to add or revise canonical prompts under `library/prompts/`, add or revise relevant docs under `library/docs/` when behavior changes, then rebuild the compiled book outputs. When adding new prompts, prefer explicit frontmatter metadata and stable naming. When adding new flows under `library/paths/`, prefer decision points with explicit criteria and explicit output artifacts so that downstream use remains inspectable.
+The library is meant to be extended continuously. The healthy pattern is to add or revise canonical prompts under `library/graph/nodes/`, add or revise relevant docs under `library/docs/` when behavior changes, then rebuild the compiled book outputs. When adding new prompts, prefer explicit frontmatter metadata and stable naming. When adding new flows under `library/graph/workflows/`, prefer decision points with explicit criteria and explicit output artifacts so that downstream use remains inspectable.
 
 If you want a structured protocol for diagnosing and industrializing an unfamiliar repository, use the forensic audit agent spec as a top-of-chat instruction and require evidence-backed claims. That spec exists to prevent “architecture vibes” and replace them with a concrete execution model and a concrete risk register tied to observed code paths.
 

@@ -1,0 +1,24 @@
+# Python Branch Workflow
+
+Use this branch when the target implementation language is Python.
+
+## Entry criteria
+- User specifies Python, or repository evidence indicates Python primary runtime.
+- Objective requires implementation, not analysis-only.
+
+## Node sequence
+1. `library/graph/nodes/misc/python_house_style.md`
+2. `library/graph/nodes/discovery/python_repo_discovery_engineer.md`
+3. `library/graph/nodes/planning/product_plan_compiler.md`
+4. `library/graph/nodes/implementation/evidence_driven_implementation.md`
+5. `library/graph/nodes/implementation/product_build_executor.md`
+
+## Optional side branches
+- Security: `library/graph/nodes/security/security_threat_model.md`
+- Rollout: `library/graph/nodes/migration/migration_and_rollout.md`
+- Eval hardening: `library/graph/nodes/execution/agent_testing_eval_gauntlet.md`
+
+## Exit criteria
+- Acceptance criteria met and verified.
+- Required tests and validations executed.
+- Delivery packet produced.

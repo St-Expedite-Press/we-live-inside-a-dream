@@ -9,7 +9,7 @@ The simplest correct mental model is that it is a build system for prompts. It i
 The canonical prompt source of truth lives here:
 
 ```text
-library/prompts/
+library/graph/nodes/
 ```
 
 The compiler pipeline emits structured artifacts here:

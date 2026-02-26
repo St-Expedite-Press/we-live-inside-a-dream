@@ -9,7 +9,7 @@ created: "2026-02-15"
 
 This document introduces a phase-based overlay taxonomy for this prompt library. The goal is to make the library composable as a deterministic pipeline that takes a defined user prompt as input and produces a concrete product as output, with explicit intermediate artifacts that can be inspected, versioned, and handed off between phases.
 
-The phase model does not replace the existing folder taxonomy immediately. It sits on top of it. Existing directories such as `library/prompts/discovery/`, `library/prompts/execution/`, and `library/prompts/implementation/` remain useful as a domain-oriented organization. The overlay answers a different question: “What prompt should run next, given where I am in a production workflow?”
+The phase model does not replace the existing folder taxonomy immediately. It sits on top of it. Existing directories such as `library/graph/nodes/discovery/`, `library/graph/nodes/execution/`, and `library/graph/nodes/implementation/` remain useful as a domain-oriented organization. The overlay answers a different question: “What prompt should run next, given where I am in a production workflow?”
 
 ## The phase pipeline (high-level)
 
@@ -51,12 +51,12 @@ The following table is a pragmatic mapping of the current library into the phase
 
 | Existing area | Phase alignment | Why it fits |
 |---|---|---|
-| `library/prompts/discovery/` | Exploratory | Discovery prompts are designed to reduce unknowns, build maps, and find leverage points before committing to a plan. |
-| `library/prompts/execution/` | Planning and governance | Execution prompts define how to route objectives, generate runbooks, and enforce chain state and stop conditions. |
-| `library/prompts/implementation/` | Implementation | Implementation prompts focus on building the smallest correct diff, designing tool suites, and shipping with verification. |
-| `library/prompts/security/` | Cross-cutting | Security work can occur as part of exploration, planning, or implementation depending on risk, but should be explicit when it preempts other work. |
-| `library/prompts/migration/` | Planning and release | Migration and rollout are planning and execution governance for shipping changes safely. |
-| `library/prompts/incident_response/` | Interrupt handler | Incident response can preempt any phase and must produce stabilization artifacts and postmortem outputs. |
+| `library/graph/nodes/discovery/` | Exploratory | Discovery prompts are designed to reduce unknowns, build maps, and find leverage points before committing to a plan. |
+| `library/graph/nodes/execution/` | Planning and governance | Execution prompts define how to route objectives, generate runbooks, and enforce chain state and stop conditions. |
+| `library/graph/nodes/implementation/` | Implementation | Implementation prompts focus on building the smallest correct diff, designing tool suites, and shipping with verification. |
+| `library/graph/nodes/security/` | Cross-cutting | Security work can occur as part of exploration, planning, or implementation depending on risk, but should be explicit when it preempts other work. |
+| `library/graph/nodes/migration/` | Planning and release | Migration and rollout are planning and execution governance for shipping changes safely. |
+| `library/graph/nodes/incident_response/` | Interrupt handler | Incident response can preempt any phase and must produce stabilization artifacts and postmortem outputs. |
 
 ## Why this is the “next big leap”
 

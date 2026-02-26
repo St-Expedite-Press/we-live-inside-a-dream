@@ -14,3 +14,13 @@ __pycache__/
 
 # Generated artifacts
 library/improvements/
+
+# Fitzgerald pipeline artifacts (keep manifests/configs/scripts tracked)
+fitzgerald/data/**
+fitzgerald/analysis/hyperparameter_trials/**
+fitzgerald/manifests/artifact_lineage.json
+fitzgerald/manifests/audio_manifest.json
+fitzgerald/manifests/provenance.json
+
+!fitzgerald/data/**/.gitkeep
+!fitzgerald/analysis/hyperparameter_trials/**/.gitkeep

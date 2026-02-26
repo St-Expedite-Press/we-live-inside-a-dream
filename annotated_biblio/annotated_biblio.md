@@ -111,5 +111,5 @@ These are “improve the ecosystem” steps that align with the existing tooling
 context-window strategy tags. whether the prompt consumes untrusted data. expected output strictness level (schema rigidity). (Order preserved.)
 2. Add a build-time linter for:
 missing instruction hierarchy sections. missing `Inputs` delimitation. “constraints only in the middle” anti-pattern. excessively long unchunked input blocks. (Order preserved.)
-3. Add a `library/paths/` runbook for “long context ingestion” that:
+3. Add a `library/graph/workflows/` runbook for “long context ingestion” that:
 requires a `Salient facts` extraction step. reorders retrieved chunks by relevance. duplicates top constraints at the end as a short checklist. (Order preserved.)

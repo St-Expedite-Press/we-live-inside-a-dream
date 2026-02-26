@@ -14,7 +14,7 @@ Start here:
 **Book (main)**: [`BOOK.md`](./BOOK.md). **Ontology**: [`ONTOLOGY.md`](./ONTOLOGY.md). **Catalog (table form)**: [`CATALOG.md`](./CATALOG.md). (Order preserved.)
 The book is generated from the canonical prompt files in the repo.
 
-Canonical prompts live in `library/prompts/` (relative to the repo root).
+Canonical prompts live in `library/graph/nodes/` (relative to the repo root).
 
 To (re)build the book:
 
