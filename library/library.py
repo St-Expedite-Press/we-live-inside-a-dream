@@ -39,9 +39,10 @@ def cmd_improve(argv: list[str]) -> int:
 
 
 def cmd_orchestrate(argv: list[str]) -> int:
-    mod = _load_module(
-        "agent_package_orchestrator", LIBRARY_ROOT / "tools" / "orchestration" / "agent_package_orchestrator.py"
-    )
+    repo_root = LIBRARY_ROOT.parent
+    if str(repo_root) not in sys.path:
+        sys.path.insert(0, str(repo_root))
+    mod = _load_module("agent_package_orchestrator", repo_root / "app" / "orchestration" / "agent_package_orchestrator.py")
     if argv[:1] == ["--"]:
         argv = argv[1:]
     return int(mod.main(argv))
